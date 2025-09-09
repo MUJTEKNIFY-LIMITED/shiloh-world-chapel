@@ -1,9 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        trajan: ["Trajan Pro", "serif"],
+        galano: ["Galano Grotesque", "sans-serif"],
+      },
+      colors: {
+        primary: "#071B65",
+        outline: "#355FA7"
+      }
+    },
   },
   plugins: [],
-}
-
+};
