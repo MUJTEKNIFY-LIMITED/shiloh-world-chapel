@@ -10,7 +10,11 @@ export default {
       colors: {
         primary: "#071B65",
         outline: "#355FA7"
-      }
+      },
+      textColor: {
+        primary: "#071B65",
+        secondary: "#8F8F8F"
+      },
     },
   },
   plugins: [],

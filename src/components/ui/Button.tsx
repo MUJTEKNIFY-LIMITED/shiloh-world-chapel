@@ -7,7 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button = ({ children, variant = "primary", onClick, ...props }: ButtonProps) => {
-  const base = "flex items-center justify-center px-[33px] py-[16px] w-[191px] h-[54px] rounded-[30px] font-semibold text-[16px] transition";
+  const base = "flex items-center justify-center px-[33px] py-[16px] w-[191px] h-[54px] rounded-[30px] font-semibold text-base transition";
   const variants = {
     primary: "bg-primary text-white border-2 border-outline hover:bg-blue-700",
     secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",

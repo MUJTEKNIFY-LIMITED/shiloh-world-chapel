@@ -27,7 +27,7 @@ const Hero = () => {
     <>
       <header
         style={{ backgroundImage: `url(${images[activeIndex]})` }}
-        className="relative flex flex-col justify-around h-screen bg-cover bg-center"
+        className="relative flex flex-col justify-between pt-6 pb-12 gap-16 h-fit lg:h-screen bg-cover bg-center"
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <NavBar />

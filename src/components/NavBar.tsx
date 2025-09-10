@@ -34,7 +34,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="relative px-6 lg:px-28 py-4 flex justify-between items-center z-20">
+      <nav className="relative px-6 lg:px-16 lg:py-4 flex justify-between items-center z-20">
         <img src={logo} alt="Logo" className="w-16 lg:w-28" />
 
         {/* Mobile Menu Icon */}
