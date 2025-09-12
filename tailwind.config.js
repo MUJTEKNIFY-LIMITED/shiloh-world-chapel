@@ -9,11 +9,18 @@ export default {
       },
       colors: {
         primary: "#071B65",
-        outline: "#355FA7"
+        tertiary: "#8F8F8F",
       },
       textColor: {
         primary: "#071B65",
-        secondary: "#8F8F8F"
+        secondary: "#A65D50",
+        tertiary: "#8F8F8F",
+      },
+      borderColor: {
+        primary: "#071B65",
+        secondary: "#E8E8E8",
+        tertiary: "#8F8F8F",
+        fourth: "#355FA7",
       },
     },
   },

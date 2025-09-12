@@ -27,7 +27,7 @@ const Hero = () => {
     <>
       <header
         style={{ backgroundImage: `url(${images[activeIndex]})` }}
-        className="relative flex flex-col justify-between pt-6 pb-12 gap-16 h-fit lg:h-screen bg-cover bg-center"
+        className="relative flex flex-col pt-6 pb-20 gap-16 h-fit lg:h-screen bg-cover bg-center"
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <NavBar />
@@ -35,21 +35,21 @@ const Hero = () => {
           <h6 className="uppercase text-white text-xs lg:text-sm font-normal font-galano">
             become a part of something great
           </h6>
-          <p className="uppercase text-white text-4xl lg:text-6xl max-w-60 lg:max-w-3xl font-semibold leading-loose font-trajan">
+          <p className="uppercase text-white text-4xl xl:text-5xl max-w-60 md:max-w-xl xl:max-w-3xl font-semibold leading-loose font-trajan">
             Welcome To Shiloh Word Chapel.
           </p>
-          <Button variant="primary" onClick={() => navigate("/partnerships")}>
+          <Button variant="outlinePrimary" onClick={() => navigate("/partnerships")}>
             Partner Now
           </Button>
         </div>
 
         {/* Eclipse indicators */}
-        <div className="hidden absolute bottom-8 left-1/2 -translate-x-1/2 lg:flex gap-3 z-20">
+        <div className="hidden absolute bottom-8 left-1/2 -translate-x-1/2 lg:flex gap-6 z-20">
           {images.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`w-4 h-4 rounded-full focus:outline-none transition-all duration-300 ${
+              className={`w-5 h-5 rounded-full focus:outline-none transition-all duration-300 ${
                 activeIndex === idx ? "bg-primary" : "bg-white"
               }`}
               aria-label={`Go to slide ${idx + 1}`}
