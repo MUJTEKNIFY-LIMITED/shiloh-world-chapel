@@ -1,8 +1,9 @@
 
 // import Footer from "../components/Footer";
 import Hero from "../components/Hero"; 
-import MissionSection from "../components/MissionSection";
-import ConnectSection from "../components/ConnectSection"
+import MissionSection from "../components/MissionSection.tsx";
+import ConnectSection from "../components/ConnectSection.tsx";
+import CharitySection from "../components/CharitySection.tsx";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
         <Hero />
         <MissionSection />
         <ConnectSection />
+        <CharitySection />
       </main>
       {/* <Footer /> */}
     </>

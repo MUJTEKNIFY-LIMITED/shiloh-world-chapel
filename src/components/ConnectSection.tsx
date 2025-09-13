@@ -37,7 +37,7 @@ const ConnectSection = () => {
 
   return (
     <>
-      <section className="h-fit xl:h-screen bg-white flex flex-col gap-20 xl:gap-14 px-4 md:px-10 xl:px-20 pb-24">
+      <section className="h-fit bg-white flex flex-col gap-20 xl:gap-14 px-4 md:px-10 xl:px-20 pb-24 xl:pb-32">
         <div className="flex flex-col gap-4 text-center">
           <h5 className="text-xl text-primary font-semibold">
             CONNECT WITH US
@@ -65,7 +65,7 @@ const ConnectSection = () => {
               Our Socials
             </Button>
           </div>
-          <div className="flex flex-col w-full h-[491px] xl:h-[630px] py-6 md:pt-16 md:pb-10 px-4 md:px-10 rounded-[25px] xl:rounded-[30px] bg-gradient-to-b md:bg-gradient-to-l from-white to-[#DBE2FD] shadow-2xl">
+          <div className="flex flex-col w-full h-[491px] xl:h-[630px] py-6 md:pt-16 md:pb-10 px-4 md:px-10 rounded-[25px] xl:rounded-[30px] bg-gradient-to-b md:bg-gradient-to-l from-white to-[#DBE2FD] lg:shadow-2xl">
             {/* Partners Section */}
 
             <div
