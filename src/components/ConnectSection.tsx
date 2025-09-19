@@ -1,5 +1,5 @@
 import Button from "./ui/Button.tsx";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import nigerianFlagIcon from "../assets/icons/nigerian-flag-icon.svg";
 import mexicanFlagIcon from "../assets/icons/mexican-flag-icon.svg";
@@ -12,16 +12,16 @@ import manOnWhite from "../assets/images/man-on-white.jpg";
 import manOnBlue from "../assets/images/man-on-blue.jpg";
 import womanOnRed from "../assets/images/main-banner3.jpg";
 import whatsappBgImg from "../assets/images/whatsapp-bg-img.jpg";
-import whatsappIcon from "../assets/icons/social-icons/whatsapp-icon.svg";
-import linkedinIcon from "../assets/icons/social-icons/linkedin-icon.svg";
+import whatsappIcon from "../assets/icons/social-icons/white-social-icons/white-whatsapp-icon.svg";
+import linkedinIcon from "../assets/icons/social-icons/white-social-icons/white-linkedin-icon.svg";
 import facebookBgImg from "../assets/images/facebook-bg-img.jpg";
-import facebookIcon from "../assets/icons/social-icons/facebook-icon.svg";
+import facebookIcon from "../assets/icons/social-icons/white-social-icons/white-facebook-icon.svg";
 import youtubeBgImg from "../assets/images/youtube-bg-img.jpg";
-import youtubeIcon from "../assets/icons/social-icons/youtube-icon.svg";
+import youtubeIcon from "../assets/icons/social-icons/white-social-icons/white-youtube-icon.svg";
 import twitterBgImg from "../assets/images/main-banner2.jpg";
-import twitterIcon from "../assets/icons/social-icons/twitter-icon.svg";
+import twitterIcon from "../assets/icons/social-icons/white-social-icons/white-twitter-icon.svg";
 import instagramBgImg from "../assets/images/instagram-bg-img.jpg";
-import instagramIcon from "../assets/icons/social-icons/instagram-icon.svg";
+import instagramIcon from "../assets/icons/social-icons/white-social-icons/white-instagram-icon.svg";
 
 const ConnectSection = () => {
   const navigate = useNavigate();
@@ -233,7 +233,8 @@ const ConnectSection = () => {
               } flex-col gap-12 items-center justify-center py-8 xl:gap-20 h-full w-full`}
             >
               <div className="grid grid-cols-2 md:grid-cols-3 gap-x-[56px] md:gap-x-[110px] gap-y-[53px] md:gap-y-[107px]">
-                <div
+                <Link
+                  to={"#"}
                   className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
                   style={{ backgroundImage: `url(${whatsappBgImg})` }}
                 >
@@ -243,8 +244,9 @@ const ConnectSection = () => {
                     alt="WhatsApp Icon"
                     className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
                   />
-                </div>
-                <div
+                </Link>
+                <Link
+                  to={"#"}
                   className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
                   style={{ backgroundImage: `url(${womanOnRed})` }}
                 >
@@ -254,8 +256,9 @@ const ConnectSection = () => {
                     alt="Linkedin Icon"
                     className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
                   />
-                </div>
-                <div
+                </Link>
+                <Link
+                  to={"#"}
                   className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
                   style={{ backgroundImage: `url(${facebookBgImg})` }}
                 >
@@ -265,8 +268,9 @@ const ConnectSection = () => {
                     alt="Facebook Icon"
                     className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
                   />
-                </div>
-                <div
+                </Link>
+                <Link
+                  to={"#"}
                   className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
                   style={{ backgroundImage: `url(${youtubeBgImg})` }}
                 >
@@ -276,8 +280,9 @@ const ConnectSection = () => {
                     alt="Youtube Icon"
                     className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
                   />
-                </div>
-                <div
+                </Link>
+                <Link
+                  to={"#"}
                   className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
                   style={{ backgroundImage: `url(${twitterBgImg})` }}
                 >
@@ -287,8 +292,9 @@ const ConnectSection = () => {
                     alt="Twitter Icon"
                     className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
                   />
-                </div>
-                <div
+                </Link>
+                <Link
+                  to={"#"}
                   className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
                   style={{ backgroundImage: `url(${instagramBgImg})` }}
                 >
@@ -298,7 +304,7 @@ const ConnectSection = () => {
                     alt="Instagram Icon"
                     className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
                   />
-                </div>
+                </Link>
               </div>
             </div>
           </div>

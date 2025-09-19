@@ -7,7 +7,7 @@ import Button from "./ui/Button.tsx";
 const CharitySection = () => {
   return (
     <>
-      <section className="h-fit lg:h-screen flex flex-col gap-20 px-8 xl:px-24">
+      <section className="h-fit lg:h-screen flex flex-col gap-20 px-8 md:px-20 lg:px-8 xl:px-24">
         <div className="flex flex-col gap-4 text-center">
           <h5 className="text-xl text-primary font-semibold">CHARITY</h5>
           <p className="text-3xl font-trajan">Shiloh Samaritan Foundation</p>
@@ -43,7 +43,7 @@ const CharitySection = () => {
             style={{ backgroundImage: `url(${donationBgImg})` }}
             className="relative flex flex-col gap-4 bg-cover bg-center w-full h-[520px] rounded-[36px] px-[30px] py-[34px] shadow-2xl"
           >
-            <div className="absolute inset-0 rounded-[36px] bg-gradient-to-t from-black/90 to-white/0 z-0"></div>
+          <div className="absolute inset-0 rounded-[36px] bg-gradient-to-t from-black/90 to-white/0 z-0"></div>
             <div className="relative z-10 flex flex-col justify-end h-full">
               <div className="flex flex-col gap-6 items-center">
                 <div className="flex flex-col gap-4">
