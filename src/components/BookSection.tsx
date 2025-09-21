@@ -1,12 +1,12 @@
-import book1 from "../assets/images/book-1-img.png";
-import book2 from "../assets/images/book-2-img.png";
-import book3 from "../assets/images/book-3-img.png";
+import book1 from "../assets/images/books/book-1-img.png";
+import book2 from "../assets/images/books/book-2-img.png";
+import book3 from "../assets/images/books/book-3-img.png";
 import twitterIcon from "../assets/icons/social-icons/blue-social-icons/blue-twitter-icon.svg";
 import facebookIcon from "../assets/icons/social-icons/blue-social-icons/blue-facebook-icon.svg";
 import instagramIcon from "../assets/icons/social-icons/blue-social-icons/blue-instagram-icon.svg";
 import linkedInIcon from "../assets/icons/social-icons/blue-social-icons/blue-linkedin-icon.svg";
-import arrowRightIcon from "../assets/icons/arrow-right-icon.svg";
-import arrowLeftIcon from "../assets/icons/arrow-left-icon.svg";
+import arrowRightIcon from "../assets/icons/arrows/arrow-right-icon.svg";
+import arrowLeftIcon from "../assets/icons/arrows/arrow-left-icon.svg";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 // import Button from "./ui/Button.tsx";

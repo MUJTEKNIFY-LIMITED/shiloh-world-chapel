@@ -1,5 +1,5 @@
 // import Button from "./ui/Button.tsx";
-import whatsappBgImg from "../assets/images/whatsapp-bg-img.jpg";
+import whatsappBgImg from "../assets/images/social-media-backgrounds/whatsapp-bg-img.jpg";
 import manOnBlue from "../assets/images/man-on-blue.jpg";
 import manOnWhite from "../assets/images/man-on-white.jpg";
 

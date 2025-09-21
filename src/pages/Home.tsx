@@ -6,6 +6,7 @@ import ConnectSection from "../components/ConnectSection.tsx";
 import CharitySection from "../components/CharitySection.tsx";
 // import PrayerRequestSection from "../components/PrayerRequestSection.tsx";
 import BookSection from "../components/BookSection.tsx";
+import EventsSection from "../components/EventsSection.tsx";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         <CharitySection />
         {/* <PrayerRequestSection /> */}
         <BookSection />
+        <EventsSection />
       </main>
       {/* <Footer /> */}
     </>

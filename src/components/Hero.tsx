@@ -2,9 +2,9 @@ import NavBar from "./NavBar";
 import Button from "./ui/Button";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import mainBanner1 from "../assets/images/main-banner1.jpg";
-import mainBanner2 from "../assets/images/main-banner2.jpg";
-import mainBanner3 from "../assets/images/main-banner3.jpg";
+import mainBanner1 from "../assets/images/banners/main-banner1.jpg";
+import mainBanner2 from "../assets/images/banners/main-banner2.jpg";
+import mainBanner3 from "../assets/images/banners/main-banner3.jpg";
 
 const images = [
   mainBanner1,

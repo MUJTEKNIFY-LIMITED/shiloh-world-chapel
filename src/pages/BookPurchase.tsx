@@ -1,10 +1,10 @@
-import arrowBackIcon from "../assets/icons/arrow-back-icon.svg";
-import bookCoverImg from "../assets/images/book-cover-img.png";
+import arrowBackIcon from "../assets/icons/arrows/arrow-back-icon.svg";
+import bookCoverImg from "../assets/images/books/book-cover-img.png";
 import facebookIcon from "./../assets/icons/social-icons/black-social-icons/black-facebook-icon.svg";
 import instagramIcon from "./../assets/icons/social-icons/black-social-icons/black-instagram-icon.svg";
 import linkedInIcon from "./../assets/icons/social-icons/black-social-icons/black-linkedin-icon.svg";
 import twitterIcon from "./../assets/icons/social-icons/black-social-icons/black-twitter-icon.svg";
-import keyboardArrowDown from "../assets/icons/keyboard_arrow_down.svg";
+import keyboardArrowDown from "../assets/icons/arrows/keyboard_arrow_down.svg";
 import flutterwaveIcon from "../assets/icons/flutterwave-icon.svg";
 import { Link, useNavigate } from "react-router-dom";
 

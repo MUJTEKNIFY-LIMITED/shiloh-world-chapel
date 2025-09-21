@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import logo from "../assets/icons/chimalogo4.svg";
 import hamburgerIcon from "../assets/icons/hamburger-icon.svg";
-import britishFlagIcon from "../assets/icons/british-flag-icon.svg";
-import italianFlagIcon from "../assets/icons/italian-flag-icon.svg";
-import russianFlagIcon from "../assets/icons/russian-flag-icon.svg";
-import frenchFlagIcon from "../assets/icons/french-flag-icon.svg";
-import germanFlagIcon from "../assets/icons/german-flag-icon.svg";
-import spanishFlagIcon from "../assets/icons/spanish-flag-icon.svg";
+import britishFlagIcon from "../assets/icons/flags/british-flag-icon.svg";
+import italianFlagIcon from "../assets/icons/flags/italian-flag-icon.svg";
+import russianFlagIcon from "../assets/icons/flags/russian-flag-icon.svg";
+import frenchFlagIcon from "../assets/icons/flags/french-flag-icon.svg";
+import germanFlagIcon from "../assets/icons/flags/german-flag-icon.svg";
+import spanishFlagIcon from "../assets/icons/flags/spanish-flag-icon.svg";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);

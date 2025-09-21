@@ -1,7 +1,7 @@
 import measuredBarIcon from "../assets/icons/measured-bar-icon.svg";
-import childrenBgImg from "../assets/images/children-bg-img.jpg";
-import donationBgImg from "../assets/images/donation-bg-img.jpg";
-import homelessBgImg from "../assets/images/homeless-bg-img.jpg";
+import childrenBgImg from "../assets/images/donation-backgrounds/children-bg-img.jpg";
+import donationBgImg from "../assets/images/donation-backgrounds/donation-bg-img.jpg";
+import homelessBgImg from "../assets/images/donation-backgrounds/homeless-bg-img.jpg";
 import Button from "./ui/Button.tsx";
 
 const CharitySection = () => {

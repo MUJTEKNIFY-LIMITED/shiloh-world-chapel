@@ -1,26 +1,26 @@
 import Button from "./ui/Button.tsx";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
-import nigerianFlagIcon from "../assets/icons/nigerian-flag-icon.svg";
-import mexicanFlagIcon from "../assets/icons/mexican-flag-icon.svg";
-import argentineFlagIcon from "../assets/icons/argentine-flag-icon.svg";
-import americanFlagIcon from "../assets/icons/american-flag-icon.svg";
-import dutchFlagIcon from "../assets/icons/dutch-flag-icon.svg";
-import australianFlagIcon from "../assets/icons/australian-flag-icon.svg";
+import nigerianFlagIcon from "../assets/icons/flags/nigerian-flag-icon.svg";
+import mexicanFlagIcon from "../assets/icons/flags/mexican-flag-icon.svg";
+import argentineFlagIcon from "../assets/icons/flags/argentine-flag-icon.svg";
+import americanFlagIcon from "../assets/icons/flags/american-flag-icon.svg";
+import dutchFlagIcon from "../assets/icons/flags/dutch-flag-icon.svg";
+import australianFlagIcon from "../assets/icons/flags/australian-flag-icon.svg";
 import playIcon from "../assets/icons/play-icon.svg";
 import manOnWhite from "../assets/images/man-on-white.jpg";
 import manOnBlue from "../assets/images/man-on-blue.jpg";
-import womanOnRed from "../assets/images/main-banner3.jpg";
-import whatsappBgImg from "../assets/images/whatsapp-bg-img.jpg";
+import womanOnRed from "../assets/images/banners/main-banner3.jpg";
+import whatsappBgImg from "../assets/images/social-media-backgrounds/whatsapp-bg-img.jpg";
 import whatsappIcon from "../assets/icons/social-icons/white-social-icons/white-whatsapp-icon.svg";
 import linkedinIcon from "../assets/icons/social-icons/white-social-icons/white-linkedin-icon.svg";
-import facebookBgImg from "../assets/images/facebook-bg-img.jpg";
+import facebookBgImg from "../assets/images/social-media-backgrounds/facebook-bg-img.jpg";
 import facebookIcon from "../assets/icons/social-icons/white-social-icons/white-facebook-icon.svg";
-import youtubeBgImg from "../assets/images/youtube-bg-img.jpg";
+import youtubeBgImg from "../assets/images/social-media-backgrounds/youtube-bg-img.jpg";
 import youtubeIcon from "../assets/icons/social-icons/white-social-icons/white-youtube-icon.svg";
-import twitterBgImg from "../assets/images/main-banner2.jpg";
+import twitterBgImg from "../assets/images/banners/main-banner2.jpg";
 import twitterIcon from "../assets/icons/social-icons/white-social-icons/white-twitter-icon.svg";
-import instagramBgImg from "../assets/images/instagram-bg-img.jpg";
+import instagramBgImg from "../assets/images/social-media-backgrounds/instagram-bg-img.jpg";
 import instagramIcon from "../assets/icons/social-icons/white-social-icons/white-instagram-icon.svg";
 
 const ConnectSection = () => {
