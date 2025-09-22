@@ -7,6 +7,7 @@ import CharitySection from "../components/CharitySection.tsx";
 // import PrayerRequestSection from "../components/PrayerRequestSection.tsx";
 import BookSection from "../components/BookSection.tsx";
 import EventsSection from "../components/EventsSection.tsx";
+import TestimonialSection from "../components/TestimonialSection.tsx";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
         {/* <PrayerRequestSection /> */}
         <BookSection />
         <EventsSection />
+        <TestimonialSection />
       </main>
       {/* <Footer /> */}
     </>

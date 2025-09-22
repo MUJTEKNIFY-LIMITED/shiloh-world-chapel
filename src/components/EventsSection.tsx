@@ -43,7 +43,7 @@ const EventsSection = () => {
 
   return (
     <>
-      <section className="h-fit lg:h-screen bg-white flex flex-col text-center gap-20 pb-24 lg:pb-48">
+      <section className="h-fit bg-white flex flex-col text-center gap-20 pb-24 lg:pb-48">
         <div className="flex flex-col gap-4 px-6">
           <h5 className="text-xl text-primary font-semibold">EVENTS</h5>
           <p className="text-3xl font-trajan">

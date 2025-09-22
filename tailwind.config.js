@@ -12,6 +12,7 @@ export default {
         primary: "#071B65",
         secondary: "#A65D50",
         tertiary: "#8F8F8F",
+        fourth: "#D9D9D9",
       },
       textColor: {
         primary: "#071B65",

@@ -6,16 +6,21 @@ import linkedInIcon from "./../assets/icons/social-icons/black-social-icons/blac
 import twitterIcon from "./../assets/icons/social-icons/black-social-icons/black-twitter-icon.svg";
 import keyboardArrowDown from "../assets/icons/arrows/keyboard_arrow_down.svg";
 import flutterwaveIcon from "../assets/icons/flutterwave-icon.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const BookPurchase = () => {
-  const Navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <main className="h-fit flex flex-col lg:flex-row lg:justify-center gap-10 px-4 lg:px-20 pt-10 pb-20 lg:py-20">
         <button
           className="flex items-center justify-center w-[47px] h-[47px] p-[11px] border-[3px] border-fifth rounded-[10px] hover:border-black transition-all duration-700"
-          onClick={() => Navigate("/")}
+          onClick={() => window.history.back()}
         >
           <img src={arrowBackIcon} alt="Arrow Back Icon" />
         </button>
