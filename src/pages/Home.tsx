@@ -1,6 +1,4 @@
-
-// import Footer from "../components/Footer";
-import Hero from "../components/Hero"; 
+import Hero from "../components/Hero";
 import MissionSection from "../components/MissionSection.tsx";
 import ConnectSection from "../components/ConnectSection.tsx";
 import CharitySection from "../components/CharitySection.tsx";
@@ -8,11 +6,13 @@ import CharitySection from "../components/CharitySection.tsx";
 import BookSection from "../components/BookSection.tsx";
 import EventsSection from "../components/EventsSection.tsx";
 import TestimonialSection from "../components/TestimonialSection.tsx";
+import DownloadAppSection from "../components/DownloadAppSection.tsx";
+import Footer from "../components/Footer.tsx";
 
 const Home = () => {
   return (
     <>
-      <main className="h-screen flex flex-col gap-12">
+      <main className="flex flex-col gap-12">
         <Hero />
         <MissionSection />
         <ConnectSection />
@@ -21,8 +21,9 @@ const Home = () => {
         <BookSection />
         <EventsSection />
         <TestimonialSection />
+        <DownloadAppSection />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

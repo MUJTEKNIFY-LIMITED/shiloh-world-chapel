@@ -7,12 +7,12 @@ import Button from "./ui/Button.tsx";
 const CharitySection = () => {
   return (
     <>
-      <section className="h-fit lg:h-screen flex flex-col gap-20 px-8 md:px-20 lg:px-8 xl:px-24">
+      <section className="h-fit lg:h-screen flex flex-col gap-20 px-4 md:px-6 lg:px-10 xl:px-24">
         <div className="flex flex-col gap-4 text-center">
           <h5 className="text-xl text-primary font-semibold">CHARITY</h5>
           <p className="text-3xl font-trajan">Shiloh Samaritan Foundation</p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-10 xl:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-10 xl:gap-20 px-6 md:px-10 lg:px-0">
           <div
             style={{ backgroundImage: `url(${childrenBgImg})` }}
             className="relative flex flex-col gap-4 bg-cover bg-center w-full h-[520px] rounded-[36px] px-[30px] py-[34px] shadow-2xl"

@@ -2,10 +2,6 @@
 
 This is the official website for Shiloh World Chapel, built with a modern React + TypeScript + Vite stack and styled using Tailwind CSS.
 
-## 🚀 Live Preview
-
-> [Live Site Link](https://your-live-site-url.com) <!-- Replace with your actual deployed URL -->
-
 ## 🛠️ Tech Stack
 
 - **React** (with functional components & hooks)

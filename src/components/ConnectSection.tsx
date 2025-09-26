@@ -37,7 +37,7 @@ const ConnectSection = () => {
 
   return (
     <>
-      <section className="h-fit bg-white flex flex-col gap-20 xl:gap-14 px-4 md:px-10 xl:px-20 pb-24 xl:pb-32">
+      <section className="h-fit bg-white flex flex-col gap-20 xl:gap-14 px-4 md:px-6 lg:px-10 xl:px-24 pb-24 xl:pb-32">
         <div className="flex flex-col gap-4 text-center">
           <h5 className="text-xl text-primary font-semibold">
             CONNECT WITH US

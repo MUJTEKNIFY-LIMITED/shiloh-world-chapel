@@ -53,7 +53,7 @@ const BookSection = () => {
 
   return (
     <>
-      <section className="h-fit flex flex-col gap-12 px-8 md:px-20 xl:px-0 py-20">
+      <section className="h-fit flex flex-col gap-12 py-20">
         <div className="flex flex-col gap-24">
           <div className="flex flex-col gap-4 text-center">
             <h5 className="text-xl text-primary font-semibold">OUR BOOKS</h5>
@@ -62,7 +62,7 @@ const BookSection = () => {
             </p>
           </div>
           <div className="lg:overflow-x-scroll lg:scrollbar-hide">
-            <div className="flex justify-center gap-20 w-full lg:w-fit lg:px-28 lg:py-20">
+            <div className="flex justify-center gap-20 w-full lg:w-fit px-10 md:px-16 lg:px-10 xl:px-24 lg:py-20">
               {/* Mobile: Show only the book for the selected page */}
 
               {books.slice(activePage - 1, activePage).map((book, idx) => (
