@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Sermons from "./pages/Sermons";
-import Gallery from "./pages/Gallery";
-import Events from "./pages/Events";
-import Contact from "./pages/Contact";
-import Partnerships from "./pages/Partnerships";
-import BookPurchase from "./pages/BookPurchase";
-import Foundation from "./pages/Foundation";
+import Home from "./pages/Home.tsx";
+import About from "./pages/About.tsx";
+import Sermons from "./pages/Sermons.tsx";
+import Gallery from "./pages/Gallery.tsx";
+import Events from "./pages/Events.tsx";
+import Contact from "./pages/Contact.tsx";
+import Partnerships from "./pages/Partnerships.tsx";
+import BookPurchase from "./pages/BookPurchase.tsx";
+import Foundation from "./pages/Foundation.tsx";
 
 
 const App = () =>  {

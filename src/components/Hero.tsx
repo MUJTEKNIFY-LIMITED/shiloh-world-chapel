@@ -1,61 +1,97 @@
 import NavBar from "./NavBar";
 import Button from "./ui/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import mainBanner1 from "../assets/images/banners/main-banner1.jpg";
 import mainBanner2 from "../assets/images/banners/main-banner2.jpg";
 import mainBanner3 from "../assets/images/banners/main-banner3.jpg";
+import aboutPageHeroBackground from "../assets/images/about-page-hero-bg.jpg";
 
-const images = [
-  mainBanner1,
-  mainBanner2,
-  mainBanner3,
-];
+const images = [mainBanner1, mainBanner2, mainBanner3];
 
 const Hero = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % images.length);
-    }, 4000); // Change every 4 seconds
-    return () => clearInterval(interval);
-  }, []);
+    if (location.pathname === "/") {
+      const interval = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % images.length);
+      }, 4000); // Change every 4 seconds
+      return () => clearInterval(interval);
+    }
+  }, [location.pathname]);
 
   return (
     <>
       <header
-        style={{ backgroundImage: `url(${images[activeIndex]})` }}
-        className="relative flex flex-col pt-6 pb-20 gap-16 h-fit lg:h-screen bg-cover bg-center"
+        style={{
+          backgroundImage:
+            location.pathname === "/about"
+              ? `url(${aboutPageHeroBackground})`
+              : `url(${images[activeIndex]})`,
+        }}
+        className="relative flex flex-col pt-6 pb-20 gap-16 h-[633px] lg:h-screen bg-cover bg-center"
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <NavBar />
-        <div className="relative flex flex-col gap-4 px-6 items-center justify-center text-center lg:h-screen">
-          <h6 className="uppercase text-white text-xs lg:text-sm font-normal font-galano">
-            become a part of something great
-          </h6>
-          <p className="uppercase text-white text-4xl xl:text-5xl max-w-60 md:max-w-xl xl:max-w-3xl font-semibold leading-loose font-trajan">
-            Welcome To Shiloh Word Chapel.
-          </p>
-          <Button variant="outlinePrimary" onClick={() => navigate("/partnerships")}>
-            Partner Now
-          </Button>
-        </div>
 
-        {/* Eclipse indicators */}
-        <div className="hidden absolute bottom-8 left-1/2 -translate-x-1/2 lg:flex gap-6 z-20">
-          {images.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setActiveIndex(idx)}
-              className={`w-5 h-5 rounded-full focus:outline-none transition-all duration-300 ${
-                activeIndex === idx ? "bg-primary" : "bg-white"
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
+        {location.pathname === "/about" ? (
+          <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-screen">
+            <div className="flex gap-2 items-center">
+              <button onClick={() => navigate("/")}>Home</button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-4 h-4 -rotate-90"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              <p>About</p>
+            </div>
+            <p className="uppercase font-trajan font-bold text-6xl">about</p>
+          </div>
+        ) : (
+          <>
+            <div className="flex flex-col gap-4 px-6 items-center text-center z-[100] lg:h-screen">
+              <h6 className="uppercase text-white text-xs lg:text-sm font-normal font-galano">
+                become a part of something great
+              </h6>
+              <p className="uppercase text-white text-4xl xl:text-5xl max-w-60 md:max-w-xl xl:max-w-3xl font-semibold leading-loose xl:leading-normal font-trajan">
+                Welcome To Shiloh Word Chapel.
+              </p>
+              <Button
+                variant="outlinePrimary"
+                onClick={() => navigate("/partnerships")}
+              >
+                Partner Now
+              </Button>
+            </div>
+
+            {/* Eclipse indicators */}
+
+            <div className="hidden absolute bottom-8 left-1/2 -translate-x-1/2 lg:flex gap-6 z-20">
+              {images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`w-5 h-5 rounded-full focus:outline-none transition-all duration-300 ${
+                    activeIndex === idx ? "bg-primary" : "bg-white"
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </header>
     </>
   );

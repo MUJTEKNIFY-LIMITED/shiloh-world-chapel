@@ -51,14 +51,15 @@ const NavBar = () => {
           ref={dropdownRef}
           className={`bg-white w-[90%] h-[348px] absolute top-28 left-0 mx-[5%] flex flex-col rounded-[20px] px-[34px] py-[30px] gap-4 font-galano text-[16px] ${
             isOpen ? "block" : "hidden"
-          } lg:hidden`}
+          } lg:hidden z-[100] pointer-events-auto`}
+          style={{ zIndex: 100 }}
         >
           <NavLink
             to="/"
             className={({ isActive }) =>
               isActive
                 ? "text-primary font-[700] transition-all duration-1000"
-                : "hover:text-blue-600 transition-all duration-1000"
+                : "text-black hover:text-primary transition-all duration-1000"
             }
             onClick={() => setIsOpen(false)}
           >
@@ -69,7 +70,7 @@ const NavBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-primary font-[700] transition-all duration-1000"
-                : "hover:text-blue-600 transition-all duration-1000"
+                : "text-black hover:text-primary transition-all duration-1000"
             }
             onClick={() => setIsOpen(false)}
           >
@@ -80,7 +81,7 @@ const NavBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-primary font-[700] transition-all duration-1000"
-                : "hover:text-blue-600 transition-all duration-1000"
+                : "text-black hover:text-primary transition-all duration-1000"
             }
             onClick={() => setIsOpen(false)}
           >
@@ -91,7 +92,7 @@ const NavBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-primary font-[700] transition-all duration-1000"
-                : "hover:text-blue-600 transition-all duration-1000"
+                : "text-black hover:text-primary transition-all duration-1000"
             }
             onClick={() => setIsOpen(false)}
           >
@@ -102,7 +103,7 @@ const NavBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-primary font-[700] transition-all duration-1000"
-                : "hover:text-blue-600 transition-all duration-1000"
+                : "text-black hover:text-primary transition-all duration-1000"
             }
             onClick={() => setIsOpen(false)}
           >
@@ -113,7 +114,7 @@ const NavBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-primary font-[700] transition-all duration-1000"
-                : "hover:text-blue-600 transition-all duration-1000"
+                : "text-black hover:text-primary transition-all duration-1000"
             }
             onClick={() => setIsOpen(false)}
           >
@@ -124,7 +125,7 @@ const NavBar = () => {
             className={({ isActive }) =>
               isActive
                 ? "text-primary font-[700] transition-all duration-1000"
-                : "hover:text-blue-600 transition-all duration-1000"
+                : "text-black hover:text-primary transition-all duration-1000"
             }
             onClick={() => setIsOpen(false)}
           >
@@ -133,33 +134,29 @@ const NavBar = () => {
         </div>
 
         {/* Desktop Menu */}
-        
+
         <div className="hidden lg:flex gap-8 font-galano text-[16px]">
           <NavLink
             to="/"
             className="text-white hover:text-primary transition-all duration-1000"
-            onClick={() => setIsOpen(false)}
           >
             HOME
           </NavLink>
           <NavLink
             to="/about"
             className="text-white hover:text-primary transition-all duration-1000"
-            onClick={() => setIsOpen(false)}
           >
             ABOUT
           </NavLink>
           <NavLink
             to="/foundation"
             className="text-white hover:text-primary transition-all duration-1000"
-            onClick={() => setIsOpen(false)}
           >
             FOUNDATION NEEDS
           </NavLink>
           <NavLink
             to="/partnerships"
             className="text-white flex items-center justify-center transition-all duration-1000 gap-2 group hover:text-primary"
-            onClick={() => setIsOpen(false)}
           >
             MINISTRY
             <svg
@@ -180,7 +177,6 @@ const NavBar = () => {
           <NavLink
             to="/contact"
             className="text-white hover:text-primary transition-all duration-1000"
-            onClick={() => setIsOpen(false)}
           >
             CONTACT
           </NavLink>
