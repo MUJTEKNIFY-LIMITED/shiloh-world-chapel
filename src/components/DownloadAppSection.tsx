@@ -20,19 +20,19 @@ const DownloadAppSection = () => {
               </div>
               <div className="flex flex-col gap-6">
                 <div className="flex gap-4 items-center text-primary">
-                  <div className="w-[54px] h-[54px] rounded-[13px] flex justify-center items-center shadow-2xl">
+                  <div className="w-[54px] h-[54px] rounded-[13px] flex justify-center items-center shadow-3xl">
                     <img src={crossIcon} alt="Cross Icon" />
                   </div>
                   <p>Fully Equipped Bible with daily verses</p>
                 </div>
                 <div className="flex gap-4 items-center text-primary">
-                  <div className="w-[54px] h-[54px] rounded-[13px] flex justify-center items-center shadow-2xl">
+                  <div className="w-[54px] h-[54px] rounded-[13px] flex justify-center items-center shadow-3xl">
                     <img src={streamIcon} alt="Stream Icon" />
                   </div>
                   <p>Live content</p>
                 </div>
                 <div className="flex gap-4 items-center text-primary">
-                  <div className="w-[54px] h-[54px] rounded-[13px] flex justify-center items-center shadow-2xl">
+                  <div className="w-[54px] h-[54px] rounded-[13px] flex justify-center items-center shadow-3xl">
                     <img
                       src={playButtonArrowhead}
                       alt="Play Button Arrowhead Icon"
@@ -43,7 +43,7 @@ const DownloadAppSection = () => {
               </div>
             </div>
             <div className="flex gap-4 w-full">
-              <button className="flex gap-3 w-[196px] xl:w-[255px] h-[50px] xl:h-[58px] items-center justify-center rounded-[13px] shadow-2xl hover:-translate-y-2 hover:duration-1000">
+              <button className="flex gap-3 w-[196px] xl:w-[255px] h-[50px] xl:h-[58px] items-center justify-center rounded-[13px] shadow-3xl hover:-translate-y-2 hover:duration-1000">
                 <img
                   className="w-[25px] xl:w-[34px] h-[25px] xl:h-[34px]"
                   src={appleLogo}
@@ -54,7 +54,7 @@ const DownloadAppSection = () => {
                   <h3 className="font-semibold">APPLE APP STORE</h3>
                 </div>
               </button>
-              <button className="flex gap-3 w-[196px] xl:w-[255px] h-[50px] xl:h-[58px] items-center justify-center rounded-[13px] shadow-2xl hover:-translate-y-2 hover:duration-1000">
+              <button className="flex gap-3 w-[196px] xl:w-[255px] h-[50px] xl:h-[58px] items-center justify-center rounded-[13px] shadow-3xl hover:-translate-y-2 hover:duration-1000">
                 <img
                   className="w-[25px] xl:w-[34px] h-[25px] xl:h-[34px]"
                   src={googlePlay}

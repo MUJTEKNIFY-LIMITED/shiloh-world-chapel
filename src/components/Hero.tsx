@@ -6,6 +6,10 @@ import mainBanner1 from "../assets/images/banners/main-banner1.jpg";
 import mainBanner2 from "../assets/images/banners/main-banner2.jpg";
 import mainBanner3 from "../assets/images/banners/main-banner3.jpg";
 import aboutPageHeroBackground from "../assets/images/about-page-hero-bg.jpg";
+import foundationPageHeroBackground from "../assets/images/social-media-backgrounds/whatsapp-bg-img.jpg";
+import partnershipsHeroBackground from "../assets/images/partnerships-hero-bg.jpg";
+import galleryHeroBackground from "../assets/images/gallery-hero-bg.jpg";
+import sermonsPageHeroBackground from "../assets/images/man-on-white.jpg";
 
 const images = [mainBanner1, mainBanner2, mainBanner3];
 
@@ -23,62 +27,133 @@ const Hero = () => {
     }
   }, [location.pathname]);
 
+  let heroContent;
+  if (location.pathname === "/about") {
+    heroContent = (
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+        <div className="flex gap-2 items-center">
+          <button onClick={() => navigate("/")}>Home</button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-4 h-4 -rotate-90"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+          <p>About</p>
+        </div>
+        <p className="uppercase font-trajan font-bold text-6xl">About</p>
+      </div>
+    );
+  } else if (location.pathname === "/foundation") {
+    heroContent = (
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+        <div className="flex gap-2 items-center">
+          <button onClick={() => navigate("/")}>Home</button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-4 h-4 -rotate-90"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+          <p>Foundation Needs</p>
+        </div>
+        <p className="uppercase font-trajan font-bold text-5xl leading-normal">
+          Shiloh Samaritan Foundation
+        </p>
+      </div>
+    );
+  } else if (location.pathname === "/partnerships") {
+    heroContent = (
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+        <div className="flex gap-2 items-center">
+          <button onClick={() => navigate("/")}>Home</button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-4 h-4 -rotate-90"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+          <p>Partnerships</p>
+        </div>
+        <p className="uppercase font-trajan font-bold text-5xl leading-normal">
+          Partnerships & Donations
+        </p>
+      </div>
+    );
+  } else {
+    heroContent = (
+      <div className="relative flex flex-col gap-4 items-center justify-center text-center lg:h-fit">
+        <h6 className="uppercase text-white font-normal font-galano">
+          become a part of something great
+        </h6>
+        <p className="uppercase text-white text-5xl xl:text-6xl max-w-80 md:max-w-xl xl:max-w-3xl font-semibold leading-loose xl:leading-normal font-trajan">
+          Welcome To Shiloh Word Chapel.
+        </p>
+        <Button
+          variant="outlinePrimary"
+          onClick={() => navigate("/partnerships")}
+        >
+          Partner Now
+        </Button>
+      </div>
+    );
+  }
+
+  // Set header background based on page
+  let headerBackground;
+  if (location.pathname === "/about") {
+    headerBackground = `url(${aboutPageHeroBackground})`;
+  } else if (location.pathname === "/foundation") {
+    headerBackground = `url(${foundationPageHeroBackground})`;
+  } else if (location.pathname === "/partnerships") {
+    headerBackground = `url(${partnershipsHeroBackground})`;
+  } else if (location.pathname === "/gallery") {
+    headerBackground = `url(${galleryHeroBackground})`;
+  } else if (location.pathname === "/sermons") {
+    headerBackground = `url(${sermonsPageHeroBackground})`;
+  } else {
+    headerBackground = `url(${images[activeIndex]})`;
+  }
+
   return (
     <>
       <header
-        style={{
-          backgroundImage:
-            location.pathname === "/about"
-              ? `url(${aboutPageHeroBackground})`
-              : `url(${images[activeIndex]})`,
-        }}
-        className="relative flex flex-col pt-6 pb-20 gap-16 h-[633px] lg:h-screen bg-cover bg-center"
+        style={{ backgroundImage: headerBackground }}
+        className={`relative flex flex-col h-fit gap-24 lg:gap-40 px-8 md:px-10 lg:px-16 xl:px-24 pt-10 lg:pt-2 ${
+          location.pathname !== "/" ? "pb-64 lg:pb-72" : "pb-24"
+        } lg:pb-14 bg-cover bg-center`}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <NavBar />
-
-        {location.pathname === "/about" ? (
-          <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-screen">
-            <div className="flex gap-2 items-center">
-              <button onClick={() => navigate("/")}>Home</button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="w-4 h-4 -rotate-90"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-              <p>About</p>
-            </div>
-            <p className="uppercase font-trajan font-bold text-6xl">about</p>
-          </div>
-        ) : (
-          <>
-            <div className="flex flex-col gap-4 px-6 items-center text-center z-[100] lg:h-screen">
-              <h6 className="uppercase text-white text-xs lg:text-sm font-normal font-galano">
-                become a part of something great
-              </h6>
-              <p className="uppercase text-white text-4xl xl:text-5xl max-w-60 md:max-w-xl xl:max-w-3xl font-semibold leading-loose xl:leading-normal font-trajan">
-                Welcome To Shiloh Word Chapel.
-              </p>
-              <Button
-                variant="outlinePrimary"
-                onClick={() => navigate("/partnerships")}
-              >
-                Partner Now
-              </Button>
-            </div>
-
-            {/* Eclipse indicators */}
-
-            <div className="hidden absolute bottom-8 left-1/2 -translate-x-1/2 lg:flex gap-6 z-20">
+        <div className="flex flex-col gap-36">
+          {heroContent}
+          {/* Eclipse indicators only for home */}
+          {location.pathname === "/" && (
+            <div className="hidden lg:w-full lg:flex lg:gap-6 lg:justify-center lg:z-20">
               {images.map((_, idx) => (
                 <button
                   key={idx}
@@ -90,8 +165,8 @@ const Hero = () => {
                 />
               ))}
             </div>
-          </>
-        )}
+          )}
+        </div>
       </header>
     </>
   );

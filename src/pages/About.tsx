@@ -14,7 +14,7 @@ const About = () => {
           </h5>
           <p className="text-3xl font-trajan">About Prophet I.O Samuel</p>
         </div>
-        <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-32 pb-10 lg:pb-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-32 pb-10 lg:pb-20">
           <p className="text-tertiary text-center lg:text-left lg:leading-relaxed">
             Prophet I.O Samuel is a new generational prophet, who is hailed from
             NIBO, Anambra state. Born on the 17th of september 1978, he was the
@@ -35,7 +35,7 @@ const About = () => {
           <img
             src={ManOnBlue}
             alt="Photo of Prophet I.O Samuel"
-            className="w-[462px] h-[459px] rounded-[42px] border-[3px] border-tertiary shadow-2xl"
+            className="w-[382px] lg:w-[462px] h-[379px] lg:h-[459px] rounded-[42px] border-[3px] border-tertiary shadow-3xl"
           />
         </div>
       </section>

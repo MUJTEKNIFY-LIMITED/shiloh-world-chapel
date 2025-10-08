@@ -65,7 +65,7 @@ const ConnectSection = () => {
               Our Socials
             </Button>
           </div>
-          <div className="flex flex-col w-full h-[491px] xl:h-[630px] py-6 md:pt-16 md:pb-10 px-4 md:px-10 rounded-[25px] xl:rounded-[30px] bg-gradient-to-b md:bg-gradient-to-l from-white to-[#DBE2FD] lg:shadow-2xl">
+          <div className="flex flex-col w-full h-[491px] xl:h-[630px] py-6 md:pt-16 md:pb-10 px-4 md:px-10 rounded-[25px] xl:rounded-[30px] bg-gradient-to-b md:bg-gradient-to-l from-white to-[#DBE2FD] lg:shadow-3xl">
             {/* Partners Section */}
 
             <div
@@ -99,17 +99,17 @@ const ConnectSection = () => {
                 </div>
                 <div className="hidden lg:flex lg:flex-col lg:gap-[20%] lg:justify-center lg:w-[63%] xl:w-[53%] lg:h-full">
                   <div className="flex justify-between w-full">
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-2xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
                       <img src={nigerianFlagIcon} alt="Nigerian Flag" />
                       <p className="text-tertiary uppercase font-bold">
                         Nigeria
                       </p>
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-2xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
                       <img src={americanFlagIcon} alt="American Flag" />
                       <p className="text-tertiary uppercase font-bold">U.S.A</p>
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-2xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
                       <img src={mexicanFlagIcon} alt="Mexican Flag" />
                       <p className="text-tertiary uppercase font-bold">
                         Mexico
@@ -117,19 +117,19 @@ const ConnectSection = () => {
                     </div>
                   </div>
                   <div className="flex justify-between w-full">
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-2xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
                       <img src={dutchFlagIcon} alt="Dutch Flag" />
                       <p className="text-tertiary uppercase font-bold">
                         Netherlands
                       </p>
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-2xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
                       <img src={argentineFlagIcon} alt="Argentine Flag" />
                       <p className="text-tertiary uppercase font-bold">
                         Argentina
                       </p>
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-2xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
                       <img src={australianFlagIcon} alt="Australian Flag" />
                       <p className="text-tertiary uppercase font-bold">
                         Australia
@@ -209,17 +209,17 @@ const ConnectSection = () => {
                   <img
                     src={womanOnRed}
                     alt="Woman On Red"
-                    className="absolute bottom-[10%] md:bottom-[20%] z-20 rounded-[20px] xl:rounded-[42px] w-[173px] xl:w-[317px] h-[173px] xl:h-[317px] object-cover shadow-2xl"
+                    className="absolute bottom-[10%] md:bottom-[20%] z-20 rounded-[20px] xl:rounded-[42px] w-[173px] xl:w-[317px] h-[173px] xl:h-[317px] object-cover shadow-3xl"
                   />
                   <img
                     src={manOnWhite}
                     alt="Man On White"
-                    className="absolute right-0 bottom-0 z-10 rounded-[20px] xl:rounded-[42px] w-[157px] xl:w-[318px] h-[146px] xl:h-[296px] object-cover object-left shadow-2xl"
+                    className="absolute right-0 bottom-0 z-10 rounded-[20px] xl:rounded-[42px] w-[157px] xl:w-[318px] h-[146px] xl:h-[296px] object-cover object-left shadow-3xl"
                   />
                   <img
                     src={manOnBlue}
                     alt="Man On Blue"
-                    className="absolute right-[15%] md:right-[12%] rounded-[20px] xl:rounded-[42px] w-[141px] xl:w-[249px] h-[140px] xl:h-[248px] object-cover shadow-2xl"
+                    className="absolute right-[15%] md:right-[12%] rounded-[20px] xl:rounded-[42px] w-[141px] xl:w-[249px] h-[140px] xl:h-[248px] object-cover shadow-3xl"
                   />
                 </div>
               </div>
@@ -235,7 +235,7 @@ const ConnectSection = () => {
               <div className="grid grid-cols-2 md:grid-cols-3 gap-x-[56px] md:gap-x-[110px] gap-y-[53px] md:gap-y-[107px]">
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
                   style={{ backgroundImage: `url(${whatsappBgImg})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
@@ -247,7 +247,7 @@ const ConnectSection = () => {
                 </Link>
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
                   style={{ backgroundImage: `url(${womanOnRed})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
@@ -259,7 +259,7 @@ const ConnectSection = () => {
                 </Link>
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
                   style={{ backgroundImage: `url(${facebookBgImg})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
@@ -271,7 +271,7 @@ const ConnectSection = () => {
                 </Link>
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
                   style={{ backgroundImage: `url(${youtubeBgImg})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
@@ -283,7 +283,7 @@ const ConnectSection = () => {
                 </Link>
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
                   style={{ backgroundImage: `url(${twitterBgImg})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
@@ -295,7 +295,7 @@ const ConnectSection = () => {
                 </Link>
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-2xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
                   style={{ backgroundImage: `url(${instagramBgImg})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>

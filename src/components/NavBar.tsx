@@ -1,137 +1,46 @@
 import { NavLink } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import logo from "../assets/icons/chimalogo4.svg";
 import hamburgerIcon from "../assets/icons/hamburger-icon.svg";
 import britishFlagIcon from "../assets/icons/flags/british-flag-icon.svg";
-import italianFlagIcon from "../assets/icons/flags/italian-flag-icon.svg";
-import russianFlagIcon from "../assets/icons/flags/russian-flag-icon.svg";
-import frenchFlagIcon from "../assets/icons/flags/french-flag-icon.svg";
-import germanFlagIcon from "../assets/icons/flags/german-flag-icon.svg";
-import spanishFlagIcon from "../assets/icons/flags/spanish-flag-icon.svg";
-
+import MinistryOverlay from "./dropdowns/MinistryOverlay";
+import LanguageOverlay from "./dropdowns/languageOverlay";
+import MobileMenu from "./dropdowns/MobileMenu";
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLanguageOverlayOpen, setIsLanguageOverlayOpen] = useState(false);
+  const [isMinistryOverlayOpen, setIsMinistryOverlayOpen] = useState(false);
 
-  useEffect(() => {
-    if (!isOpen) return;
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
+  const toggleMobile = () => {
+    setIsMobileMenuOpen((open) => !open);
+  };
+  const toggleLanguage = () => {
+    setIsLanguageOverlayOpen((open) => !open);
+  };
+  const toggleMinistry = () => {
+    setIsMinistryOverlayOpen((open) => !open);
+  };
 
   return (
     <>
-      <nav className="relative px-6 md:px-10 lg:px-16 xl:px-24 lg:py-4 flex justify-between items-center z-20">
-        <img src={logo} alt="Logo" className="w-16 lg:w-28" />
+      <nav className="relative flex justify-between items-center z-20">
+        <img
+          src={logo}
+          alt="Logo"
+          className="w-[82px] lg:w-[108px] h-[79px] lg:h-[102px]"
+        />
 
         {/* Mobile Menu Icon */}
-        <button
-          ref={buttonRef}
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden"
-        >
+        <button onClick={toggleMobile} className="lg:hidden">
           <img src={hamburgerIcon} alt="Menu" />
         </button>
 
         {/* Mobile Menu Dropdown */}
-        <div
-          ref={dropdownRef}
-          className={`bg-white w-[90%] h-[348px] absolute top-28 left-0 mx-[5%] flex flex-col rounded-[20px] px-[34px] py-[30px] gap-4 font-galano text-[16px] ${
-            isOpen ? "block" : "hidden"
-          } lg:hidden z-[100] pointer-events-auto`}
-          style={{ zIndex: 100 }}
-        >
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary font-[700] transition-all duration-1000"
-                : "text-black hover:text-primary transition-all duration-1000"
-            }
-            onClick={() => setIsOpen(false)}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary font-[700] transition-all duration-1000"
-                : "text-black hover:text-primary transition-all duration-1000"
-            }
-            onClick={() => setIsOpen(false)}
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/foundation"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary font-[700] transition-all duration-1000"
-                : "text-black hover:text-primary transition-all duration-1000"
-            }
-            onClick={() => setIsOpen(false)}
-          >
-            Foundation Needs
-          </NavLink>
-          <NavLink
-            to="/partnerships"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary font-[700] transition-all duration-1000"
-                : "text-black hover:text-primary transition-all duration-1000"
-            }
-            onClick={() => setIsOpen(false)}
-          >
-            Partnerships & Donations
-          </NavLink>
-          <NavLink
-            to="/gallery"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary font-[700] transition-all duration-1000"
-                : "text-black hover:text-primary transition-all duration-1000"
-            }
-            onClick={() => setIsOpen(false)}
-          >
-            Gallery
-          </NavLink>
-          <NavLink
-            to="/sermons"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary font-[700] transition-all duration-1000"
-                : "text-black hover:text-primary transition-all duration-1000"
-            }
-            onClick={() => setIsOpen(false)}
-          >
-            Sermons
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              isActive
-                ? "text-primary font-[700] transition-all duration-1000"
-                : "text-black hover:text-primary transition-all duration-1000"
-            }
-            onClick={() => setIsOpen(false)}
-          >
-            Contact
-          </NavLink>
-        </div>
+
+        <MobileMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        ></MobileMenu>
 
         {/* Desktop Menu */}
 
@@ -154,9 +63,10 @@ const NavBar = () => {
           >
             FOUNDATION NEEDS
           </NavLink>
-          <NavLink
-            to="/partnerships"
-            className="text-white flex items-center justify-center transition-all duration-1000 gap-2 group hover:text-primary"
+          <div>
+          <button
+            onClick={toggleMinistry}
+            className="relative text-white flex items-center justify-center transition-all duration-1000 gap-2 group hover:text-primary"
           >
             MINISTRY
             <svg
@@ -173,7 +83,13 @@ const NavBar = () => {
                 d="M19 9l-7 7-7-7"
               />
             </svg>
-          </NavLink>
+            {/* Ministry Overlay Dropdown */}
+            <MinistryOverlay
+              isOpen={isMinistryOverlayOpen}
+              onClose={() => setIsMinistryOverlayOpen(false)}
+            ></MinistryOverlay>
+          </button>
+          </div>
           <NavLink
             to="/contact"
             className="text-white hover:text-primary transition-all duration-1000"
@@ -183,14 +99,7 @@ const NavBar = () => {
         </div>
 
         <div className="relative hidden lg:flex lg:gap-4">
-          <button
-            ref={buttonRef}
-            onClick={() => {
-              setIsOpen(!isOpen);
-              return;
-            }}
-            className="flex items-center gap-2"
-          >
+          <button onClick={toggleLanguage} className="flex items-center gap-2">
             <img src={britishFlagIcon} alt="Language" className="w-6 h-6" />
             <div className="flex items-center gap-1 group">
               <p className="text-white group-hover:text-primary transition-all duration-1000">
@@ -237,33 +146,10 @@ const NavBar = () => {
               />
             </svg>
           </button>
-          <div
-            ref={dropdownRef}
-            className={`absolute top-20 -left-6 flex flex-col bg-white w-[163px] h-[260px] rounded-[20px] px-6 justify-center gap-4 font-galano transition-all duration-1000 ${
-              isOpen ? "block" : "hidden"
-            }`}
-          >
-            <div className="flex gap-3 items-center">
-              <img src={italianFlagIcon} alt="Italian" />
-              <p>ITA</p>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img src={russianFlagIcon} alt="Russian" />
-              <p>RUS</p>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img src={spanishFlagIcon} alt="Spanish" />
-              <p>ESP</p>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img src={germanFlagIcon} alt="German" />
-              <p>GER</p>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img src={frenchFlagIcon} alt="French" />
-              <p>FRA</p>
-            </div>
-          </div>
+          <LanguageOverlay
+            isOpen={isLanguageOverlayOpen}
+            onClose={() => setIsLanguageOverlayOpen(false)}
+          ></LanguageOverlay>
         </div>
       </nav>
     </>
