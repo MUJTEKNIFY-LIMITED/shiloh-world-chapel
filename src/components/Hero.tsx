@@ -104,6 +104,32 @@ const Hero = () => {
         </p>
       </div>
     );
+  } else if (location.pathname === "/gallery") {
+    heroContent = (
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+        <div className="flex gap-2 items-center">
+          <button onClick={() => navigate("/")}>Home</button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-4 h-4 -rotate-90"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+          <p>Gallery</p>
+        </div>
+        <p className="uppercase font-trajan font-bold text-5xl leading-normal">
+          Gallery
+        </p>
+      </div>
+    );
   } else {
     heroContent = (
       <div className="relative flex flex-col gap-4 items-center justify-center text-center lg:h-fit">

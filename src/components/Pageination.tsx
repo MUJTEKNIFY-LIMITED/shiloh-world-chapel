@@ -26,7 +26,7 @@ const Pageination = ({ activePage, setActivePage }: PageinationProps) => {
             alt="Arrow Left Icon"
           />
         </button>
-        <div className="flex gap-4">
+        <div className="flex gap-3">
           {(() => {
             const total = books.length;
             let start = 1;
