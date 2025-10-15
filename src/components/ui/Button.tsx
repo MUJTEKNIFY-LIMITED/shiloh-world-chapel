@@ -7,7 +7,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     | "secondary"
     | "outline"
     | "tertiary"
+    | "shadowPrimarySmall"
     | "shadowPrimary"
+    | "shadowTertiarySmall"
     | "shadowTertiary"
     | "hoverShadowPrimary"
     | "outlinePrimary";
@@ -33,12 +35,16 @@ const Button = ({
       "xl:px-[52px] xl:py-[18px] xl:w-[232px] xl:h-[58px] border-2 border-secondary text-primary text-xs xl:text-base bg-white hover:bg-gray-300 hover:border-primary",
     outlinePrimary:
       "xl:px-[33px] py-[16px] w-[191px] h-[54px] border-2 border-fourth text-white text-base bg-primary shadow-innertwo hover:bg-white hover:text-primary",
+    shadowPrimarySmall:
+      "xl:px-[22px] xl:py-[18px] xl:w-[170px] xl:h-[58px] bg-primary text-white text-xs xl:text-base shadow-5xl",
     shadowPrimary:
-      "xl:px-[52px] xl:py-[18px] xl:w-[232px] xl:h-[58px] bg-primary text-white text-xs xl:text-base shadow-3xl",
+      "xl:px-[52px] xl:py-[18px] xl:w-[232px] xl:h-[58px] bg-primary text-white text-xs xl:text-base shadow-5xl",
+    shadowTertiarySmall:
+      "xl:px-[22px] xl:py-[18px] xl:w-[170px] xl:h-[58px] bg-white text-primary text-xs xl:text-base shadow-5xl hover:bg-primary hover:text-white",
     shadowTertiary:
-      "xl:px-[52px] xl:py-[18px] xl:w-[232px] xl:h-[58px] bg-white text-primary text-xs xl:text-base shadow-3xl hover:bg-primary hover:text-white",
+      "xl:px-[52px] xl:py-[18px] xl:w-[232px] xl:h-[58px] bg-white text-primary text-xs xl:text-base shadow-5xl hover:bg-primary hover:text-white",
     hoverShadowPrimary:
-      "xl:px-[52px] xl:py-[18px] xl:w-[232px] xl:h-[58px] bg-primary text-white text-xs xl:text-base shadow-3xl hover:bg-white hover:text-primary hover:border-2 hover:border-primary",
+      "xl:px-[52px] xl:py-[18px] xl:w-[232px] xl:h-[58px] bg-primary text-white text-xs xl:text-base shadow-5xl hover:bg-white hover:text-primary hover:border-2 hover:border-primary",
   };
 
 

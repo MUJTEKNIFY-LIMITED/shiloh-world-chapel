@@ -6,18 +6,18 @@ import { events } from "../assets/data/events-data";
 const EventsSection = () => {
   return (
     <>
-      <section className="h-fit bg-white flex flex-col text-center gap-20 px-4 md:px-6 lg:px-10 xl:px-24 pb-24 xl:pb-48">
-        <div className="flex flex-col gap-4 px-6">
+      <section className="h-fit w-fit bg-white flex flex-col mt-40 mx-4 lg:mx-auto text-center gap-20">
+        <div className="flex flex-col gap-4">
           <h5 className="text-xl text-primary font-semibold">EVENTS</h5>
           <p className="text-3xl font-trajan">
             Upcoming Shiloh Word Chapel Events
           </p>
         </div>
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-x-10 xl:gap-y-24 md:px-10 xl:px-0 place-items-center">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 w-fit">
           {events.map((event, idx) => (
             <div
               key={idx}
-              className={`flex w-full xl:w-[535px] h-[289px] xl:h-[341px] rounded-[29px] items-center px-[13px] py-[26px] xl:p-[26px] gap-3 xl:gap-7 bg-gradient-to-l from-white to-[#DBE2FD] shadow-3xl relative overflow-hidden xl:mx-auto xl:my-auto`}
+              className={`flex w-full xl:w-[535px] h-[289px] xl:h-[341px] rounded-[29px] items-center px-[13px] py-[26px] xl:p-[26px] gap-3 xl:gap-7 bg-gradient-to-l from-white to-[#DBE2FD] shadow-5xl`}
             >
               {event.overlay && (
                 <div

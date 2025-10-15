@@ -10,13 +10,18 @@ const Gallery = () => {
   return (
     <>
       <Hero />
-      <section className="flex flex-col items-center gap-12 xl:gap-28 px-4 md:px-6 lg:px-10 xl:px-24 pt-20 xl:pt-32 pb-28 xl:pb-32">
-        <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-8">
+      <section className="flex flex-col items-center gap-12 lg:gap-28 mt-20 lg:mt-32 mb-24 xl:mb-32 mx-4 lg:mx-24">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8">
         {images.map((image) => (
-          <img src={image.image} alt="An Image" className="w-[196px] xl:w-[287px] h-[131px] xl:h-[191px] rounded-[5px]"/>
+          <img src={image.image} alt="An Image" className="w-[196px] lg:w-[287px] h-[131px] lg:h-[191px] rounded-[5px]"/>
         ))}
         </div>
-        <Pageination activePage={activePage} setActivePage={setActivePage} />
+        <Pageination
+          activePage={activePage}
+          setActivePage={setActivePage}
+          total={images.length}
+          perPage={8}
+        />
       </section>
       <Footer />
     </>

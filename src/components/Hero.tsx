@@ -9,7 +9,6 @@ import aboutPageHeroBackground from "../assets/images/about-page-hero-bg.jpg";
 import foundationPageHeroBackground from "../assets/images/social-media-backgrounds/whatsapp-bg-img.jpg";
 import partnershipsHeroBackground from "../assets/images/partnerships-hero-bg.jpg";
 import galleryHeroBackground from "../assets/images/gallery-hero-bg.jpg";
-import sermonsPageHeroBackground from "../assets/images/man-on-white.jpg";
 
 const images = [mainBanner1, mainBanner2, mainBanner3];
 
@@ -30,7 +29,7 @@ const Hero = () => {
   let heroContent;
   if (location.pathname === "/about") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+      <div className="relative flex flex-col gap-2 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
         <div className="flex gap-2 items-center">
           <button onClick={() => navigate("/")}>Home</button>
           <svg
@@ -54,7 +53,7 @@ const Hero = () => {
     );
   } else if (location.pathname === "/foundation") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+      <div className="relative flex flex-col gap-2 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
         <div className="flex gap-2 items-center">
           <button onClick={() => navigate("/")}>Home</button>
           <svg
@@ -80,7 +79,7 @@ const Hero = () => {
     );
   } else if (location.pathname === "/partnerships") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+      <div className="relative flex flex-col gap-2 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
         <div className="flex gap-2 items-center">
           <button onClick={() => navigate("/")}>Home</button>
           <svg
@@ -99,14 +98,14 @@ const Hero = () => {
           </svg>
           <p>Partnerships</p>
         </div>
-        <p className="uppercase font-trajan font-bold text-5xl leading-normal">
-          Partnerships & Donations
+        <p className="uppercase font-trajan font-bold text-5xl leading-[86px]">
+          Partner <span className="lg:hidden">-</span> ships <br /> & Donations
         </p>
       </div>
     );
   } else if (location.pathname === "/gallery") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+      <div className="relative flex flex-col gap-2 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
         <div className="flex gap-2 items-center">
           <button onClick={() => navigate("/")}>Home</button>
           <svg
@@ -130,13 +129,41 @@ const Hero = () => {
         </p>
       </div>
     );
-  } else {
+  } 
+   else if (location.pathname === "/sermons") {
+    heroContent = (
+      <div className="relative flex flex-col gap-2 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+        <div className="flex gap-2 items-center">
+          <button onClick={() => navigate("/")}>Home</button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-4 h-4 -rotate-90"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+          <p>Sermons</p>
+        </div>
+        <p className="uppercase font-trajan font-bold text-5xl leading-normal">
+          Sermons
+        </p>
+      </div>
+    );
+  }
+   else {
     heroContent = (
       <div className="relative flex flex-col gap-4 items-center justify-center text-center lg:h-fit">
         <h6 className="uppercase text-white font-normal font-galano">
           become a part of something great
         </h6>
-        <p className="uppercase text-white text-5xl xl:text-6xl max-w-80 md:max-w-xl xl:max-w-3xl font-semibold leading-loose xl:leading-normal font-trajan">
+        <p className="uppercase text-white text-5xl lg:text-6xl max-w-80 md:max-w-xl lg:max-w-3xl font-semibold leading-[100px] lg:leading-normal font-trajan">
           Welcome To Shiloh Word Chapel.
         </p>
         <Button
@@ -160,7 +187,7 @@ const Hero = () => {
   } else if (location.pathname === "/gallery") {
     headerBackground = `url(${galleryHeroBackground})`;
   } else if (location.pathname === "/sermons") {
-    headerBackground = `url(${sermonsPageHeroBackground})`;
+    headerBackground = `url(${mainBanner2})`;
   } else {
     headerBackground = `url(${images[activeIndex]})`;
   }
@@ -169,9 +196,9 @@ const Hero = () => {
     <>
       <header
         style={{ backgroundImage: headerBackground }}
-        className={`relative flex flex-col h-fit gap-24 lg:gap-40 px-8 md:px-10 lg:px-16 xl:px-24 pt-10 lg:pt-2 ${
-          location.pathname !== "/" ? "pb-64 lg:pb-72" : "pb-24"
-        } lg:pb-14 bg-cover bg-center`}
+        className={`relative flex flex-col h-fit gap-20 lg:gap-40 px-8 md:px-10 lg:px-16 xl:px-24 pt-10 lg:pt-2 ${
+          location.pathname !== "/" ? "lg:pb-72" : "lg:pb-14"
+        } pb-24 bg-cover bg-center`}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <NavBar />

@@ -37,14 +37,14 @@ const ConnectSection = () => {
 
   return (
     <>
-      <section className="h-fit bg-white flex flex-col gap-20 xl:gap-14 px-4 md:px-6 lg:px-10 xl:px-24 pb-24 xl:pb-32">
+      <section className="h-fit bg-white flex flex-col gap-20 xl:gap-14 mx-2 lg:mx-20">
         <div className="flex flex-col gap-4 text-center">
           <h5 className="text-xl text-primary font-semibold">
             CONNECT WITH US
           </h5>
           <p className="text-3xl font-trajan">Find Us From Around The Globe</p>
         </div>
-        <div className="flex flex-col gap-8 xl:gap-20">
+        <div className="flex flex-col gap-8 px-2 xl:gap-20">  
           <div className="flex justify-center gap-4 xl:gap-32">
             <Button
               variant={buttonVariants[0]}
@@ -65,20 +65,22 @@ const ConnectSection = () => {
               Our Socials
             </Button>
           </div>
-          <div className="flex flex-col w-full h-[491px] xl:h-[630px] py-6 md:pt-16 md:pb-10 px-4 md:px-10 rounded-[25px] xl:rounded-[30px] bg-gradient-to-b md:bg-gradient-to-l from-white to-[#DBE2FD] lg:shadow-3xl">
-            {/* Partners Section */}
+          <div className="flex flex-col w-full h-[491px] xl:h-[630px] py-6 md:pt-16 md:pb-10 px-4 md:px-12 rounded-[25px] xl:rounded-[30px] bg-gradient-to-b md:bg-gradient-to-l from-white to-[#DBE2FD] lg:shadow-4xl">
 
+            {/* Partners Section */}
             <div
               className={`${
                 buttonVariants[0] === "primary" ? "flex" : "hidden"
-              } flex-col gap-4 items-center justify-center xl:gap-16 w-full h-full`}
+              } flex-col gap-10 xl:gap-16 items-center justify-center w-full h-full`}
             >
-              <div className="flex items-center justify-between">
-                <div className="flex flex-col gap-4 lg:w-[35%] xl:w-[46%]">
+
+              {/* For Desktop */}
+              <div className="flex items-center gap-12">
+                <div className="flex flex-col gap-6 lg:w-[35%] xl:w-[46%]">
                   <h5 className="text-xl xl:text-[32px] leading-normal font-bold text-primary">
                     SHILOH TV PARTNERS ALL AROUND THE WORLD
                   </h5>
-                  <p className="text-tertiary text-xs xl:text-base leading-relaxed">
+                  <p className="text-tertiary text-xs xl:text-base leading-5">
                     Partnership is about supporting the work of God through your
                     seed and God will bless you in return with lots of
                     blessings, breakthrough and open financial doors. Our
@@ -88,9 +90,9 @@ const ConnectSection = () => {
                     love...
                   </p>
                   <div className="flex gap-4">
-                    <Button variant="shadowPrimary">Online Seed</Button>
+                    <Button variant="shadowPrimarySmall">Online Seed</Button>
                     <Button
-                      variant="shadowTertiary"
+                      variant="shadowTertiarySmall"
                       onClick={() => navigate("/about")}
                     >
                       More About Us
@@ -99,45 +101,47 @@ const ConnectSection = () => {
                 </div>
                 <div className="hidden lg:flex lg:flex-col lg:gap-[20%] lg:justify-center lg:w-[63%] xl:w-[53%] lg:h-full">
                   <div className="flex justify-between w-full">
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
                       <img src={nigerianFlagIcon} alt="Nigerian Flag" />
-                      <p className="text-tertiary uppercase font-bold">
+                      <p className="text-tertiary uppercase font-bold text-xl">
                         Nigeria
                       </p>
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
                       <img src={americanFlagIcon} alt="American Flag" />
-                      <p className="text-tertiary uppercase font-bold">U.S.A</p>
+                      <p className="text-tertiary uppercase font-bold text-xl">U.S.A</p>
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
                       <img src={mexicanFlagIcon} alt="Mexican Flag" />
-                      <p className="text-tertiary uppercase font-bold">
+                      <p className="text-tertiary uppercase font-bold text-xl">
                         Mexico
                       </p>
                     </div>
                   </div>
                   <div className="flex justify-between w-full">
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
                       <img src={dutchFlagIcon} alt="Dutch Flag" />
-                      <p className="text-tertiary uppercase font-bold">
+                      <p className="text-tertiary uppercase font-bold text-xl">
                         Netherlands
                       </p>
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
                       <img src={argentineFlagIcon} alt="Argentine Flag" />
-                      <p className="text-tertiary uppercase font-bold">
+                      <p className="text-tertiary uppercase font-bold text-xl">
                         Argentina
                       </p>
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-3xl">
+                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
                       <img src={australianFlagIcon} alt="Australian Flag" />
-                      <p className="text-tertiary uppercase font-bold">
+                      <p className="text-tertiary uppercase font-bold text-xl">
                         Australia
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {/* For Mobile */}
               <div className="flex justify-between w-full lg:hidden">
                 <img src={nigerianFlagIcon} alt="Nigerian Flag" />
                 <img src={mexicanFlagIcon} alt="Mexican Flag" />
@@ -146,6 +150,7 @@ const ConnectSection = () => {
                 <img src={dutchFlagIcon} alt="Dutch Flag" />
                 <img src={australianFlagIcon} alt="Australian Flag" />
               </div>
+
               <div className="flex justify-between items-center w-full lg:w-fit lg:gap-20 lg:mx-auto text-center">
                 <div className="flex flex-col gap-4 text-primary">
                   <h6 className="text-xs xl:text-base uppercase">Partners</h6>
@@ -178,7 +183,6 @@ const ConnectSection = () => {
             </div>
 
             {/* Watch Us Section*/}
-
             <div
               className={`${
                 buttonVariants[1] === "primary" ? "flex" : "hidden"
@@ -189,7 +193,7 @@ const ConnectSection = () => {
                   WE’RE LIVE!
                   <br /> ON SHILOH LOVE TV
                 </h5>
-                <p className="text-tertiary text-xs xl:text-base leading-relaxed">
+                <p className="text-tertiary text-xs xl:text-base leading-5 lg:leading-6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                   maximus nisi pretium neque sodales, id suscipit sapien
                   finibus. Nulla dapibus mi in orci elementum, in rhoncus sem
@@ -209,24 +213,23 @@ const ConnectSection = () => {
                   <img
                     src={womanOnRed}
                     alt="Woman On Red"
-                    className="absolute bottom-[10%] md:bottom-[20%] z-20 rounded-[20px] xl:rounded-[42px] w-[173px] xl:w-[317px] h-[173px] xl:h-[317px] object-cover shadow-3xl"
+                    className="absolute bottom-[10%] md:bottom-[20%] z-20 rounded-[20px] xl:rounded-[42px] w-[173px] xl:w-[317px] h-[173px] xl:h-[317px] object-cover shadow-5xl"
                   />
                   <img
                     src={manOnWhite}
                     alt="Man On White"
-                    className="absolute right-0 bottom-0 z-10 rounded-[20px] xl:rounded-[42px] w-[157px] xl:w-[318px] h-[146px] xl:h-[296px] object-cover object-left shadow-3xl"
+                    className="absolute right-0 bottom-0 z-10 rounded-[20px] xl:rounded-[42px] w-[157px] xl:w-[318px] h-[146px] xl:h-[296px] object-cover object-left shadow-5xl"
                   />
                   <img
                     src={manOnBlue}
                     alt="Man On Blue"
-                    className="absolute right-[15%] md:right-[12%] rounded-[20px] xl:rounded-[42px] w-[141px] xl:w-[249px] h-[140px] xl:h-[248px] object-cover shadow-3xl"
+                    className="absolute right-[15%] md:right-[12%] rounded-[20px] xl:rounded-[42px] w-[141px] xl:w-[249px] h-[140px] xl:h-[248px] object-cover shadow-5xl"
                   />
                 </div>
               </div>
             </div>
 
             {/* Our Socials Section */}
-
             <div
               className={`${
                 buttonVariants[2] === "primary" ? "flex" : "hidden"
@@ -235,7 +238,7 @@ const ConnectSection = () => {
               <div className="grid grid-cols-2 md:grid-cols-3 gap-x-[56px] md:gap-x-[110px] gap-y-[53px] md:gap-y-[107px]">
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
                   style={{ backgroundImage: `url(${whatsappBgImg})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
@@ -247,7 +250,7 @@ const ConnectSection = () => {
                 </Link>
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
                   style={{ backgroundImage: `url(${womanOnRed})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
@@ -259,7 +262,7 @@ const ConnectSection = () => {
                 </Link>
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
                   style={{ backgroundImage: `url(${facebookBgImg})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
@@ -271,7 +274,7 @@ const ConnectSection = () => {
                 </Link>
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
                   style={{ backgroundImage: `url(${youtubeBgImg})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
@@ -283,7 +286,7 @@ const ConnectSection = () => {
                 </Link>
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
                   style={{ backgroundImage: `url(${twitterBgImg})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
@@ -295,7 +298,7 @@ const ConnectSection = () => {
                 </Link>
                 <Link
                   to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-3xl"
+                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
                   style={{ backgroundImage: `url(${instagramBgImg})` }}
                 >
                   <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>

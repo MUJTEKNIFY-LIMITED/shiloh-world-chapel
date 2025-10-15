@@ -13,7 +13,7 @@ const CharitySection = () => {
 
   return (
     <>
-      <section className="h-fit flex flex-col gap-10 lg:gap-28 px-4 md:px-6 lg:px-10 xl:px-24">
+      <section className={`h-fit flex flex-col ${location.pathname === "/" ? "mt-44 lg:mt-52 mx-4 lg:mx-24 gap-20 lg:gap-28" : "gap-12 lg:gap-32"}`}>
         {location.pathname === "/" ? (
           <div className="flex flex-col gap-4 text-center">
             <h5 className="text-xl text-primary font-semibold">CHARITY</h5>
@@ -25,7 +25,7 @@ const CharitySection = () => {
             <p className="text-3xl font-trajan">The Needs Of Our Foundation</p>
           </div>
         )}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-20 xl:gap-20 px-6 md:px-10 xl:px-0">
+        <div className={`grid grid-cols-1 xl:grid-cols-3 gap-20 xl:gap-10 ${location.pathname === "/" ? "px-6" : "px-2"} md:px-10 xl:px-0`}>
           <div
             style={{ backgroundImage: `url(${childrenBgImg})` }}
             className="relative flex flex-col gap-4 bg-cover bg-center w-full xl:w-[360px] h-[520px] rounded-[36px] px-[30px] py-[34px] shadow-4xl"

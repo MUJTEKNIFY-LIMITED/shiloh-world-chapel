@@ -13,7 +13,7 @@ const BookSection = () => {
 
   return (
     <>
-      <section className="h-fit flex flex-col gap-12 py-20">
+      <section className="h-fit flex flex-col gap-12 mt-20">
         <div className="flex flex-col gap-24">
           <div className="flex flex-col gap-4 text-center">
             <h5 className="text-xl text-primary font-semibold">OUR BOOKS</h5>
@@ -29,7 +29,7 @@ const BookSection = () => {
                 <button
                   key={idx}
                   style={{ backgroundImage: `url(${book.image})` }}
-                  className="relative flex lg:hidden flex-col gap-10 bg-cover bg-center w-full lg:w-[360px] h-[520px] lg:h-[515px] rounded-[36px] px-10 py-14 shadow-3xl justify-end border"
+                  className="relative flex lg:hidden flex-col gap-10 bg-cover bg-center w-full lg:w-[360px] h-[520px] lg:h-[515px] rounded-[36px] px-10 py-14 shadow-5xl justify-end border"
                   onClick={() => navigate("/book-purchase")}
                 >
                   <div className="absolute inset-0 rounded-[36px] bg-gradient-to-t from-black/80 to-white/0 z-0"></div>
@@ -89,7 +89,7 @@ const BookSection = () => {
                 <button
                   key={idx}
                   style={{ backgroundImage: `url(${book.image})` }}
-                  className="relative hidden lg:flex lg:flex-col gap-10 bg-cover bg-center w-full lg:w-[360px] h-[520px] lg:h-[515px] rounded-[36px] px-10 py-14 shadow-3xl justify-end border"
+                  className="relative hidden lg:flex lg:flex-col gap-10 bg-cover bg-center w-full lg:w-[360px] h-[520px] lg:h-[515px] rounded-[36px] px-10 py-14 shadow-5xl justify-end border"
                   onClick={() => navigate("/book-purchase")}
                 >
                   <div className="absolute inset-0 rounded-[36px] bg-gradient-to-t from-black/80 to-white/0 z-0"></div>

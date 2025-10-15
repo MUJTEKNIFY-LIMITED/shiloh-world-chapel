@@ -29,7 +29,8 @@ export default {
       },
       boxShadow: {
         "3xl": "0px 0px 25px 0px #00000040",
-        "4xl": "14px 27px 45px 0px #00000040",
+        "4xl" : "0px 20px 26px 0px #36353529",
+        "5xl": "14px 27px 45px 0px #00000040",
         inner: "0px 5px 16px 0px #00000040 inset",
         innertwo: "0px 6px 8px 0px #00000066 inset",
       },

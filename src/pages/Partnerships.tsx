@@ -7,7 +7,7 @@ const Partnerships = () => {
   return (
     <>
       <Hero />
-      <section className="h-fit bg-white flex flex-col gap-12 xl:gap-20 px-4 md:px-6 lg:px-10 xl:px-24 pt-16 xl:pt-32 pb-24 xl:pb-32">
+      <section className="h-fit bg-white flex flex-col gap-12 xl:gap-20 mt-16 mb-24 xl:mb-32 mx-4">
         <div className="flex flex-col gap-4 text-center">
           <h5 className="text-xl text-primary font-semibold">OUR ACCOUNTS</h5>
           <p className="text-3xl font-trajan">Donate To Shiloh Foundation</p>
@@ -27,7 +27,7 @@ const Partnerships = () => {
             </div>
           ))}
         </div>
-        <button className="flex flex-col xl:flex-row xl:mx-auto text-center items-center xl:justify-center rounded-[16px] py-[21px] xl:w-[663px] xl:h-[80px] border-[3px] border-secondary xl:border-primary xl:shadow-inner hover:scale-105 transition-all duration-1000">
+        <button className="flex flex-col xl:flex-row mt-6 xl:mx-auto text-center items-center xl:justify-center rounded-[16px] py-[21px] xl:w-[663px] xl:h-[80px] border-[3px] border-secondary xl:border-primary xl:shadow-inner hover:scale-105 transition-all duration-1000">
           <p className="font-semibold text-3xl text-gray-950">
             Donate With Flutterwave
           </p>

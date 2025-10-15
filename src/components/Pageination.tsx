@@ -1,17 +1,32 @@
 import arrowRightIcon from "../assets/icons/arrows/arrow-right-icon.svg";
 import arrowLeftIcon from "../assets/icons/arrows/arrow-left-icon.svg";
+import { useLocation } from "react-router-dom";
 
 type PageinationProps = {
   activePage: number;
   setActivePage: (page: number) => void;
+  total: number;
+  perPage: number;
 };
 
-import { books } from "../assets/data/book-data";
+const Pageination = ({
+  activePage,
+  setActivePage,
+  total,
+  perPage,
+}: PageinationProps) => {
+  const location = useLocation();
 
-const Pageination = ({ activePage, setActivePage }: PageinationProps) => {
+  // Calculate total pages
+  const totalPages = Math.ceil(total / perPage);
+
   return (
     <>
-      <div className="flex justify-center gap-8">
+      <div
+        className={`justify-center gap-8 ${
+          location.pathname === "/" ? "flex lg:hidden" : "flex"
+        }`}
+      >
         <button
           onClick={() => setActivePage(activePage > 1 ? activePage - 1 : 1)}
           disabled={activePage === 1}
@@ -28,12 +43,11 @@ const Pageination = ({ activePage, setActivePage }: PageinationProps) => {
         </button>
         <div className="flex gap-3">
           {(() => {
-            const total = books.length;
             let start = 1;
-            let end = 4;
-            if (activePage > 2 && total > 4) {
+            let end = Math.min(totalPages, 4);
+            if (activePage > 2 && totalPages > 4) {
               start = Math.max(1, activePage - 1);
-              end = Math.min(total, start + 3);
+              end = Math.min(totalPages, start + 3);
               if (end - start < 3) {
                 start = Math.max(1, end - 3);
               }
@@ -58,15 +72,13 @@ const Pageination = ({ activePage, setActivePage }: PageinationProps) => {
         </div>
         <button
           onClick={() =>
-            setActivePage(
-              activePage < books.length ? activePage + 1 : books.length
-            )
+            setActivePage(activePage < totalPages ? activePage + 1 : totalPages)
           }
-          disabled={activePage === books.length}
+          disabled={activePage === totalPages}
         >
           <img
             className={`transition-all duration-300 ${
-              activePage === books.length
+              activePage === totalPages
                 ? "opacity-50 cursor-not-allowed"
                 : "hover:translate-x-1"
             }`}
