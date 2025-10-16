@@ -38,7 +38,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     <div
       ref={ref}
       data-open={isOpen}
-      className={`bg-white w-[90%] h-[348px] absolute top-28 left-0 mx-[5%] flex flex-col rounded-[20px] px-[34px] py-[30px] gap-4 font-galano text-[16px] lg:hidden shadow-xl
+      className={`bg-white w-[90%] h-fit absolute top-28 left-0 mx-[5%] flex flex-col rounded-[20px] px-[34px] py-[30px] gap-4 font-galano text-[16px] lg:hidden shadow-xl
         transition-all duration-1000 ease-out
         ${
           isOpen
@@ -118,6 +118,18 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         onClick={onClose}
       >
         Sermons
+      </NavLink>
+
+      <NavLink
+        to="/events"
+        className={({ isActive }) =>
+          isActive
+            ? "text-primary font-[700] transition-all duration-1000"
+            : "text-black hover:text-primary transition-all duration-1000"
+        }
+        onClick={onClose}
+      >
+        Events
       </NavLink>
 
       <NavLink

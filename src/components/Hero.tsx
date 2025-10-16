@@ -29,7 +29,7 @@ const Hero = () => {
   let heroContent;
   if (location.pathname === "/about") {
     heroContent = (
-      <div className="relative flex flex-col gap-2 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
         <div className="flex gap-2 items-center">
           <button onClick={() => navigate("/")}>Home</button>
           <svg
@@ -53,7 +53,7 @@ const Hero = () => {
     );
   } else if (location.pathname === "/foundation") {
     heroContent = (
-      <div className="relative flex flex-col gap-2 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
         <div className="flex gap-2 items-center">
           <button onClick={() => navigate("/")}>Home</button>
           <svg
@@ -79,7 +79,7 @@ const Hero = () => {
     );
   } else if (location.pathname === "/partnerships") {
     heroContent = (
-      <div className="relative flex flex-col gap-2 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
         <div className="flex gap-2 items-center">
           <button onClick={() => navigate("/")}>Home</button>
           <svg
@@ -105,7 +105,7 @@ const Hero = () => {
     );
   } else if (location.pathname === "/gallery") {
     heroContent = (
-      <div className="relative flex flex-col gap-2 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
         <div className="flex gap-2 items-center">
           <button onClick={() => navigate("/")}>Home</button>
           <svg
@@ -129,10 +129,9 @@ const Hero = () => {
         </p>
       </div>
     );
-  } 
-   else if (location.pathname === "/sermons") {
+  } else if (location.pathname === "/sermons") {
     heroContent = (
-      <div className="relative flex flex-col gap-2 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
         <div className="flex gap-2 items-center">
           <button onClick={() => navigate("/")}>Home</button>
           <svg
@@ -156,8 +155,31 @@ const Hero = () => {
         </p>
       </div>
     );
-  }
-   else {
+  } else if (location.pathname === "/events") {
+    heroContent = (
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+        <div className="flex gap-2 items-center">
+          <button onClick={() => navigate("/")}>Home</button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-4 h-4 -rotate-90"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+          <p>Events</p>
+        </div>
+        <p className="uppercase font-trajan font-bold text-6xl">Events</p>
+      </div>
+    );
+  } else {
     heroContent = (
       <div className="relative flex flex-col gap-4 items-center justify-center text-center lg:h-fit">
         <h6 className="uppercase text-white font-normal font-galano">

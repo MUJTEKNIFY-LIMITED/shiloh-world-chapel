@@ -27,7 +27,7 @@ const MinistryOverlay = ({ isOpen, onClose }: MinistryOverlayProps) => {
     <div
       ref={ref}
       data-open={isOpen}
-      className={`absolute top-10 bg-white flex flex-col text-left justify-center px-[23px] py-[18px] gap-5 w-[163px] h-[149px] rounded-[20px] shadow-4xl z-20
+      className={`absolute top-10 bg-white flex flex-col text-left justify-center px-[23px] py-[18px] gap-3 w-[163px] h-fit rounded-[20px] shadow-4xl z-20
         transition-all duration-1000 ease-out transform origin-top
         ${
           isOpen
@@ -53,6 +53,12 @@ const MinistryOverlay = ({ isOpen, onClose }: MinistryOverlayProps) => {
         className="text-gray-800 hover:text-primary transition-all"
       >
         Partnerships
+      </NavLink>
+      <NavLink
+        to="/events"
+        className="text-gray-800 hover:text-primary transition-all"
+      >
+        Events
       </NavLink>
     </div>
   );

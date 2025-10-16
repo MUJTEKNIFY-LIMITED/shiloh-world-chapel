@@ -1,5 +1,15 @@
+import Hero from "../components/Hero";
+import EventsSection from "../components/EventsSection";
+import Footer from "../components/Footer";
+
 const Events = () => {
-  return <div>Events</div>;
+  return (
+    <>
+      <Hero />
+      <EventsSection />
+      <Footer />
+    </>
+  );
 };
 
 export default Events;

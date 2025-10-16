@@ -1,12 +1,46 @@
 import calenderIcon from "../assets/icons/calendar-icon.svg";
 import clockIcon from "../assets/icons/clock-icon.svg";
 import locationIcon from "../assets/icons/location-pin-icon.svg";
+import { useLocation } from "react-router-dom";
 import { events } from "../assets/data/events-data";
+import { useState } from "react";
+import React from "react";
+import Pageination from "../components/Pageination";
 
 const EventsSection = () => {
+  const location = useLocation();
+  const [activePage, setActivePage] = useState(1);
+
+  // Responsive pagination: 4 per page on mobile, 9 per page on lg+
+  const getEventsPerPage = () => {
+    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
+      return 10;
+    }
+    return 4;
+  };
+
+  const [eventsPerPage, setEventsPerPage] = useState(getEventsPerPage());
+
+  // Update perPage on resize
+  React.useEffect(() => {
+    const handleResize = () => {
+      setEventsPerPage(getEventsPerPage());
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const startIdx = (activePage - 1) * eventsPerPage;
+  const endIdx = startIdx + eventsPerPage;
+  const paginatedEvents = events.slice(startIdx, endIdx);
+
   return (
     <>
-      <section className="h-fit w-fit bg-white flex flex-col mt-40 mx-4 lg:mx-auto text-center gap-20">
+      <section
+        className={`h-fit w-fit bg-white flex flex-col ${
+          location.pathname === "/" ? "mt-40" : "mt-20 lg:mt-32 mb-24 lg:mb-28"
+        }  mx-4 lg:mx-auto text-center gap-20`}
+      >
         <div className="flex flex-col gap-4">
           <h5 className="text-xl text-primary font-semibold">EVENTS</h5>
           <p className="text-3xl font-trajan">
@@ -14,7 +48,7 @@ const EventsSection = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 w-fit">
-          {events.map((event, idx) => (
+          {paginatedEvents.map((event, idx) => (
             <div
               key={idx}
               className={`flex w-full xl:w-[535px] h-[289px] xl:h-[341px] rounded-[29px] items-center px-[13px] py-[26px] xl:p-[26px] gap-3 xl:gap-7 bg-gradient-to-l from-white to-[#DBE2FD] shadow-5xl`}
@@ -58,6 +92,14 @@ const EventsSection = () => {
             </div>
           ))}
         </div>
+        {location.pathname === "/events" && (
+          <Pageination
+            activePage={activePage}
+            setActivePage={setActivePage}
+            total={events.length}
+            perPage={eventsPerPage}
+          />
+        )}
       </section>
     </>
   );

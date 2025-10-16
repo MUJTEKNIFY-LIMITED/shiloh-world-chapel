@@ -4,19 +4,23 @@ This is the official website for Shiloh World Chapel, built with a modern React 
 
 ## 🛠️ Tech Stack
 
-- **React** (with functional components & hooks)
+- **React** (functional components & hooks)
 - **TypeScript**
-- **Vite** (for fast development & build)
+- **Vite** (fast dev/build)
 - **Tailwind CSS** (utility-first styling)
-- **React Router** (for page navigation)
-- **ESLint** (code linting)
+- **React Router** (routing)
+- **ESLint** (linting)
 
-## ✨ Features
+## ✨ Key Features
 
-- Responsive, mobile-first design
-- Dynamic book section with pagination
-- Linear gradients, custom UI components, and modern effects
+- Fully responsive, mobile-first design
+- Dynamic Sermons section with advanced pagination (4 per page on mobile, 9 on desktop)
+- Book section with paginated display
+- Modern dropdown menus with click-outside-to-close logic
+- Dynamic hero backgrounds and content per page
+- Custom gradients and border effects
 - Social media integration
+- Modular, reusable UI components
 - Easy to extend and maintain
 
 ## 📦 Getting Started
@@ -45,14 +49,14 @@ This is the official website for Shiloh World Chapel, built with a modern React 
 
 ## 📁 Project Structure
 
-- `src/components/` — Reusable UI and page components
-- `src/pages/` — Main pages (Home, About, Contact, etc.)
-- `src/assets/` — Images, icons, and fonts
+- `src/components/` — Reusable UI and dropdown components
+- `src/pages/` — Main pages (Home, About, Contact, Sermons, etc.)
+- `src/assets/` — Images, icons, fonts, and data
 - `public/` — Static files
 
 ## 🌐 Deployment
 
-You can deploy this site to Vercel, Netlify, or any static hosting provider. Build with:
+Deploy to Vercel, Netlify, or any static host. Build with:
 
 ```bash
 npm run build
