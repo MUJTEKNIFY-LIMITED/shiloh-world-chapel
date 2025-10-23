@@ -2,19 +2,19 @@ import arrowRightIcon from "../assets/icons/arrows/arrow-right-icon.svg";
 import arrowLeftIcon from "../assets/icons/arrows/arrow-left-icon.svg";
 import { useLocation } from "react-router-dom";
 
-type PageinationProps = {
+type PaginationProps = {
   activePage: number;
   setActivePage: (page: number) => void;
   total: number;
   perPage: number;
 };
 
-const Pageination = ({
+const Pagination = ({
   activePage,
   setActivePage,
   total,
   perPage,
-}: PageinationProps) => {
+}: PaginationProps) => {
   const location = useLocation();
 
   // Calculate total pages
@@ -91,4 +91,4 @@ const Pageination = ({
   );
 };
 
-export default Pageination;
+export default Pagination;

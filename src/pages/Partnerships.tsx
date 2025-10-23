@@ -12,7 +12,7 @@ const Partnerships = () => {
           <h5 className="text-xl text-primary font-semibold">OUR ACCOUNTS</h5>
           <p className="text-3xl font-trajan">Donate To Shiloh Foundation</p>
         </div>
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 lg:px-20">
           {accounts.map((account) => (
             <div
               key={account.account}

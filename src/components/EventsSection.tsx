@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import { events } from "../assets/data/events-data";
 import { useState } from "react";
 import React from "react";
-import Pageination from "../components/Pageination";
+import Pagination from "../components/Pagination.tsx";
 
 const EventsSection = () => {
   const location = useLocation();
@@ -33,6 +33,12 @@ const EventsSection = () => {
   const startIdx = (activePage - 1) * eventsPerPage;
   const endIdx = startIdx + eventsPerPage;
   const paginatedEvents = events.slice(startIdx, endIdx);
+
+  // Ensure activePage is valid when per-page or total events change
+  React.useEffect(() => {
+    const totalPages = Math.max(1, Math.ceil(events.length / eventsPerPage));
+    if (activePage > totalPages) setActivePage(1);
+  }, [eventsPerPage, events.length]);
 
   return (
     <>
@@ -93,7 +99,7 @@ const EventsSection = () => {
           ))}
         </div>
         {location.pathname === "/events" && (
-          <Pageination
+          <Pagination
             activePage={activePage}
             setActivePage={setActivePage}
             total={events.length}

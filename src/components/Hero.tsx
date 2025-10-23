@@ -99,7 +99,7 @@ const Hero = () => {
           <p>Partnerships</p>
         </div>
         <p className="uppercase font-trajan font-bold text-5xl leading-[86px]">
-          Partner <span className="lg:hidden">-</span> ships <br /> & Donations
+          Partner<span className="lg:hidden">-</span>ships <br className="lg:hidden"/> & Donations
         </p>
       </div>
     );
@@ -179,6 +179,30 @@ const Hero = () => {
         <p className="uppercase font-trajan font-bold text-6xl">Events</p>
       </div>
     );
+  } else if (location.pathname === "/contact") {
+    heroContent = (
+      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit">
+        <div className="flex gap-2 items-center">
+          <button onClick={() => navigate("/")}>Home</button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-4 h-4 -rotate-90"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+          <p>Contact</p>
+        </div>
+        <p className="uppercase font-trajan font-bold text-6xl">Contact</p>
+      </div>
+    );
   } else {
     heroContent = (
       <div className="relative flex flex-col gap-4 items-center justify-center text-center lg:h-fit">
@@ -210,6 +234,8 @@ const Hero = () => {
     headerBackground = `url(${galleryHeroBackground})`;
   } else if (location.pathname === "/sermons") {
     headerBackground = `url(${mainBanner2})`;
+  } else if (location.pathname === "/contact") {
+    headerBackground = `url(${mainBanner3})`;
   } else {
     headerBackground = `url(${images[activeIndex]})`;
   }

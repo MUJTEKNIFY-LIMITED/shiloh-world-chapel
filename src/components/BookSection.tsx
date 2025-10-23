@@ -4,17 +4,43 @@ import instagramIcon from "../assets/icons/social-icons/blue-social-icons/blue-i
 import linkedInIcon from "../assets/icons/social-icons/blue-social-icons/blue-linkedin-icon.svg";
 import { useNavigate, Link } from "react-router-dom";
 import { books } from "../assets/data/book-data";
-import { useState } from "react";
-import Pageination from "./Pageination";
+import { useState, useEffect } from "react";
+import Pagination from "./Pagination";
 
 const BookSection = () => {
   const navigate = useNavigate();
   const [activePage, setActivePage] = useState(1);
 
+  // Responsive pagination: 1 per page on mobile, 9 per page on lg+
+  const getBooksPerPage = () => {
+    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
+      return 9;
+    }
+    return 1;
+  };
+
+  const [booksPerPage, setBooksPerPage] = useState(getBooksPerPage());
+
+  useEffect(() => {
+    const handleResize = () => setBooksPerPage(getBooksPerPage());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const startIdx = (activePage - 1) * booksPerPage;
+  const endIdx = startIdx + booksPerPage;
+  const paginatedBooks = books.slice(startIdx, endIdx);
+
+  // Ensure activePage is valid when perPage or total books change
+  useEffect(() => {
+    const totalPages = Math.max(1, Math.ceil(books.length / booksPerPage));
+    if (activePage > totalPages) setActivePage(1);
+  }, [booksPerPage, books.length]);
+
   return (
     <>
       <section className="h-fit flex flex-col gap-12 mt-20">
-        <div className="flex flex-col gap-24">
+        <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-4 text-center">
             <h5 className="text-xl text-primary font-semibold">OUR BOOKS</h5>
             <p className="text-3xl font-trajan">
@@ -23,11 +49,11 @@ const BookSection = () => {
           </div>
           <div className="lg:overflow-x-scroll lg:scrollbar-hide">
             <div className="flex justify-center gap-20 w-full lg:w-fit px-10 md:px-16 lg:px-10 xl:px-24 lg:py-20">
-              {/* Mobile: Show only the book for the selected page */}
+              {/* Mobile: Show only the books for the selected page */}
 
-              {books.slice(activePage - 1, activePage).map((book, idx) => (
+              {paginatedBooks.map((book, idx) => (
                 <button
-                  key={idx}
+                  key={startIdx + idx}
                   style={{ backgroundImage: `url(${book.image})` }}
                   className="relative flex lg:hidden flex-col gap-10 bg-cover bg-center w-full lg:w-[360px] h-[520px] lg:h-[515px] rounded-[36px] px-10 py-14 shadow-5xl justify-end border"
                   onClick={() => navigate("/book-purchase")}
@@ -146,7 +172,12 @@ const BookSection = () => {
             </div>
           </div>
         </div>
-        <Pageination activePage={activePage} setActivePage={setActivePage} />
+        <Pagination
+          activePage={activePage}
+          setActivePage={setActivePage}
+          total={books.length}
+          perPage={booksPerPage}
+        />
       </section>
     </>
   );

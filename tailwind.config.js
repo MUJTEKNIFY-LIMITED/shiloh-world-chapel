@@ -13,11 +13,13 @@ export default {
         secondary: "#A65D50",
         tertiary: "#8F8F8F",
         fourth: "#D9D9D9",
+        fifth: "#ECF0FF",
       },
       textColor: {
         primary: "#071B65",
         secondary: "#A65D50",
         tertiary: "#8F8F8F",
+        fourth: "#666666",
       },
       borderColor: {
         primary: "#071B65",

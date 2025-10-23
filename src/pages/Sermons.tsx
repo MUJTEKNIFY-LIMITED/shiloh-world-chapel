@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import { sermonViewButton } from "../assets/data/sermons-data";
 import playButtonArrowhead from "../assets/icons/play-button-arrowhead.svg";
 import musicPlayerIcon from "../assets/icons/music-player-icon.svg";
-import Pageination from "../components/Pageination";
+import Pagination from "../components/Pagination.tsx";
 import Footer from "../components/Footer";
 
 const Sermons = () => {
@@ -27,6 +27,15 @@ const Sermons = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Ensure activePage valid when per-page or total sermons change
+  React.useEffect(() => {
+    const totalPages = Math.max(
+      1,
+      Math.ceil(sermonViewButton.length / sermonsPerPage)
+    );
+    if (activePage > totalPages) setActivePage(1);
+  }, [sermonsPerPage, sermonViewButton.length]);
 
   const startIdx = (activePage - 1) * sermonsPerPage;
   const endIdx = startIdx + sermonsPerPage;
@@ -62,7 +71,7 @@ const Sermons = () => {
             </div>
           ))}
         </div>
-        <Pageination
+        <Pagination
           activePage={activePage}
           setActivePage={setActivePage}
           total={sermonViewButton.length}
