@@ -1,9 +1,9 @@
-import crossIcon from "../assets/icons/cross-icon.svg";
-import streamIcon from "../assets/icons/stream-icon.svg";
-import playButtonArrowhead from "../assets/icons/play-button-arrowhead.svg";
-import appleLogo from "../assets/icons/apple-logo.svg";
-import googlePlay from "../assets/icons/google-play.svg";
-import mobilePhone from "../assets/images/mobile-phone-img.png";
+import crossIcon from "../../assets/icons/cross-icon.svg";
+import streamIcon from "../../assets/icons/stream-icon.svg";
+import playButtonArrowhead from "../../assets/icons/play-button-arrowhead.svg";
+import appleLogo from "../../assets/icons/apple-logo.svg";
+import googlePlay from "../../assets/icons/google-play.svg";
+import mobilePhone from "../../assets/images/mobile-phone-img.png";
 
 const DownloadAppSection = () => {
   return (

@@ -1,11 +1,11 @@
-import twitterIcon from "../assets/icons/social-icons/blue-social-icons/blue-twitter-icon.svg";
-import facebookIcon from "../assets/icons/social-icons/blue-social-icons/blue-facebook-icon.svg";
-import instagramIcon from "../assets/icons/social-icons/blue-social-icons/blue-instagram-icon.svg";
-import linkedInIcon from "../assets/icons/social-icons/blue-social-icons/blue-linkedin-icon.svg";
+import twitterIcon from "../../assets/icons/social-icons/blue-social-icons/blue-twitter-icon.svg";
+import facebookIcon from "../../assets/icons/social-icons/blue-social-icons/blue-facebook-icon.svg";
+import instagramIcon from "../../assets/icons/social-icons/blue-social-icons/blue-instagram-icon.svg";
+import linkedInIcon from "../../assets/icons/social-icons/blue-social-icons/blue-linkedin-icon.svg";
 import { useNavigate, Link } from "react-router-dom";
-import { books } from "../assets/data/book-data";
+import { books } from "../../assets/data/book-data";
 import { useState, useEffect } from "react";
-import Pagination from "./Pagination";
+import Pagination from "../Pagination";
 
 const BookSection = () => {
   const navigate = useNavigate();

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 type FormState = {
   name: string;
@@ -16,7 +17,8 @@ const initialState: FormState = {
   message: "",
 };
 
-const ContactForm = () => {
+const Form = () => {
+  const location = useLocation();
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<FormState>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -84,7 +86,7 @@ const ContactForm = () => {
           <input
             type="tel"
             value={form.number}
-            placeholder="Phone 1"
+            placeholder={`${location.pathname === "/" ? "Phone" : "Phone 1"}`}
             onChange={handleChange("number")}
             className="w-[295px] h-[44px] rounded-[5px] px-[17px] py-[11px] bg-fifth text-fourth focus:outline-none focus:ring-2 focus:ring-primary"
             aria-invalid={!!errors.number}
@@ -101,7 +103,9 @@ const ContactForm = () => {
           <input
             type="tel"
             value={form.number2}
-            placeholder="Phone 2"
+            placeholder={`${
+              location.pathname === "/" ? "State of Residence" : "Phone 2"
+            }`}
             onChange={handleChange("number2")}
             className="w-[295px] h-[44px] rounded-[5px] px-[17px] py-[11px] bg-fifth text-fourth focus:outline-none focus:ring-2 focus:ring-primary"
             aria-invalid={!!errors.number2}
@@ -118,7 +122,7 @@ const ContactForm = () => {
           <input
             type="text"
             value={form.subject}
-            placeholder="Subjects"
+            placeholder={`${location.pathname === "/" ? "Age" : "Subjects"}`}
             onChange={handleChange("subject")}
             className="w-[295px] h-[44px] rounded-[5px] px-[17px] py-[11px] bg-fifth text-fourth focus:outline-none focus:ring-2 focus:ring-primary"
             aria-invalid={!!errors.subject}
@@ -132,10 +136,12 @@ const ContactForm = () => {
         </label>
       </div>
 
-      <label className="flex flex-col mt-5">
+      <label className="flex flex-col mt-5 w-full">
         <textarea
           value={form.message}
-          placeholder="Message"
+          placeholder={`${
+            location.pathname === "/" ? "Prayer Request" : "Message"
+          }`}
           onChange={handleChange("message")}
           rows={8}
           className="w-full h-[200px] rounded-[5px] px-[17px] py-[11px] bg-fifth text-fourth focus:outline-none focus:ring-2 focus:ring-primary resize-vertical"
@@ -153,13 +159,15 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={submitting}
-          className="flex items-center justify-center font-bold bg-primary text-white w-[162px] h-[51px] px-[29px] py-[20px] rounded-[33px] shadow-5xl disabled:opacity-60"
+          className="flex items-center justify-center font-bold bg-primary text-white w-[162px] h-[51px] px-[29px] py-[20px] rounded-[33px] shadow-5xl hover:bg-white hover:text-primary transition-all duration-1000 disabled:opacity-60"
         >
-          {submitting ? "Contacting..." : "Contact Now"}
+          {submitting
+            ? `${location.pathname === "/" ? "Submitting..." : "Contacting..."}`
+            : `${location.pathname === "/" ? "Submit" : "Contact Now"}`}
         </button>
       </div>
     </form>
   );
 };
 
-export default ContactForm;
+export default Form;

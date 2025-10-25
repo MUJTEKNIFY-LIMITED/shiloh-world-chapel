@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import measuredBarIcon from "../assets/icons/measured-bar-icon.svg";
-import { charity } from "../assets/data/charity-data.ts";
-import Button from "./ui/Button.tsx";
-import Pageination from "./Pagination.tsx";
+import measuredBarIcon from "../../assets/icons/measured-bar-icon.svg";
+import { charity } from "../../assets/data/charity-data.ts";
+import Button from "../ui/Button.tsx";
+import Pageination from "../Pagination.tsx";
 import { useLocation } from "react-router-dom";
 
 const CharitySection = () => {

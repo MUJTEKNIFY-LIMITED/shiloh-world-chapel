@@ -1,14 +1,14 @@
-import NavBar from "./NavBar";
-import Button from "./ui/Button";
+import NavBar from "../NavBar";
+import Button from "../ui/Button";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import mainBanner1 from "../assets/images/banners/main-banner1.jpg";
-import mainBanner2 from "../assets/images/banners/main-banner2.jpg";
-import mainBanner3 from "../assets/images/banners/main-banner3.jpg";
-import aboutPageHeroBackground from "../assets/images/about-page-hero-bg.jpg";
-import foundationPageHeroBackground from "../assets/images/social-media-backgrounds/whatsapp-bg-img.jpg";
-import partnershipsHeroBackground from "../assets/images/partnerships-hero-bg.jpg";
-import galleryHeroBackground from "../assets/images/gallery-hero-bg.jpg";
+import mainBanner1 from "../../assets/images/banners/main-banner1.jpg";
+import mainBanner2 from "../../assets/images/banners/main-banner2.jpg";
+import mainBanner3 from "../../assets/images/banners/main-banner3.jpg";
+import aboutPageHeroBackground from "../../assets/images/about-page-hero-bg.jpg";
+import foundationPageHeroBackground from "../../assets/images/social-media-backgrounds/whatsapp-bg-img.jpg";
+import partnershipsHeroBackground from "../../assets/images/partnerships-hero-bg.jpg";
+import galleryHeroBackground from "../../assets/images/gallery-hero-bg.jpg";
 
 const images = [mainBanner1, mainBanner2, mainBanner3];
 
@@ -99,7 +99,8 @@ const Hero = () => {
           <p>Partnerships</p>
         </div>
         <p className="uppercase font-trajan font-bold text-5xl leading-[86px]">
-          Partner<span className="lg:hidden">-</span>ships <br className="lg:hidden"/> & Donations
+          Partner<span className="lg:hidden">-</span>ships{" "}
+          <br className="lg:hidden" /> & Donations
         </p>
       </div>
     );

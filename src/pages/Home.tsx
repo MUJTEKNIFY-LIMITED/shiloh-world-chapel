@@ -1,13 +1,13 @@
-import Hero from "../components/Hero";
-import MissionSection from "../components/MissionSection.tsx";
-import ConnectSection from "../components/ConnectSection.tsx";
-import CharitySection from "../components/CharitySection.tsx";
-// import PrayerRequestSection from "../components/PrayerRequestSection.tsx";
-import BookSection from "../components/BookSection.tsx";
-import EventsSection from "../components/EventsSection.tsx";
-import TestimonialSection from "../components/TestimonialSection.tsx";
-import DownloadAppSection from "../components/DownloadAppSection.tsx";
-import Footer from "../components/Footer.tsx";
+import Hero from "../components/sections/Hero.tsx";
+import MissionSection from "../components/sections/MissionSection.tsx";
+import ConnectSection from "../components/sections/ConnectSection.tsx";
+import CharitySection from "../components/sections/CharitySection.tsx";
+import PrayerRequestSection from "../components/sections/PrayerRequestSection.tsx";
+import BookSection from "../components/sections/BookSection.tsx";
+import EventsSection from "../components/sections/EventsSection.tsx";
+import TestimonialSection from "../components/sections/TestimonialSection.tsx";
+import DownloadAppSection from "../components/sections/DownloadAppSection.tsx";
+import Footer from "../components/sections/Footer.tsx";
 
 const Home = () => {
   return (
@@ -17,7 +17,7 @@ const Home = () => {
         <MissionSection />
         <ConnectSection />
         <CharitySection />
-        {/* <PrayerRequestSection /> */}
+        <PrayerRequestSection />
         <BookSection />
         <EventsSection />
         <TestimonialSection />

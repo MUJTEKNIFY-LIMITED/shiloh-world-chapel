@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 const BookPurchase = () => {
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -19,7 +18,7 @@ const BookPurchase = () => {
     <>
       <main className="h-fit flex flex-col lg:flex-row lg:justify-center gap-10 px-4 lg:px-20 pt-10 pb-20 lg:py-20">
         <button
-          className="flex items-center justify-center w-[47px] h-[47px] p-[11px] border-[3px] border-fifth rounded-[10px] hover:border-black transition-all duration-700"
+          className="flex items-center justify-center w-[47px] h-[47px] p-[11px] border-[3px] border-fifth rounded-[10px] hover:border-black transition-all duration-1000"
           onClick={() => window.history.back()}
         >
           <img src={arrowBackIcon} alt="Arrow Back Icon" />
@@ -44,25 +43,25 @@ const BookPurchase = () => {
               <div className="flex gap-4">
                 <Link
                   to={"#"}
-                  className="w-[35px] h-[35px] border border-sixth rounded-[25px] flex items-center justify-center hover:border-black transition-all duration-700"
+                  className="w-[35px] h-[35px] border border-sixth rounded-[25px] flex items-center justify-center hover:border-black transition-all duration-1000"
                 >
                   <img src={facebookIcon} alt="Facebook Icon" />
                 </Link>
                 <Link
                   to={"#"}
-                  className="w-[35px] h-[35px] border border-sixth rounded-[25px] flex items-center justify-center hover:border-black transition-all duration-700"
+                  className="w-[35px] h-[35px] border border-sixth rounded-[25px] flex items-center justify-center hover:border-black transition-all duration-1000"
                 >
                   <img src={instagramIcon} alt="Instagram Icon" />
                 </Link>
                 <Link
                   to={"#"}
-                  className="w-[35px] h-[35px] border border-sixth rounded-[25px] flex items-center justify-center hover:border-black transition-all duration-700"
+                  className="w-[35px] h-[35px] border border-sixth rounded-[25px] flex items-center justify-center hover:border-black transition-all duration-1000"
                 >
                   <img src={twitterIcon} alt="Twitter Icon" />
                 </Link>
                 <Link
                   to={"#"}
-                  className="w-[35px] h-[35px] border border-sixth rounded-[25px] flex items-center justify-center hover:border-black transition-all duration-700"
+                  className="w-[35px] h-[35px] border border-sixth rounded-[25px] flex items-center justify-center hover:border-black transition-all duration-1000"
                 >
                   <img src={linkedInIcon} alt="LinkedIn Icon" />
                 </Link>
@@ -77,7 +76,7 @@ const BookPurchase = () => {
               <p className="text-4xl font-semibold">₦ 10,000</p>
               <div className="flex items-center gap-10">
                 <p className="text-base font-bold">Quantity</p>
-                <button className="flex items-center gap-2 rounded-[6px] border border-sixth px-[12px] py-[2px] font-bold hover:border-black transition-all duration-700">
+                <button className="flex items-center gap-2 rounded-[6px] border border-sixth px-[12px] py-[2px] font-bold hover:border-black transition-all duration-1000">
                   <p>1</p>
                   <img src={keyboardArrowDown} alt="Keyboard Arrow Down Icon" />
                 </button>
@@ -89,7 +88,7 @@ const BookPurchase = () => {
                   <option value="5">5</option>
                 </select> */}
               </div>
-              <button className="w-[274px] h-[47px] border-[3px] border-fifth rounded-[15px] flex items-center justify-center gap-2 font-semibold hover:border-black transition-all duration-700">
+              <button className="w-[274px] h-[47px] border-[3px] border-fifth rounded-[15px] flex items-center justify-center gap-2 font-semibold hover:border-black transition-all duration-1000">
                 <p>Pay With Flutterwave</p>
                 <img src={flutterwaveIcon} alt="Flutterwave Icon" />
               </button>

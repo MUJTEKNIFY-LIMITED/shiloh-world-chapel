@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Hero from "../components/Hero";
+import Hero from "../components/sections/Hero.tsx";
 import { sermonViewButton } from "../assets/data/sermons-data";
 import playButtonArrowhead from "../assets/icons/play-button-arrowhead.svg";
 import musicPlayerIcon from "../assets/icons/music-player-icon.svg";
 import Pagination from "../components/Pagination.tsx";
-import Footer from "../components/Footer";
+import Footer from "../components/sections/Footer.tsx";
 
 const Sermons = () => {
   const [activePage, setActivePage] = useState(1);
@@ -56,10 +56,10 @@ const Sermons = () => {
                 style={{ backgroundImage: `url(${sermon.image})` }}
               >
                 <div className="flex gap-4">
-                  <button className="w-[35px] h-[35px] p-[10px] bg-white rounded-[17.5px] flex justify-center items-center shadow-5xl hover:bg-fourth transition-all duration-700">
+                  <button className="w-[35px] h-[35px] p-[10px] bg-white rounded-[17.5px] flex justify-center items-center shadow-5xl hover:bg-fourth transition-all duration-1000">
                     <img src={playButtonArrowhead} alt="Play Arrowhead Icon" />
                   </button>
-                  <button className="w-[35px] h-[35px] p-[10px] bg-white rounded-[17.5px] flex justify-center items-center shadow-5xl hover:bg-fourth transition-all duration-700">
+                  <button className="w-[35px] h-[35px] p-[10px] bg-white rounded-[17.5px] flex justify-center items-center shadow-5xl hover:bg-fourth transition-all duration-1000">
                     <img src={musicPlayerIcon} alt="Play Arrowhead Icon" />
                   </button>
                 </div>

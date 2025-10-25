@@ -1,6 +1,6 @@
-import Hero from "../components/Hero";
-import CharitySection from "../components/CharitySection";
-import Footer from "../components/Footer";
+import Hero from "../components/sections/Hero";
+import CharitySection from "../components/sections/CharitySection";
+import Footer from "../components/sections/Footer";
 
 const Foundation = () => {
   return (

@@ -1,7 +1,7 @@
-import Hero from "../components/Hero";
+import Hero from "../components/sections/Hero";
 import { accounts } from "../assets/data/accounts-data";
 import flutterwaveIcon from "../assets/icons/flutterwave-icon.svg";
-import Footer from "../components/Footer";
+import Footer from "../components/sections/Footer";
 
 const Partnerships = () => {
   return (

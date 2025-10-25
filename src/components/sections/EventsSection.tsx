@@ -1,11 +1,11 @@
-import calenderIcon from "../assets/icons/calendar-icon.svg";
-import clockIcon from "../assets/icons/clock-icon.svg";
-import locationIcon from "../assets/icons/location-pin-icon.svg";
+import calenderIcon from "../../assets/icons/calendar-icon.svg";
+import clockIcon from "../../assets/icons/clock-icon.svg";
+import locationIcon from "../../assets/icons/location-pin-icon.svg";
 import { useLocation } from "react-router-dom";
-import { events } from "../assets/data/events-data";
+import { events } from "../../assets/data/events-data.ts";
 import { useState } from "react";
 import React from "react";
-import Pagination from "../components/Pagination.tsx";
+import Pagination from "../Pagination.tsx";
 
 const EventsSection = () => {
   const location = useLocation();

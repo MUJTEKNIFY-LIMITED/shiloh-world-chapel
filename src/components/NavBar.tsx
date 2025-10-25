@@ -3,9 +3,9 @@ import { useState } from "react";
 import logo from "../assets/icons/chimalogo4.svg";
 import hamburgerIcon from "../assets/icons/hamburger-icon.svg";
 import britishFlagIcon from "../assets/icons/flags/british-flag-icon.svg";
-import MinistryOverlay from "./dropdowns/MinistryOverlay";
-import LanguageOverlay from "./dropdowns/languageOverlay";
-import MobileMenu from "./dropdowns/MobileMenu";
+import MinistryOverlay from "./overlays/MinistryOverlay";
+import LanguageOverlay from "./overlays/LanguageOverlay";
+import MobileMenu from "./overlays/MobileMenu";
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageOverlayOpen, setIsLanguageOverlayOpen] = useState(false);

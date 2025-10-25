@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { testimonials } from "../assets/data/testimonials";
+import { testimonials } from "../../assets/data/testimonials";
 
 const TestimonialSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -13,7 +13,9 @@ const TestimonialSection = () => {
             <h5 className="text-3xl text-primary font-bold">
               “{testimonials[activeIndex].title}”
             </h5>
-            <p className="text-base leading-7 lg:leading-6">{testimonials[activeIndex].text}</p>
+            <p className="text-base leading-7 lg:leading-6">
+              {testimonials[activeIndex].text}
+            </p>
           </div>
           <p className="text-base font-bold text-primary">
             {testimonials[activeIndex].author}

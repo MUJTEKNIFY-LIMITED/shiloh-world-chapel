@@ -1,6 +1,6 @@
-import Hero from "../components/Hero";
-import EventsSection from "../components/EventsSection";
-import Footer from "../components/Footer";
+import Hero from "../components/sections/Hero";
+import EventsSection from "../components/sections/EventsSection";
+import Footer from "../components/sections/Footer";
 
 const Events = () => {
   return (

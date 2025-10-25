@@ -1,10 +1,10 @@
-import facebookIcon from "../assets/icons/social-icons/blue-social-icons/blue-facebook-icon.svg";
-import instagramIcon from "../assets/icons/social-icons/blue-social-icons/blue-instagram-icon.svg";
-import twitterIcon from "../assets/icons/social-icons/blue-social-icons/blue-twitter-icon.svg";
-import youtubeIcon from "../assets/icons/social-icons/blue-social-icons/blue-youtube-icon.svg";
-import callIcon from "../assets/icons/call.svg";
-import mailIcon from "../assets/icons/mail.svg";
-import locationPinIcon from "../assets/icons/location-pin-icon.svg";
+import facebookIcon from "../../assets/icons/social-icons/blue-social-icons/blue-facebook-icon.svg";
+import instagramIcon from "../../assets/icons/social-icons/blue-social-icons/blue-instagram-icon.svg";
+import twitterIcon from "../../assets/icons/social-icons/blue-social-icons/blue-twitter-icon.svg";
+import youtubeIcon from "../../assets/icons/social-icons/blue-social-icons/blue-youtube-icon.svg";
+import callIcon from "../../assets/icons/call.svg";
+import mailIcon from "../../assets/icons/mail.svg";
+import locationPinIcon from "../../assets/icons/location-pin-icon.svg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -22,7 +22,7 @@ const Footer = () => {
             <div className="flex gap-4">
               <Link
                 to={"#"}
-                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center"
+                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center hover:bg-gray-300 transition-all duration-1000"
               >
                 <img
                   className="w-[15px] h-[15px]"
@@ -32,7 +32,7 @@ const Footer = () => {
               </Link>
               <Link
                 to={"#"}
-                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center"
+                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center hover:bg-gray-300 transition-all duration-1000"
               >
                 <img
                   className="w-[15px] h-[15px]"
@@ -42,7 +42,7 @@ const Footer = () => {
               </Link>
               <Link
                 to={"#"}
-                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center"
+                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center hover:bg-gray-300 transition-all duration-1000"
               >
                 <img
                   className="w-[15px] h-[15px]"
@@ -52,7 +52,7 @@ const Footer = () => {
               </Link>
               <Link
                 to={"#"}
-                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center"
+                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center hover:bg-gray-300 transition-all duration-1000"
               >
                 <img
                   className="w-[15px] h-[15px]"

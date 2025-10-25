@@ -1,7 +1,7 @@
-import Hero from "../components/Hero";
-import MissionSection from "../components/MissionSection";
+import Hero from "../components/sections/Hero";
+import MissionSection from "../components/sections/MissionSection";
 import ManOnBlue from "../assets/images/man-on-blue.jpg";
-import Footer from "../components/Footer";
+import Footer from "../components/sections/Footer";
 
 const About = () => {
   return (

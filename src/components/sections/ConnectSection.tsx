@@ -1,27 +1,27 @@
-import Button from "./ui/Button.tsx";
+import Button from "../ui/Button.tsx";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
-import nigerianFlagIcon from "../assets/icons/flags/nigerian-flag-icon.svg";
-import mexicanFlagIcon from "../assets/icons/flags/mexican-flag-icon.svg";
-import argentineFlagIcon from "../assets/icons/flags/argentine-flag-icon.svg";
-import americanFlagIcon from "../assets/icons/flags/american-flag-icon.svg";
-import dutchFlagIcon from "../assets/icons/flags/dutch-flag-icon.svg";
-import australianFlagIcon from "../assets/icons/flags/australian-flag-icon.svg";
-import playIcon from "../assets/icons/play-icon.svg";
-import manOnWhite from "../assets/images/man-on-white.jpg";
-import manOnBlue from "../assets/images/man-on-blue.jpg";
-import womanOnRed from "../assets/images/banners/main-banner3.jpg";
-import whatsappBgImg from "../assets/images/social-media-backgrounds/whatsapp-bg-img.jpg";
-import whatsappIcon from "../assets/icons/social-icons/white-social-icons/white-whatsapp-icon.svg";
-import linkedinIcon from "../assets/icons/social-icons/white-social-icons/white-linkedin-icon.svg";
-import facebookBgImg from "../assets/images/social-media-backgrounds/facebook-bg-img.jpg";
-import facebookIcon from "../assets/icons/social-icons/white-social-icons/white-facebook-icon.svg";
-import youtubeBgImg from "../assets/images/social-media-backgrounds/youtube-bg-img.jpg";
-import youtubeIcon from "../assets/icons/social-icons/white-social-icons/white-youtube-icon.svg";
-import twitterBgImg from "../assets/images/banners/main-banner2.jpg";
-import twitterIcon from "../assets/icons/social-icons/white-social-icons/white-twitter-icon.svg";
-import instagramBgImg from "../assets/images/social-media-backgrounds/instagram-bg-img.jpg";
-import instagramIcon from "../assets/icons/social-icons/white-social-icons/white-instagram-icon.svg";
+import nigerianFlagIcon from "../../assets/icons/flags/nigerian-flag-icon.svg";
+import mexicanFlagIcon from "../../assets/icons/flags/mexican-flag-icon.svg";
+import argentineFlagIcon from "../../assets/icons/flags/argentine-flag-icon.svg";
+import americanFlagIcon from "../../assets/icons/flags/american-flag-icon.svg";
+import dutchFlagIcon from "../../assets/icons/flags/dutch-flag-icon.svg";
+import australianFlagIcon from "../../assets/icons/flags/australian-flag-icon.svg";
+import playIcon from "../../assets/icons/play-icon.svg";
+import manOnWhite from "../../assets/images/man-on-white.jpg";
+import manOnBlue from "../../assets/images/man-on-blue.jpg";
+import womanOnRed from "../../assets/images/banners/main-banner3.jpg";
+import whatsappBgImg from "../../assets/images/social-media-backgrounds/whatsapp-bg-img.jpg";
+import whatsappIcon from "../../assets/icons/social-icons/white-social-icons/white-whatsapp-icon.svg";
+import linkedinIcon from "../../assets/icons/social-icons/white-social-icons/white-linkedin-icon.svg";
+import facebookBgImg from "../../assets/images/social-media-backgrounds/facebook-bg-img.jpg";
+import facebookIcon from "../../assets/icons/social-icons/white-social-icons/white-facebook-icon.svg";
+import youtubeBgImg from "../../assets/images/social-media-backgrounds/youtube-bg-img.jpg";
+import youtubeIcon from "../../assets/icons/social-icons/white-social-icons/white-youtube-icon.svg";
+import twitterBgImg from "../../assets/images/banners/main-banner2.jpg";
+import twitterIcon from "../../assets/icons/social-icons/white-social-icons/white-twitter-icon.svg";
+import instagramBgImg from "../../assets/images/social-media-backgrounds/instagram-bg-img.jpg";
+import instagramIcon from "../../assets/icons/social-icons/white-social-icons/white-instagram-icon.svg";
 
 const ConnectSection = () => {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ const ConnectSection = () => {
           </h5>
           <p className="text-3xl font-trajan">Find Us From Around The Globe</p>
         </div>
-        <div className="flex flex-col gap-8 px-2 xl:gap-20">  
+        <div className="flex flex-col gap-8 px-2 xl:gap-20">
           <div className="flex justify-center gap-4 xl:gap-32">
             <Button
               variant={buttonVariants[0]}
@@ -66,14 +66,12 @@ const ConnectSection = () => {
             </Button>
           </div>
           <div className="flex flex-col w-full h-[491px] xl:h-[630px] py-6 md:pt-16 md:pb-10 px-4 md:px-12 rounded-[25px] xl:rounded-[30px] bg-gradient-to-b md:bg-gradient-to-l from-white to-[#DBE2FD] lg:shadow-4xl">
-
             {/* Partners Section */}
             <div
               className={`${
                 buttonVariants[0] === "primary" ? "flex" : "hidden"
               } flex-col gap-10 xl:gap-16 items-center justify-center w-full h-full`}
             >
-
               {/* For Desktop */}
               <div className="flex items-center gap-12">
                 <div className="flex flex-col gap-6 lg:w-[35%] xl:w-[46%]">
@@ -109,7 +107,9 @@ const ConnectSection = () => {
                     </div>
                     <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
                       <img src={americanFlagIcon} alt="American Flag" />
-                      <p className="text-tertiary uppercase font-bold text-xl">U.S.A</p>
+                      <p className="text-tertiary uppercase font-bold text-xl">
+                        U.S.A
+                      </p>
                     </div>
                     <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
                       <img src={mexicanFlagIcon} alt="Mexican Flag" />

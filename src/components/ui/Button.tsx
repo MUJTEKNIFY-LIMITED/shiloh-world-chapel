@@ -23,7 +23,7 @@ const Button = ({
   ...props
 }: ButtonProps) => {
   const base =
-    "flex items-center justify-center p-[10px] w-[113px] h-[33px] rounded-[50px] font-semibold transition duration-700 z-10";
+    "flex items-center justify-center p-[10px] w-[113px] h-[33px] rounded-[50px] font-semibold transition-all duration-1000 z-10";
   const variants = {
     primary:
       "xl:px-[52px] xl:py-[18px] xl:w-[232px] xl:h-[58px] bg-primary text-white text-xs xl:text-base",
@@ -46,7 +46,6 @@ const Button = ({
     hoverShadowPrimary:
       "xl:px-[52px] xl:py-[18px] xl:w-[232px] xl:h-[58px] bg-primary text-white text-xs xl:text-base shadow-5xl hover:bg-white hover:text-primary hover:border-2 hover:border-primary",
   };
-
 
   return (
     <button

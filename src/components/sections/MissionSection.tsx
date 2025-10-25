@@ -1,11 +1,11 @@
-import auctionLogo from "../assets/icons/auction.svg";
-import visionLogo from "../assets/icons/vision.svg";
-import goalLogo from "../assets/icons/goal.svg";
+import auctionLogo from "../../assets/icons/auction.svg";
+import visionLogo from "../../assets/icons/vision.svg";
+import goalLogo from "../../assets/icons/goal.svg";
 
 const MissionSection = () => {
   return (
     <>
-      <section className="h-fit lg:h-screen bg-white flex flex-col text-center gap-24 px-6 md:px-8 lg:px-24 lg:pt-20 mx-4 mt-14 mb-20">
+      <section className="h-fit lg:h-screen bg-white flex flex-col text-center gap-24 px-6 md:px-8 lg:px-24 lg:pt-20 mx-4 mt-14 mb-40 lg:mb-20">
         <div className="flex flex-col gap-4">
           <h5 className="text-xl text-primary font-semibold">SWC MINISTRY</h5>
           <p className="text-3xl font-trajan">The Arena Of Fire And Favour</p>

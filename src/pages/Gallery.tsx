@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Hero from "../components/Hero";
+import Hero from "../components/sections/Hero.tsx";
 import { images } from "../assets/data/gallery";
 import Pagination from "../components/Pagination.tsx";
-import Footer from "../components/Footer";
+import Footer from "../components/sections/Footer.tsx";
 
 const Gallery = () => {
   const [activePage, setActivePage] = useState(1);
