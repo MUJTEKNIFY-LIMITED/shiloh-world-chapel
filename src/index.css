@@ -20,3 +20,25 @@ body {
   font-family: "Galano Grotesque", "sans-serif";
 }
 
+/* Custom media progress bar styles */
+.media-progress-track {
+  background: #fff;
+  touch-action: none; /* prevent scrolling while dragging on touch devices */
+  z-index: 40; /* ensure track receives pointer events above overlays */
+}
+.media-progress-filled {
+  transition: width 120ms linear;
+}
+.media-progress-thumb {
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: #071b65;
+  border: 3px solid rgba(0, 0, 0, 0.16);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  pointer-events: none; /* pointer events handled on track */
+}
+
+/* Make thumb visible and larger on focus to indicate keyboard focus */
+.media-progress-track:focus .media-progress-thumb {
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.06);
+}

@@ -1,4 +1,3 @@
-import arrowBackIcon from "../assets/icons/arrows/arrow-back-icon.svg";
 import bookCoverImg from "../assets/images/books/book-cover-img.png";
 import facebookIcon from "./../assets/icons/social-icons/black-social-icons/black-facebook-icon.svg";
 import instagramIcon from "./../assets/icons/social-icons/black-social-icons/black-instagram-icon.svg";
@@ -8,6 +7,7 @@ import keyboardArrowDown from "../assets/icons/arrows/keyboard_arrow_down.svg";
 import flutterwaveIcon from "../assets/icons/flutterwave-icon.svg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import BackButton from "../components/ui/BackButton";
 
 const BookPurchase = () => {
   useEffect(() => {
@@ -16,20 +16,22 @@ const BookPurchase = () => {
 
   return (
     <>
-      <main className="h-fit flex flex-col lg:flex-row lg:justify-center gap-10 px-4 lg:px-20 pt-10 pb-20 lg:py-20">
-        <button
-          className="flex items-center justify-center w-[47px] h-[47px] p-[11px] border-[3px] border-fifth rounded-[10px] hover:border-black transition-all duration-1000"
+      <main className="h-fit flex flex-col lg:flex-row lg:justify-center gap-10 px-4 lg:px-40 pt-10 pb-20 lg:py-20">
+        <BackButton
           onClick={() => window.history.back()}
-        >
-          <img src={arrowBackIcon} alt="Arrow Back Icon" />
-        </button>
-        <div className="flex flex-col lg:flex-row items-center lg:justify-center gap-12">
+          onKeyDown={(e) => {
+            if (e.key === "Escape") {
+              window.history.back();
+            }
+          }}
+        />
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
           <img
             src={bookCoverImg}
             alt="Book Cover"
             className="w-[264px] lg:w-[400px] h-[367px] lg:h-[557px]"
           />
-          <div className="flex flex-col gap-10 lg:w-[40%]">
+          <div className="flex flex-col gap-10">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">
                 <p className="text-4xl max-w-lg font-semibold leading-snug">

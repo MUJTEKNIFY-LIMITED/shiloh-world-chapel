@@ -3,10 +3,12 @@ import Hero from "../components/sections/Hero.tsx";
 import { sermonViewButton } from "../assets/data/sermons-data";
 import playButtonArrowhead from "../assets/icons/play-button-arrowhead.svg";
 import musicPlayerIcon from "../assets/icons/music-player-icon.svg";
+import { useNavigate } from "react-router-dom";
 import Pagination from "../components/Pagination.tsx";
 import Footer from "../components/sections/Footer.tsx";
 
 const Sermons = () => {
+  const navigate = useNavigate();
   const [activePage, setActivePage] = useState(1);
 
   // Responsive pagination: 4 per page on mobile, 9 per page on lg+
@@ -47,7 +49,10 @@ const Sermons = () => {
       <section className="flex flex-col items-center gap-12 lg:gap-28 mt-20 lg:mt-32 mb-24 xl:mb-32 mx-4 lg:mx-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
           {paginatedSermons.map((sermon, idx) => (
-            <div
+            <button
+              onClick={() =>
+                navigate("/sermon-media-player", { state: sermon })
+              }
               key={startIdx + idx}
               className="w-[360px] h-[223px] rounded-[25px] p-2 shadow-5xl flex flex-col gap-4 border-2 border-secondary bg-white"
             >
@@ -64,11 +69,11 @@ const Sermons = () => {
                   </button>
                 </div>
               </div>
-              <div className="flex flex-col ml-4">
+              <div className="flex flex-col items-start ml-4 mb-2">
                 <h2 className="font-semibold text-xl">{sermon.title}</h2>
                 <p className="text-tertiary text-xs">{sermon.date}</p>
               </div>
-            </div>
+            </button>
           ))}
         </div>
         <Pagination

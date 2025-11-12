@@ -12,6 +12,7 @@ type Sermons = {
   image: string;
   title: string;
   date: string;
+  audioSrc?: string;
 };
 
 export const sermonViewButton: Sermons[] = [
@@ -19,45 +20,54 @@ export const sermonViewButton: Sermons[] = [
     image: Image1,
     title: "Jesus Came To Bring Joy",
     date: "August 17th, 2025",
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
   },
   {
     image: Image2,
     title: "Jesus Came To Bring Joy",
     date: "August 17th, 2025",
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
   },
   {
     image: Image3,
     title: "Jesus Came To Bring Joy",
     date: "August 17th, 2025",
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
   },
   {
     image: Image4,
     title: "Jesus Came To Bring Joy",
     date: "August 17th, 2025",
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
   },
   {
     image: Image5,
     title: "Jesus Came To Bring Joy",
     date: "August 17th, 2025",
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
   },
   {
     image: Image6,
     title: "Jesus Came To Bring Joy",
     date: "August 17th, 2025",
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
   },
   {
     image: Image7,
     title: "Jesus Came To Bring Joy",
     date: "August 17th, 2025",
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
   },
   {
     image: Image8,
     title: "Jesus Came To Bring Joy",
     date: "August 17th, 2025",
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
   },
   {
     image: Image9,
     title: "Jesus Came To Bring Joy",
     date: "August 17th, 2025",
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
   },
 ];

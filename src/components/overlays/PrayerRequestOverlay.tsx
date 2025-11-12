@@ -1,4 +1,4 @@
-import cancelIcon from "../../assets/icons/cancel-icon.svg";
+import BackButton from "../ui/BackButton";
 import Form from "../Form";
 import { useEffect, useRef } from "react";
 
@@ -67,15 +67,10 @@ const PrayerRequestOverlay = ({
         }`}
       >
         <div className="flex flex-col lg:flex-row-reverse gap-6 lg:justify-between lg:items-center">
-          <div
-            role="button"
-            tabIndex={0}
+          <BackButton
             onClick={onClose}
             onKeyDown={(e) => e.key === "Escape" && onClose()}
-            className="w-[47px] h-[47px] p-[11px] flex items-center justify-center rounded-[10px] border-2 border-fifth cursor-pointer hover:scale-110 transition-all duration-1000"
-          >
-            <img src={cancelIcon} alt="Cancel Icon" />
-          </div>
+          />
           <div className="flex flex-col w-fit">
             <h5 className="text-primary font-semibold text-[36px] max-w-[35rem]">
               Prayer Request Data Form

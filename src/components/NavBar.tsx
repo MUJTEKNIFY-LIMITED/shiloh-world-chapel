@@ -1,12 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/icons/chimalogo4.svg";
 import hamburgerIcon from "../assets/icons/hamburger-icon.svg";
+import blueHamburgerIcon from "../assets/icons/blue-hamburger-icon.svg";
 import britishFlagIcon from "../assets/icons/flags/british-flag-icon.svg";
 import MinistryOverlay from "./overlays/MinistryOverlay";
 import LanguageOverlay from "./overlays/LanguageOverlay";
 import MobileMenu from "./overlays/MobileMenu";
 const NavBar = () => {
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageOverlayOpen, setIsLanguageOverlayOpen] = useState(false);
   const [isMinistryOverlayOpen, setIsMinistryOverlayOpen] = useState(false);
@@ -23,7 +25,13 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="relative flex justify-between items-center z-20">
+      <nav
+        className={`relative flex justify-between items-center z-20 ${
+          location.pathname === "/sermon-media-player"
+            ? "mt-4 mx-8 md:mx-10 lg:mx-16 xl:mx-24"
+            : null
+        }`}
+      >
         <img
           src={logo}
           alt="Logo"
@@ -32,7 +40,14 @@ const NavBar = () => {
 
         {/* Mobile Menu Icon */}
         <button onClick={toggleMobile} className="lg:hidden">
-          <img src={hamburgerIcon} alt="Menu" />
+          <img
+            src={`${
+              location.pathname === "/sermon-media-player"
+                ? blueHamburgerIcon
+                : hamburgerIcon
+            }`}
+            alt="Menu"
+          />
         </button>
 
         {/* Mobile Menu Dropdown */}
@@ -44,55 +59,79 @@ const NavBar = () => {
 
         {/* Desktop Menu */}
 
-        <div className="hidden lg:flex gap-8 font-galano text-[16px]">
+        <div className="hidden lg:flex gap-8">
           <NavLink
             to="/"
-            className="text-white hover:text-primary transition-all duration-1000"
+            className={`hover:text-primary hover:scale-105 transition-all duration-1000 ${
+              location.pathname === "/sermon-media-player"
+                ? "text-primary"
+                : "text-white"
+            }`}
           >
             HOME
           </NavLink>
           <NavLink
             to="/about"
-            className="text-white hover:text-primary transition-all duration-1000"
+            className={`hover:text-primary hover:scale-105 transition-all duration-1000 ${
+              location.pathname === "/sermon-media-player"
+                ? "text-primary"
+                : "text-white"
+            }`}
           >
             ABOUT
           </NavLink>
           <NavLink
             to="/foundation"
-            className="text-white hover:text-primary transition-all duration-1000"
+            className={`hover:text-primary hover:scale-105 transition-all duration-1000 ${
+              location.pathname === "/sermon-media-player"
+                ? "text-primary"
+                : "text-white"
+            }`}
           >
             FOUNDATION NEEDS
           </NavLink>
           <div>
-          <button
-            onClick={toggleMinistry}
-            className="relative text-white flex items-center justify-center transition-all duration-1000 gap-2 group hover:text-primary"
-          >
-            MINISTRY
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-4 h-4 text-white group-hover:text-primary transition-all duration-1000"
+            <button
+              onClick={toggleMinistry}
+              className={`relative flex items-center justify-center transition-all duration-1000 gap-2 group hover:text-primary hover:scale-105 ${
+                location.pathname === "/sermon-media-player"
+                  ? "text-primary"
+                  : "text-white"
+              }`}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-            {/* Ministry Overlay Dropdown */}
-            <MinistryOverlay
-              isOpen={isMinistryOverlayOpen}
-              onClose={() => setIsMinistryOverlayOpen(false)}
-            ></MinistryOverlay>
-          </button>
+              MINISTRY
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className={`w-4 h-4 group-hover:text-primary group-hover:scale-105 transition-all duration-1000 ${
+                  location.pathname === "/sermon-media-player"
+                    ? "text-primary"
+                    : "text-white"
+                }`}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+              {/* Ministry Overlay Dropdown */}
+              <MinistryOverlay
+                isOpen={isMinistryOverlayOpen}
+                onClose={() => setIsMinistryOverlayOpen(false)}
+              ></MinistryOverlay>
+            </button>
           </div>
           <NavLink
             to="/contact"
-            className="text-white hover:text-primary transition-all duration-1000"
+            className={`hover:text-primary hover:scale-105 transition-all duration-1000 ${
+              location.pathname === "/sermon-media-player"
+                ? "text-primary"
+                : "text-white"
+            }`}
           >
             CONTACT
           </NavLink>
@@ -102,7 +141,13 @@ const NavBar = () => {
           <button onClick={toggleLanguage} className="flex items-center gap-2">
             <img src={britishFlagIcon} alt="Language" className="w-6 h-6" />
             <div className="flex items-center gap-1 group">
-              <p className="text-white group-hover:text-primary transition-all duration-1000">
+              <p
+                className={`group-hover:text-primary group-hover:scale-105 transition-all duration-1000 ${
+                  location.pathname === "/sermon-media-player"
+                    ? "text-primary"
+                    : "text-white"
+                }`}
+              >
                 ENG
               </p>
               <svg
@@ -110,7 +155,11 @@ const NavBar = () => {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                className="w-4 h-4 text-white group-hover:text-primary transition-all duration-1000"
+                className={`w-4 h-4 group-hover:text-primary group-hover:scale-105 transition-all duration-1000 ${
+                  location.pathname === "/sermon-media-player"
+                    ? "text-primary"
+                    : "text-white"
+                }`}
               >
                 <path
                   strokeLinecap="round"
@@ -127,7 +176,11 @@ const NavBar = () => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className="w-5 h-5 text-white hover:text-primary transition-all duration-1000"
+              className={`w-5 h-5 hover:text-primary hover:scale-105 transition-all duration-1000 ${
+                location.pathname === "/sermon-media-player"
+                  ? "text-primary"
+                  : "text-white"
+              }`}
             >
               <circle
                 cx="11"

@@ -28,6 +28,7 @@ export default {
         fourth: "#355FA7",
         fifth: "#E9E9E9",
         sixth: "#D1D1D1",
+        seventh: "#D3D3D3"
       },
       boxShadow: {
         "3xl": "0px 0px 25px 0px #00000040",

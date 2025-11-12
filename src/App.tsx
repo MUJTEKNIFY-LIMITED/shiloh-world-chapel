@@ -8,6 +8,7 @@ import Contact from "./pages/Contact.tsx";
 import Partnerships from "./pages/Partnerships.tsx";
 import BookPurchase from "./pages/BookPurchase.tsx";
 import Foundation from "./pages/Foundation.tsx";
+import SermonMediaPlayer from "./pages/SermonMediaPlayer.tsx";
 
 
 const App = () =>  {
@@ -23,6 +24,7 @@ const App = () =>  {
         <Route path="/partnerships" element={<Partnerships />} />
         <Route path="/book-purchase" element={<BookPurchase />} />
         <Route path="/foundation" element={<Foundation />} />
+        <Route path="/sermon-media-player" element={<SermonMediaPlayer />} />
       </Routes>
     </BrowserRouter>
   );
