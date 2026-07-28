@@ -3,8 +3,8 @@ import Hero from "../components/sections/Hero.tsx";
 import {
   sermonViewButton,
   ministryCategories,
-  SermonCategory,
-  SermonItem,
+  type SermonCategory,
+  type SermonItem,
 } from "../assets/data/sermons-data";
 import playButtonArrowhead from "../assets/icons/play-button-arrowhead.svg";
 import { useNavigate } from "react-router-dom";

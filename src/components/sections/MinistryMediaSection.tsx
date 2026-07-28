@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { sermonViewButton, SermonItem, SermonCategory, ministryCategories } from "../../assets/data/sermons-data";
+import { sermonViewButton, ministryCategories, type SermonItem, type SermonCategory } from "../../assets/data/sermons-data";
 import { useNavigate } from "react-router-dom";
 
 const MinistryMediaSection: React.FC = () => {
