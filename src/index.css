@@ -42,3 +42,36 @@ body {
 .media-progress-track:focus .media-progress-thumb {
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.06);
 }
+
+/* Cinematic Ken Burns Hero Slider Animation */
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 12s ease-in-out infinite alternate;
+}
+
+/* Fade in animation for popups and modals */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

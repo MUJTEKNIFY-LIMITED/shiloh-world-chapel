@@ -1,18 +1,35 @@
-type Testimonial = {
+export type Testimonial = {
+  id: string;
   title: string;
   text: string;
   author: string;
+  videoUrl?: string;
+  isVideo?: boolean;
+  category?: string;
 };
 
 export const testimonials: Testimonial[] = [
   {
-    title: "“HEALED OF INSANITY BY DIVINE TOUCH”",
-    text: "orem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat blandit purus ac tempus. Nam elementum est ornare enim consequat, quis rutrum tortor pharetra. Fusce vitae nibh vitae risus fermentum fringilla nec fringilla ipsum. In fermentum rhoncus enim accumsan sagittis. Vivamus laoreet accumsan vehicula. Quisque in accumsan nisl, ut pellentesque lectus. Phasellus mattis lacinia lorem, sed faucibus mi malesuada sed. Aenean sit amet pharetra leo. Vivamus posuere justo non purus pellentesque fringilla.orem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat blandit purus ac tempus. Nam elementum est ornare enim consequat, quis rutrum tortor pharetra. Fusce vitae nibh vitae risus fermentum fringilla nec fringilla ipsum. In fermentum rhoncus enim accumsan sagittis. Vivamus laoreet accumsan vehicula. Quisque in accumsan nisl, ut pellentesque lectus. Phasellus mattis lacinia lorem, sed faucibus mi malesuada sed. Aenean sit amet pharetra leo. Vivamus posuere justo non purus pellentesque fringilla.",
-    author: "FLORENCE NWAIWU, IMO STATE",
+    id: "mind-blowing-breakthrough",
+    title: "MIND-BLOWING BREAKTHROUGH TESTIMONY",
+    text: "Watch this incredible live testimony of divine intervention, financial release, and supernatural breakthrough experienced through the prophetic ministry at Shiloh Word Chapel.",
+    author: "TESTIMONY OF TRANSFORMATION",
+    videoUrl: "https://web.facebook.com/share/v/1KVw8yBMNs/",
+    isVideo: true,
+    category: "Supernatural Breakthrough",
   },
   {
-    title: "“SAFE DELIVERY FROM LEG ULCER VIA PROPHECY”",
-    text: "orem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat blandit purus ac tempus. Nam elementum est ornare enim consequat, quis rutrum tortor pharetra. Fusce vitae nibh vitae risus fermentum fringilla nec fringilla ipsum. In fermentum rhoncus enim accumsan sagittis. Vivamus laoreet accumsan vehicula. Quisque in accumsan nisl, ut pellentesque lectus. Phasellus mattis lacinia lorem, sed faucibus mi malesuada sed. Aenean sit amet pharetra leo. Vivamus posuere justo non purus pellentesque fringilla.orem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat blandit purus ac tempus. Nam elementum est ornare enim consequat, quis rutrum tortor pharetra. Fusce vitae nibh vitae risus fermentum fringilla nec fringilla ipsum. In fermentum rhoncus enim accumsan sagittis. Vivamus laoreet accumsan vehicula. Quisque in accumsan nisl, ut pellentesque lectus. Phasellus mattis lacinia lorem, sed faucibus mi malesuada sed. Aenean sit amet pharetra leo. Vivamus posuere justo non purus pellentesque fringilla.",
+    id: "healed-of-insanity",
+    title: "HEALED OF INSANITY BY DIVINE TOUCH",
+    text: "Restoration of mental health and total deliverance from mental affliction following prophetic prayer and laying on of hands during Sunday worship service.",
+    author: "FLORENCE NWAIWU, IMO STATE",
+    category: "Miracle Healing",
+  },
+  {
+    id: "safe-delivery-leg-ulcer",
+    title: "SAFE DELIVERY FROM LEG ULCER VIA PROPHECY",
+    text: "Long-standing chronic leg ulcer completely dried up and healed after prophetic word of knowledge and anointed prayerline encounter.",
     author: "MRS OKEKE, ANAMBRA STATE",
+    category: "Prophetic Healing",
   },
 ];
