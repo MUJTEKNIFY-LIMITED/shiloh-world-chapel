@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import Hero from "../components/sections/Hero.tsx";
-import {
-  sermonViewButton,
-  ministryCategories,
-  type SermonCategory,
-  type SermonItem,
-} from "../assets/data/sermons-data";
+import { sermonViewButton, ministryCategories } from "../assets/data/sermons-data";
+import type { SermonCategory, SermonItem } from "../assets/data/sermons-data";
 import playButtonArrowhead from "../assets/icons/play-button-arrowhead.svg";
 import { useNavigate } from "react-router-dom";
 import Pagination from "../components/Pagination.tsx";
