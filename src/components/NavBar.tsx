@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/icons/chimalogo4.svg";
-import hamburgerIcon from "../assets/icons/hamburger-icon.svg";
+import hamburgerIcon from "../assets/icons/hamburger-Icon.svg";
 import blueHamburgerIcon from "../assets/icons/blue-hamburger-icon.svg";
 import britishFlagIcon from "../assets/icons/flags/british-flag-icon.svg";
 import MinistryOverlay from "./overlays/MinistryOverlay";
