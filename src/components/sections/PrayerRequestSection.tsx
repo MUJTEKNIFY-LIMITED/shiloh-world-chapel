@@ -1,6 +1,6 @@
 import unionLeft2 from "../../assets/images/Union4.png";
 import unionRight2 from "../../assets/images/Union3.png";
-import prophetImg from "../../assets/images/new_media/Prophet 1.jpg";
+import slider2 from "../../assets/images/new_media/Slider 2.jpg";
 import { useState } from "react";
 import PrayerRequestOverlay from "../overlays/PrayerRequestOverlay";
 
@@ -23,8 +23,8 @@ const PrayerRequestSection = () => {
               className="absolute -left-4 -top-4 w-3/4 opacity-40 pointer-events-none"
             />
             <img
-              src={prophetImg}
-              alt="Prophet I.O Samuel Praying"
+              src={slider2}
+              alt="Prophet I.O Samuel Ministering Prayer"
               className="relative z-10 w-4/5 h-4/5 object-cover object-top rounded-3xl shadow-2xl border-4 border-[#D9A229]/40"
             />
             <img

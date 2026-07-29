@@ -6,10 +6,16 @@ import type { SermonItem } from "../../assets/data/sermons-data";
 
 const TestimonialSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [activeMediaItem, setActiveMediaItem] = useState<SermonItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const activeTestimony = testimonials[activeIndex];
+
+  const handleSelectTestimony = (idx: number) => {
+    setActiveIndex(idx);
+    setIsExpanded(false);
+  };
 
   const handleOpenTestimonyVideo = (videoUrl?: string, title?: string) => {
     if (!videoUrl) return;
@@ -44,7 +50,7 @@ const TestimonialSection = () => {
           </div>
 
           {/* Featured Testimony Card */}
-          <div className="relative rounded-3xl p-6 sm:p-10 bg-gradient-to-br from-[#071b65] via-[#0b2685] to-[#040c29] text-white shadow-2xl overflow-hidden flex flex-col lg:flex-row items-center gap-8 lg:gap-12 border border-[#D9A229]/40">
+          <div className="relative rounded-3xl p-6 sm:p-10 bg-gradient-to-br from-[#071b65] via-[#0b2685] to-[#040c29] text-white shadow-2xl overflow-hidden flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12 border border-[#D9A229]/40 transition-all duration-300">
             {/* Background Decorative Accent */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-[#D9A229]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -79,8 +85,8 @@ const TestimonialSection = () => {
               </div>
             )}
 
-            {/* Right: Content & Single-line CTA */}
-            <div className="flex-1 flex flex-col text-left gap-4">
+            {/* Right: Content & Read More / Show Less */}
+            <div className="flex-1 flex flex-col text-left gap-4 w-full">
               {activeTestimony.category && (
                 <span className="text-xs font-bold uppercase tracking-wider text-[#D9A229] font-trajan">
                   {activeTestimony.category}
@@ -89,13 +95,34 @@ const TestimonialSection = () => {
               <h3 className="text-xl sm:text-2xl font-bold font-trajan leading-tight text-white">
                 “{activeTestimony.title}”
               </h3>
-              <p className="text-xs sm:text-sm text-white/85 leading-relaxed font-sans">
-                {activeTestimony.text}
-              </p>
+
+              {/* Testimony Text & Read More */}
+              <div className="flex flex-col gap-2">
+                <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-sans transition-all duration-300">
+                  {isExpanded ? activeTestimony.fullText : activeTestimony.shortText}
+                </p>
+                {!activeTestimony.isVideo && activeTestimony.fullText !== activeTestimony.shortText && (
+                  <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="text-xs font-bold text-[#D9A229] hover:underline w-fit uppercase font-trajan tracking-wider mt-1 focus:outline-none"
+                  >
+                    {isExpanded ? "Show less" : "Read more"}
+                  </button>
+                )}
+              </div>
+
               <div className="pt-3 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <span className="text-xs sm:text-sm font-bold text-[#D9A229] font-trajan">
-                  — {activeTestimony.author}
-                </span>
+                <div>
+                  <span className="text-xs sm:text-sm font-bold text-[#D9A229] font-trajan block">
+                    — {activeTestimony.author}
+                  </span>
+                  {activeTestimony.location && (
+                    <span className="text-[11px] text-gray-300 font-sans block">
+                      {activeTestimony.location}
+                    </span>
+                  )}
+                </div>
+
                 {activeTestimony.videoUrl && (
                   <button
                     onClick={() => handleOpenTestimonyVideo(activeTestimony.videoUrl, activeTestimony.title)}
@@ -108,19 +135,19 @@ const TestimonialSection = () => {
             </div>
           </div>
 
-          {/* Carousel Buttons */}
+          {/* Carousel / Tab Selection Buttons */}
           <div className="flex justify-center items-center gap-2 sm:gap-3 flex-wrap">
             {testimonials.map((t, idx) => (
               <button
                 key={t.id || idx}
-                onClick={() => setActiveIndex(idx)}
+                onClick={() => handleSelectTestimony(idx)}
                 className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 whitespace-nowrap ${
                   activeIndex === idx
                     ? "bg-[#071b65] text-white shadow-md"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
                 }`}
               >
-                {t.isVideo ? "📹 Video Testimony" : `Testimony ${idx + 1}`}
+                {t.isVideo ? "📹 Video Testimony" : t.author.split(" ")[0] + " Testimony"}
               </button>
             ))}
           </div>

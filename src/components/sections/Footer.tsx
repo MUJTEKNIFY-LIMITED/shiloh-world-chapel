@@ -9,116 +9,111 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <>
-      <footer className="bg-primary flex flex-col gap-10 xl:gap-32 pt-16 pb-6 text-white">
-        <div className="flex flex-col xl:flex-row gap-16 mx-4 xl:mx-16 xl:justify-between">
-          <div className="flex flex-col gap-6">
-            <h5 className="font-bold text-3xl">Shiloh Word Chapel</h5>
-            <p className="xl:max-w-md">
-              orem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat
-              blandit purus ac tempus. Nam elementum est ornare enim consequat,
-              quis rutrum tortor pharetra. Fusce vitae nibh
-            </p>
-            <div className="flex gap-4">
-              <Link
-                to={"#"}
-                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center hover:bg-gray-300 transition-all duration-1000"
-              >
-                <img
-                  className="w-[15px] h-[15px]"
-                  src={facebookIcon}
-                  alt="Facebook Icon"
-                />
-              </Link>
-              <Link
-                to={"#"}
-                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center hover:bg-gray-300 transition-all duration-1000"
-              >
-                <img
-                  className="w-[15px] h-[15px]"
-                  src={instagramIcon}
-                  alt="Instagram Icon"
-                />
-              </Link>
-              <Link
-                to={"#"}
-                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center hover:bg-gray-300 transition-all duration-1000"
-              >
-                <img
-                  className="w-[15px] h-[15px]"
-                  src={twitterIcon}
-                  alt="Twitter Icon"
-                />
-              </Link>
-              <Link
-                to={"#"}
-                className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center hover:bg-gray-300 transition-all duration-1000"
-              >
-                <img
-                  className="w-[15px] h-[15px]"
-                  src={youtubeIcon}
-                  alt="Youtube Icon"
-                />
-              </Link>
-            </div>
+    <footer className="bg-[#071b65] flex flex-col gap-12 pt-16 pb-6 text-white border-t border-[#D9A229]/30">
+      <div className="flex flex-col xl:flex-row gap-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full justify-between">
+        
+        {/* Ministry Info & Social Links */}
+        <div className="flex flex-col gap-6 max-w-md">
+          <h4 className="font-bold text-2xl font-trajan text-[#D9A229]">Shiloh Word Chapel</h4>
+          <p className="text-xs sm:text-sm text-gray-200 font-sans leading-relaxed">
+            Shiloh Word Chapel is a prophetic ministry committed to prayer, the Word, healing, deliverance and transforming lives through the power of Jesus Christ.
+          </p>
+          <div className="flex gap-3">
+            <a
+              href="https://web.facebook.com/shilohwordchapel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:bg-[#D9A229] transition-colors shadow"
+              aria-label="Facebook"
+            >
+              <img className="w-4 h-4" src={facebookIcon} alt="Facebook" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:bg-[#D9A229] transition-colors shadow"
+              aria-label="Instagram"
+            >
+              <img className="w-4 h-4" src={instagramIcon} alt="Instagram" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:bg-[#D9A229] transition-colors shadow"
+              aria-label="Twitter"
+            >
+              <img className="w-4 h-4" src={twitterIcon} alt="Twitter" />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:bg-[#D9A229] transition-colors shadow"
+              aria-label="YouTube"
+            >
+              <img className="w-4 h-4" src={youtubeIcon} alt="YouTube" />
+            </a>
           </div>
-          <div className="flex flex-col gap-6 w-fit">
-            <h6 className="text-2xl font-bold">Our Support</h6>
-            <div className="flex flex-col gap-4">
-              <Link to={"#"}>Private Policies</Link>
-              <Link to={"#"}>Donate Now</Link>
-              <Link to={"#"}>Become A Volunteer</Link>
-              <Link to={"#"}>Careers</Link>
-              <Link to={"#"}>Partnerships</Link>
-            </div>
+        </div>
+
+        {/* Support & Quick Links */}
+        <div className="flex flex-col gap-4">
+          <h5 className="text-lg font-bold font-trajan text-[#D9A229]">Quick Links</h5>
+          <div className="flex flex-col gap-2.5 text-xs sm:text-sm text-gray-200 font-sans">
+            <Link to="/about" className="hover:text-[#D9A229] transition-colors">About Prophet I.O Samuel</Link>
+            <Link to="/foundation" className="hover:text-[#D9A229] transition-colors">Samaritan Foundation</Link>
+            <Link to="/partnerships" className="hover:text-[#D9A229] transition-colors">Partnerships & Giving</Link>
+            <Link to="/sermons" className="hover:text-[#D9A229] transition-colors">Sermons & Prophecies</Link>
+            <Link to="/events" className="hover:text-[#D9A229] transition-colors">Events & Services</Link>
+            <Link to="/privacy" className="hover:text-[#D9A229] transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-[#D9A229] transition-colors">Terms & Conditions</Link>
           </div>
-          <div className="flex flex-col gap-8">
-            <h6 className="text-2xl font-bold">Contact</h6>
-            <div className="flex flex-col gap-6">
-              <div className="flex gap-4 items-center">
-                <div className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center">
-                  <img src={callIcon} alt="Call Icon" />
-                </div>
-                <Link to={"+07030000004"}>08131978946</Link>
+        </div>
+
+        {/* Contact Info */}
+        <div className="flex flex-col gap-4">
+          <h5 className="text-lg font-bold font-trajan text-[#D9A229]">Contact Ministry</h5>
+          <div className="flex flex-col gap-4 text-xs sm:text-sm text-gray-200 font-sans">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0">
+                <img src={callIcon} alt="Phone" className="w-4 h-4" />
               </div>
-              <div className="flex gap-4 items-center">
-                <div className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center">
-                  <img src={mailIcon} alt="Mail Icon" />
-                </div>
-                <Link to={"shilohworldchapel.org/index.html"}>
-                  samueliykejesus@gmail.com
-                </Link>
+              <a href="tel:+2347030000004" className="hover:text-[#D9A229] transition-colors">+234 703 000 0004 / +234 813 197 8946</a>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0">
+                <img src={mailIcon} alt="Email" className="w-4 h-4" />
               </div>
-              <div className="flex gap-4 items-center">
-                <div className="w-[35px] h-[35px] rounded-[25px] bg-white flex items-center justify-center">
-                  <img src={locationPinIcon} alt="Location Pin Icon" />
-                </div>
-                <p className="max-w-xs md:max-w-full xl:max-w-xs">
-                  ALONG NEW KABUSA EXPRESS ROAD,APO MECHANIC VILLAGE,ABUJA.
-                </p>
+              <a href="mailto:samueliykejesus@gmail.com" className="hover:text-[#D9A229] transition-colors">samueliykejesus@gmail.com</a>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 mt-0.5">
+                <img src={locationPinIcon} alt="Location" className="w-4 h-4" />
               </div>
+              <span className="leading-snug max-w-xs">
+                Along New Kabusa Express Road, Apo Mechanic Village, Abuja, Nigeria.
+              </span>
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-6 justify-center text-center">
-          <h6 className="font-bold">
-            Powered By MUJTEKNIFY
-          </h6>
-          <hr className="w-full h-[0.5px]" />
-          <div className="flex flex-col xl:flex-row xl:justify-between xl:px-16 xl:py-6 gap-8">
-            <p>
-              Copyright © SHILOH WORD CHAPEL. All Rights Reserved by{" "}
-              <span className="underline">SHILOH</span>
-            </p>
-            <div className="flex gap-2 justify-center items-center">
-              <p>Terms And Conditions </p>
-              <hr className="w-6 h-[0.5px] rotate-90" />
-              <p>Privacy Policy</p>
-            </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col gap-4 text-center text-xs text-gray-400 pt-6 border-t border-white/10">
+        <span className="font-trajan font-semibold text-gray-300">Powered By MUJTEKNIFY</span>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>Copyright © SHILOH WORD CHAPEL. All Rights Reserved.</p>
+          <div className="flex gap-4">
+            <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            <span>•</span>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 };
 

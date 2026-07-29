@@ -59,38 +59,40 @@ const ConnectSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Tab Selection Pills */}
-          <div className="flex justify-center gap-3 flex-wrap">
-            <button
-              onClick={() => setActiveTab("prayerline")}
-              className={`px-6 py-3 rounded-full text-xs sm:text-sm font-bold font-trajan tracking-wider uppercase transition-all whitespace-nowrap ${
-                activeTab === "prayerline"
-                  ? "bg-[#071b65] text-white shadow-lg"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
-              }`}
-            >
-              PRAYERLINE & PARTNERS
-            </button>
-            <button
-              onClick={() => setActiveTab("watch")}
-              className={`px-6 py-3 rounded-full text-xs sm:text-sm font-bold font-trajan tracking-wider uppercase transition-all whitespace-nowrap ${
-                activeTab === "watch"
-                  ? "bg-[#071b65] text-white shadow-lg"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
-              }`}
-            >
-              WATCH LIVE TV
-            </button>
-            <button
-              onClick={() => setActiveTab("socials")}
-              className={`px-6 py-3 rounded-full text-xs sm:text-sm font-bold font-trajan tracking-wider uppercase transition-all whitespace-nowrap ${
-                activeTab === "socials"
-                  ? "bg-[#071b65] text-white shadow-lg"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
-              }`}
-            >
-              OUR SOCIAL MEDIA
-            </button>
+          {/* MOBILE & DESKTOP SINGLE ROW HORIZONTAL SCROLLING TABS */}
+          <div className="w-full overflow-x-auto pb-2 scrollbar-hide">
+            <div className="flex items-center justify-start sm:justify-center gap-3 min-w-max px-2">
+              <button
+                onClick={() => setActiveTab("prayerline")}
+                className={`px-5 sm:px-6 py-3 rounded-full text-xs sm:text-sm font-bold font-trajan tracking-wider uppercase transition-all whitespace-nowrap ${
+                  activeTab === "prayerline"
+                    ? "bg-[#071b65] text-white shadow-lg"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
+                }`}
+              >
+                PRAYERLINE & PARTNERS
+              </button>
+              <button
+                onClick={() => setActiveTab("watch")}
+                className={`px-5 sm:px-6 py-3 rounded-full text-xs sm:text-sm font-bold font-trajan tracking-wider uppercase transition-all whitespace-nowrap ${
+                  activeTab === "watch"
+                    ? "bg-[#071b65] text-white shadow-lg"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
+                }`}
+              >
+                WATCH LIVE TV
+              </button>
+              <button
+                onClick={() => setActiveTab("socials")}
+                className={`px-5 sm:px-6 py-3 rounded-full text-xs sm:text-sm font-bold font-trajan tracking-wider uppercase transition-all whitespace-nowrap ${
+                  activeTab === "socials"
+                    ? "bg-[#071b65] text-white shadow-lg"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
+                }`}
+              >
+                OUR SOCIAL MEDIA
+              </button>
+            </div>
           </div>
 
           {/* Main Card Container */}
@@ -123,8 +125,8 @@ const ConnectSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Country Flags Grid */}
-                <div className="w-full lg:w-1/2 grid grid-cols-3 gap-4">
+                {/* Country Flags Grid (Clean Typography / No Text Overflow) */}
+                <div className="w-full lg:w-1/2 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                   {[
                     { flag: nigerianFlagIcon, country: "Nigeria" },
                     { flag: americanFlagIcon, country: "U.S.A" },
@@ -135,10 +137,12 @@ const ConnectSection: React.FC = () => {
                   ].map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm gap-2 text-center"
+                      className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm gap-1.5 text-center min-w-0"
                     >
-                      <img src={item.flag} alt={`${item.country} Flag`} className="h-6 w-auto" />
-                      <span className="text-xs font-bold font-trajan uppercase text-white">{item.country}</span>
+                      <img src={item.flag} alt={`${item.country} Flag`} className="h-5 sm:h-6 w-auto shrink-0" />
+                      <span className="text-[10px] sm:text-xs font-bold font-trajan uppercase text-white truncate w-full px-1">
+                        {item.country}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -185,12 +189,12 @@ const ConnectSection: React.FC = () => {
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 w-full">
                   {[
-                    { icon: whatsappIcon, bg: whatsappBgImg, label: "WhatsApp", link: "https://wa.me/2348000000000" },
+                    { icon: whatsappIcon, bg: whatsappBgImg, label: "WhatsApp", link: "https://web.facebook.com/shilohwordchapel" },
                     { icon: facebookIcon, bg: facebookBgImg, label: "Facebook", link: "https://web.facebook.com/shilohwordchapel" },
-                    { icon: youtubeIcon, bg: youtubeBgImg, label: "YouTube", link: "https://youtube.com" },
-                    { icon: instagramIcon, bg: instagramBgImg, label: "Instagram", link: "https://instagram.com" },
-                    { icon: twitterIcon, bg: twitterBgImg, label: "X / Twitter", link: "https://twitter.com" },
-                    { icon: linkedinIcon, bg: womanOnRed, label: "LinkedIn", link: "https://linkedin.com" },
+                    { icon: youtubeIcon, bg: youtubeBgImg, label: "YouTube", link: "https://web.facebook.com/shilohwordchapel" },
+                    { icon: instagramIcon, bg: instagramBgImg, label: "Instagram", link: "https://web.facebook.com/shilohwordchapel" },
+                    { icon: twitterIcon, bg: twitterBgImg, label: "X / Twitter", link: "https://web.facebook.com/shilohwordchapel" },
+                    { icon: linkedinIcon, bg: womanOnRed, label: "LinkedIn", link: "https://web.facebook.com/shilohwordchapel" },
                   ].map((social, idx) => (
                     <a
                       key={idx}

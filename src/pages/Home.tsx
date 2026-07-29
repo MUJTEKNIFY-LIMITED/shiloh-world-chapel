@@ -4,6 +4,7 @@ import MissionSection from "../components/sections/MissionSection.tsx";
 import ConnectSection from "../components/sections/ConnectSection.tsx";
 import ProphetSection from "../components/sections/ProphetSection.tsx";
 import PrayerRequestSection from "../components/sections/PrayerRequestSection.tsx";
+import ProphetQuotesSection from "../components/sections/ProphetQuotesSection.tsx";
 import BookSection from "../components/sections/BookSection.tsx";
 import EventsSection from "../components/sections/EventsSection.tsx";
 import TestimonialSection from "../components/sections/TestimonialSection.tsx";
@@ -25,47 +26,50 @@ const Home = () => {
 
   return (
     <>
-      {/* 15th Anniversary Entry Promotional Modal */}
+      {/* 15th Anniversary Promotional Modal */}
       <AnniversaryModal onOpenVideoSection={scrollToAnniversaryVideo} />
 
       <main className="flex flex-col min-h-screen bg-white">
         {/* 1. Hero Section */}
         <Hero />
         
-        {/* 2. 15th Anniversary Prominent Feature Section */}
+        {/* 2. 15th Anniversary Feature Section */}
         <div ref={anniversarySectionRef}>
           <AnniversarySection />
         </div>
 
-        {/* 3. Ministry Pillars: Prophecy, Prayer, Healing & Deliverance */}
+        {/* 3. Ministry Pillars */}
         <MissionSection />
 
-        {/* 4. Recent Encounters, Prophecies & Sermons */}
+        {/* 4. Recent Encounters & Sermons */}
         <MinistryMediaSection />
 
         {/* 5. Shiloh International Prayer Line */}
         <ConnectSection />
 
-        {/* 6. About Prophet I.O Samuel */}
+        {/* 6. About Prophet I.O Samuel (LOCKED & UNCHANGED) */}
         <ProphetSection />
 
         {/* 7. Need Prayer? Stand in Faith */}
         <PrayerRequestSection />
 
-        {/* 8. Books & Resources */}
+        {/* 8. Restored Prophet Quotes Section */}
+        <ProphetQuotesSection />
+
+        {/* 9. Books & Resources Carousel */}
         <BookSection />
 
-        {/* 9. Upcoming Events */}
+        {/* 10. Upcoming Events (Anniversary First & Event Details Modal) */}
         <EventsSection />
 
-        {/* 10. Testimonies: What God Has Done */}
+        {/* 11. Testimonies: What God Has Done (Genuine written testimonies) */}
         <TestimonialSection />
 
-        {/* 11. Official Mobile App */}
+        {/* 12. Official Mobile App Section */}
         <DownloadAppSection />
       </main>
 
-      {/* 12. Footer */}
+      {/* 13. Footer */}
       <Footer />
     </>
   );

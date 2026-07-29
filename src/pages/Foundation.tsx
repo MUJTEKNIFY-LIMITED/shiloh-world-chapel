@@ -6,9 +6,9 @@ const Foundation = () => {
   return (
     <>
       <Hero />
-      <div className="flex flex-col gap-12 lg:gap-24 px-4 md:px-0 mt-16 mb-24 xl:mb-32 mx-4 lg:mx-24">
+      <main className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <CharitySection />
-      </div>
+      </main>
       <Footer />
     </>
   );
