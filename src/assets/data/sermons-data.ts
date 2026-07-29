@@ -1,18 +1,18 @@
-import Gallery1 from "../images/new_media/Gallery 1.jpg";
-import Gallery2 from "../images/new_media/Gallery 2.jpg";
-import Gallery3 from "../images/new_media/Gallery 3.jpg";
-import Gallery6 from "../images/new_media/Gallery 6.jpg";
-import Gallery7 from "../images/new_media/Gallery 7.jpg";
-import Gallery8 from "../images/new_media/Gallery 8.jpg";
-import Gallery10 from "../images/new_media/Gallery 10.jpg";
-import Gallery11 from "../images/new_media/Gallery 11.jpg";
-import Gallery12 from "../images/new_media/Gallery 12.jpg";
-import Gallery13 from "../images/new_media/Gallery 13.jpg";
-import Gallery15 from "../images/new_media/Gallery 15.jpg";
-import Gallery16 from "../images/new_media/Gallery 16.jpg";
-import Gallery17 from "../images/new_media/Gallery 17.jpg";
+import Prophet1 from "../images/new_media/Prophet 1.jpg";
+import Prophet2 from "../images/new_media/Prophet 2.jpg";
+import Prophet3 from "../images/new_media/Prophet 3.jpg";
+import Prophet4 from "../images/new_media/Prophet 4.jpg";
+import Prophet5 from "../images/new_media/Prophet 5.jpg";
+import Prophet6 from "../images/new_media/Prophet 6.jpg";
+import Prophet7 from "../images/new_media/Prophet 7.jpg";
+import Prophet10 from "../images/new_media/Prophet 10.jpg";
+import Prophet12 from "../images/new_media/Prophet 12.jpg";
+import Prophet13 from "../images/new_media/Prophet 13.webp";
+import ProphetCharm from "../images/new_media/Prophet Charm.jpg";
+import ProphetDeclaration from "../images/new_media/Prophet declaration.jpg";
+import ProphetOctopus from "../images/new_media/Prophet Octopus.jpg";
+import TestimonyImg from "../images/new_media/Testimony.png";
 import Slider9 from "../images/new_media/Slider 9.jpg";
-import Slider10 from "../images/new_media/Slider 10.jpg";
 
 export type SermonCategory =
   | "All"
@@ -22,7 +22,6 @@ export type SermonCategory =
   | "National Prophecies"
   | "Healing"
   | "Deliverance"
-  | "Prayerline Encounters"
   | "Testimonies"
   | "Encouraging Words";
 
@@ -36,6 +35,7 @@ export type SermonItem = {
   videoUrl: string;
   featured?: boolean;
   description?: string;
+  isPortrait?: boolean;
 };
 
 export const ministryCategories: SermonCategory[] = [
@@ -64,7 +64,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "prophetic-decree",
-    image: Gallery1,
+    image: ProphetDeclaration,
     title: "Prophetic Decree",
     speaker: "Prophet I.O Samuel",
     date: "Live Declaration",
@@ -75,7 +75,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "healing-kidney-disease",
-    image: Gallery2,
+    image: Prophet1,
     title: "Prophet I.O Samuel Ministers Healing to 11-Year-Old Boy Battling Kidney Disease",
     speaker: "Prophet I.O Samuel",
     date: "Miracle Healing Service",
@@ -86,7 +86,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "deliverance-octopus-spirit",
-    image: Gallery3,
+    image: ProphetOctopus,
     title: "Delivered From the Spirit of Octopus",
     speaker: "Prophet I.O Samuel",
     date: "Deliverance Encounter",
@@ -97,7 +97,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "prophecy-world-cup",
-    image: Gallery6,
+    image: Prophet2,
     title: "Prophet I.O Samuel Gave an Accurate Prophecy Concerning the World Cup Final",
     speaker: "Prophet I.O Samuel",
     date: "Prophetic Fulfillment",
@@ -108,7 +108,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "prophecy-2023-celebrity",
-    image: Gallery7,
+    image: Prophet3,
     title: "A Prophecy Shared in 2023 Gains Renewed Attention Following Recent Celebrity Tragedies",
     speaker: "Prophet I.O Samuel",
     date: "Prophetic Warning",
@@ -119,7 +119,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "deliverance-epilepsy",
-    image: Gallery8,
+    image: Prophet4,
     title: "Deliverance From the Spirit of Epilepsy",
     speaker: "Prophet I.O Samuel",
     date: "Healing & Deliverance",
@@ -130,7 +130,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "deliverance-business-charm",
-    image: Gallery10,
+    image: ProphetCharm,
     title: "Prophet I.O Samuel Delivered a Young Man Who Went to a Native Doctor for Business Growth",
     speaker: "Prophet I.O Samuel",
     date: "Breakthrough Deliverance",
@@ -141,7 +141,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "national-prophecy-ambassador",
-    image: Slider10,
+    image: Prophet5,
     title: "Prophet I.O Samuel Issued a Warning to the Federal Government About Ambassadorial Position",
     speaker: "Prophet I.O Samuel",
     date: "National Prophetic Direction",
@@ -152,7 +152,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "sermon-angels-on-guard",
-    image: Gallery11,
+    image: Prophet6,
     title: "Angels on Guard — Prophet I.O Samuel",
     speaker: "Prophet I.O Samuel",
     date: "Sermon Series",
@@ -163,7 +163,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "sermon-lion-tribe-judah",
-    image: Gallery12,
+    image: Prophet7,
     title: "The Power of the Lion of the Tribe of Judah",
     speaker: "Prophet I.O Samuel",
     date: "Sermon Series",
@@ -174,7 +174,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "sermon-seek-god-first",
-    image: Gallery13,
+    image: Prophet10,
     title: "The Ultimate Priority: Seek God First",
     speaker: "Prophet I.O Samuel",
     date: "Kingdom Wisdom",
@@ -185,7 +185,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "sermon-tattoos-in-body-of-christ",
-    image: Gallery15,
+    image: Prophet12,
     title: "Prophet I.O Samuel Speaking About Tattoos Among Leaders in the Body of Christ",
     speaker: "Prophet I.O Samuel",
     date: "Spiritual Integrity",
@@ -196,7 +196,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "sermon-slowly-but-surely",
-    image: Gallery16,
+    image: Prophet13,
     title: "Slowly But Surely — Prophet I.O Samuel",
     speaker: "Prophet I.O Samuel",
     date: "Prophetic Encouragement",
@@ -207,7 +207,7 @@ export const sermonViewButton: SermonItem[] = [
   },
   {
     id: "testimony-mind-blowing-breakthrough",
-    image: Gallery17,
+    image: TestimonyImg,
     title: "Mind-Blowing Breakthrough Testimony",
     speaker: "Shiloh Word Chapel Member",
     date: "Testimony of Transformation",

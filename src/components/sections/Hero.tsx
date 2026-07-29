@@ -1,7 +1,8 @@
 import NavBar from "../NavBar";
-import Button from "../ui/Button";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import MediaPlayerModal from "../overlays/MediaPlayerModal";
+import type { SermonItem } from "../../assets/data/sermons-data";
 
 import slider1 from "../../assets/images/new_media/Slider 1.jpg";
 import slider2 from "../../assets/images/new_media/Slider 2.jpg";
@@ -44,9 +45,10 @@ const Hero = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // Check prefers-reduced-motion
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  const [selectedVideo, setSelectedVideo] = useState<SermonItem | null>(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -61,180 +63,148 @@ const Hero = () => {
     if (location.pathname === "/") {
       const interval = setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % heroSliderImages.length);
-      }, 5000); // Cinematic 5-second slide duration
+      }, 6000); // Cinematic 6-second continuous autoplay
       return () => clearInterval(interval);
     }
   }, [location.pathname]);
 
+  const handleWatchLive = () => {
+    setSelectedVideo({
+      id: "live-broadcast",
+      title: "Shiloh Word Chapel — Live Service & Broadcast",
+      speaker: "Prophet I.O Samuel",
+      date: "Live Stream",
+      category: "Sermons",
+      videoUrl: "https://web.facebook.com/share/v/187TdUemH4/",
+      image: slider1,
+      description: "Join Prophet I.O Samuel live for powerful prayer, prophetic decrees, and miracle encounters.",
+    });
+    setIsVideoModalOpen(true);
+  };
+
   let heroContent;
   if (location.pathname === "/about") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit z-10">
-        <div className="flex gap-2 items-center text-sm">
-          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors">Home</button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-4 h-4 -rotate-90"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-          <p className="text-[#D9A229]">About</p>
+      <div className="relative flex flex-col gap-6 px-4 my-auto items-center justify-center text-center text-white z-10">
+        <div className="flex gap-2 items-center text-xs sm:text-sm font-semibold uppercase tracking-wider font-trajan">
+          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors whitespace-nowrap">Home</button>
+          <span className="text-[#D9A229]">•</span>
+          <span className="text-[#D9A229]">About</span>
         </div>
-        <h1 className="uppercase font-trajan font-bold text-5xl lg:text-6xl tracking-wider">About Us</h1>
+        <h1 className="uppercase font-trajan font-bold text-4xl sm:text-5xl lg:text-6xl tracking-wider">About Us</h1>
       </div>
     );
   } else if (location.pathname === "/foundation") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit z-10">
-        <div className="flex gap-2 items-center text-sm">
-          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors">Home</button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-4 h-4 -rotate-90"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-          <p className="text-[#D9A229]">Foundation Needs</p>
+      <div className="relative flex flex-col gap-6 px-4 my-auto items-center justify-center text-center text-white z-10">
+        <div className="flex gap-2 items-center text-xs sm:text-sm font-semibold uppercase tracking-wider font-trajan">
+          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors whitespace-nowrap">Home</button>
+          <span className="text-[#D9A229]">•</span>
+          <span className="text-[#D9A229]">Foundation</span>
         </div>
-        <h1 className="uppercase font-trajan font-bold text-4xl lg:text-5xl leading-tight">
+        <h1 className="uppercase font-trajan font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight">
           Shiloh Samaritan Foundation
         </h1>
       </div>
     );
   } else if (location.pathname === "/partnerships") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit z-10">
-        <div className="flex gap-2 items-center text-sm">
-          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors">Home</button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-4 h-4 -rotate-90"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-          <p className="text-[#D9A229]">Partnerships</p>
+      <div className="relative flex flex-col gap-6 px-4 my-auto items-center justify-center text-center text-white z-10">
+        <div className="flex gap-2 items-center text-xs sm:text-sm font-semibold uppercase tracking-wider font-trajan">
+          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors whitespace-nowrap">Home</button>
+          <span className="text-[#D9A229]">•</span>
+          <span className="text-[#D9A229]">Partnerships</span>
         </div>
-        <h1 className="uppercase font-trajan font-bold text-4xl lg:text-5xl leading-tight">
+        <h1 className="uppercase font-trajan font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight">
           Partnerships & Giving
         </h1>
       </div>
     );
   } else if (location.pathname === "/gallery") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit z-10">
-        <div className="flex gap-2 items-center text-sm">
-          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors">Home</button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-4 h-4 -rotate-90"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-          <p className="text-[#D9A229]">Gallery</p>
+      <div className="relative flex flex-col gap-6 px-4 my-auto items-center justify-center text-center text-white z-10">
+        <div className="flex gap-2 items-center text-xs sm:text-sm font-semibold uppercase tracking-wider font-trajan">
+          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors whitespace-nowrap">Home</button>
+          <span className="text-[#D9A229]">•</span>
+          <span className="text-[#D9A229]">Gallery</span>
         </div>
-        <h1 className="uppercase font-trajan font-bold text-5xl lg:text-6xl">Ministry Gallery</h1>
+        <h1 className="uppercase font-trajan font-bold text-4xl sm:text-5xl lg:text-6xl">Ministry Gallery</h1>
       </div>
     );
   } else if (location.pathname === "/sermons") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit z-10">
-        <div className="flex gap-2 items-center text-sm">
-          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors">Home</button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-4 h-4 -rotate-90"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-          <p className="text-[#D9A229]">Sermons & Media</p>
+      <div className="relative flex flex-col gap-6 px-4 my-auto items-center justify-center text-center text-white z-10">
+        <div className="flex gap-2 items-center text-xs sm:text-sm font-semibold uppercase tracking-wider font-trajan">
+          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors whitespace-nowrap">Home</button>
+          <span className="text-[#D9A229]">•</span>
+          <span className="text-[#D9A229]">Sermons & Media</span>
         </div>
-        <h1 className="uppercase font-trajan font-bold text-4xl lg:text-6xl leading-tight">
+        <h1 className="uppercase font-trajan font-bold text-3xl sm:text-4xl lg:text-6xl leading-tight">
           Prophetic Words & Sermons
         </h1>
       </div>
     );
   } else if (location.pathname === "/events") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit z-10">
-        <div className="flex gap-2 items-center text-sm">
-          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors">Home</button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-4 h-4 -rotate-90"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-          <p className="text-[#D9A229]">Events</p>
+      <div className="relative flex flex-col gap-6 px-4 my-auto items-center justify-center text-center text-white z-10">
+        <div className="flex gap-2 items-center text-xs sm:text-sm font-semibold uppercase tracking-wider font-trajan">
+          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors whitespace-nowrap">Home</button>
+          <span className="text-[#D9A229]">•</span>
+          <span className="text-[#D9A229]">Events</span>
         </div>
-        <h1 className="uppercase font-trajan font-bold text-5xl lg:text-6xl">Events & Programs</h1>
+        <h1 className="uppercase font-trajan font-bold text-4xl sm:text-5xl lg:text-6xl">Events & Programs</h1>
       </div>
     );
   } else if (location.pathname === "/contact") {
     heroContent = (
-      <div className="relative flex flex-col gap-8 px-6 my-auto items-center justify-center text-center text-white lg:h-fit z-10">
-        <div className="flex gap-2 items-center text-sm">
-          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors">Home</button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-4 h-4 -rotate-90"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-          <p className="text-[#D9A229]">Contact</p>
+      <div className="relative flex flex-col gap-6 px-4 my-auto items-center justify-center text-center text-white z-10">
+        <div className="flex gap-2 items-center text-xs sm:text-sm font-semibold uppercase tracking-wider font-trajan">
+          <button onClick={() => navigate("/")} className="hover:text-[#D9A229] transition-colors whitespace-nowrap">Home</button>
+          <span className="text-[#D9A229]">•</span>
+          <span className="text-[#D9A229]">Contact</span>
         </div>
-        <h1 className="uppercase font-trajan font-bold text-5xl lg:text-6xl">Contact Us</h1>
+        <h1 className="uppercase font-trajan font-bold text-4xl sm:text-5xl lg:text-6xl">Contact Us</h1>
       </div>
     );
   } else {
     // HOMEPAGE HERO CONTENT
     heroContent = (
-      <div className="relative flex flex-col gap-6 items-center justify-center text-center lg:h-fit z-10 max-w-4xl mx-auto pt-6">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 border border-[#D9A229]/60 backdrop-blur-md">
+      <div className="relative flex flex-col gap-6 items-center justify-center text-center z-10 max-w-4xl mx-auto pt-4 sm:pt-8 px-4">
+        {/* Ministry Sub-title / Tagline Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#D9A229]/60 backdrop-blur-md">
           <span className="w-2 h-2 rounded-full bg-[#D9A229] animate-pulse"></span>
-          <span className="text-xs sm:text-sm font-semibold uppercase text-[#D9A229] font-trajan tracking-widest">
-            Prophetic Ministry • Deliverance • Healing
+          <span className="text-xs sm:text-sm font-bold uppercase text-[#D9A229] font-trajan tracking-widest whitespace-nowrap">
+            THE ARENA OF FIRE & FAVOUR
           </span>
         </div>
-        <h1 className="uppercase text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight sm:leading-snug lg:leading-normal font-trajan tracking-wide drop-shadow-md">
-          Welcome To Shiloh Word Chapel
+
+        {/* Primary Headline */}
+        <h1 className="uppercase text-white text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight font-trajan tracking-wide drop-shadow-lg">
+          WELCOME TO SHILOH<br className="hidden sm:inline" /> WORD CHAPEL
         </h1>
-        <p className="text-base sm:text-lg text-white/90 font-light max-w-2xl leading-relaxed">
-          Led by Prophet I.O Samuel — A house of prayer, prophetic direction, miracle healings, and life transformation.
+
+        {/* Concise Supporting Copy */}
+        <p className="text-sm sm:text-base lg:text-lg text-white/95 font-light max-w-2xl leading-relaxed drop-shadow">
+          A place of prayer, prophecy, healing, deliverance and life-transforming encounters with God led by Prophet I.O Samuel.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 mt-2">
-          <Button
-            variant="outlinePrimary"
-            onClick={() => navigate("/partnerships")}
-          >
-            Partner With Us
-          </Button>
+
+        {/* Primary CTAs — EXACTLY ONE LINE PER BUTTON */}
+        <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 mt-3 flex-wrap">
           <a
             href="#connect-section"
-            className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm font-trajan uppercase border border-white/30 transition-all flex items-center justify-center gap-2"
+            className="px-6 sm:px-8 py-3.5 rounded-full bg-[#D9A229] hover:bg-[#f5c760] text-[#071b65] font-bold text-xs sm:text-sm font-trajan uppercase tracking-wider shadow-xl transition-all whitespace-nowrap"
           >
-            Submit Prayer Request
+            REQUEST PRAYER
           </a>
+          <button
+            onClick={handleWatchLive}
+            className="px-6 sm:px-8 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-bold text-xs sm:text-sm font-trajan uppercase tracking-wider border border-white/40 backdrop-blur-md transition-all flex items-center gap-2 whitespace-nowrap"
+          >
+            <svg className="w-4 h-4 text-[#D9A229]" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+            </svg>
+            <span>WATCH LIVE</span>
+          </button>
         </div>
       </div>
     );
@@ -250,74 +220,63 @@ const Hero = () => {
   else if (location.pathname === "/contact") staticBackground = mainBanner3;
 
   return (
-    <header className="relative w-full overflow-hidden bg-[#040c29]">
-      {/* Background Image Container */}
-      {location.pathname === "/" ? (
-        // Homepage Continuous Autoplay Slider with Cinematic Transitions
-        <div className="absolute inset-0 w-full h-full">
-          {heroSliderImages.map((img, idx) => (
-            <div
-              key={idx}
-              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
-                activeIndex === idx ? "opacity-100 z-0" : "opacity-0 -z-10"
-              }`}
-            >
-              <img
-                src={img}
-                alt={`Shiloh Word Chapel Ministry Slide ${idx + 1}`}
-                className={`w-full h-full object-cover object-center ${
-                  !prefersReducedMotion && activeIndex === idx
-                    ? "animate-kenburns"
-                    : ""
+    <>
+      <header className="relative w-full overflow-hidden bg-[#040c29]">
+        {/* Background Slider Container */}
+        {location.pathname === "/" ? (
+          <div className="absolute inset-0 w-full h-full">
+            {heroSliderImages.map((img, idx) => (
+              <div
+                key={idx}
+                className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+                  activeIndex === idx ? "opacity-100 z-0" : "opacity-0 -z-10"
                 }`}
-              />
-            </div>
-          ))}
-        </div>
-      ) : (
-        // Inner pages static hero image
-        <div className="absolute inset-0 w-full h-full">
-          <img
-            src={staticBackground}
-            alt="Shiloh Word Chapel Background"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-      )}
-
-      {/* Dark Overlay Gradient for maximum text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#040c29]"></div>
-
-      {/* Main Header Content */}
-      <div
-        className={`relative z-10 flex flex-col h-fit gap-16 lg:gap-24 px-6 md:px-12 lg:px-20 xl:px-28 pt-8 lg:pt-4 ${
-          location.pathname !== "/" ? "pb-24 lg:pb-36" : "pb-20 lg:pb-24"
-        }`}
-      >
-        <NavBar />
-        <div className="flex flex-col gap-12">
-          {heroContent}
-
-          {/* Minimalist Progress Bar for Homepage Slider */}
-          {location.pathname === "/" && (
-            <div className="w-full max-w-xs mx-auto flex items-center gap-1.5 z-20 mt-4">
-              {heroSliderImages.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveIndex(idx)}
-                  className={`h-1.5 rounded-full transition-all duration-500 focus:outline-none ${
-                    activeIndex === idx
-                      ? "w-8 bg-[#D9A229]"
-                      : "w-2 bg-white/40 hover:bg-white/70"
+              >
+                <img
+                  src={img}
+                  alt={`Shiloh Word Chapel Ministry Slide ${idx + 1}`}
+                  className={`w-full h-full object-cover object-center ${
+                    !prefersReducedMotion && activeIndex === idx
+                      ? "animate-kenburns"
+                      : ""
                   }`}
-                  aria-label={`Slide ${idx + 1}`}
                 />
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="absolute inset-0 w-full h-full">
+            <img
+              src={staticBackground}
+              alt="Shiloh Word Chapel Background"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        )}
+
+        {/* Controlled Dark Overlay for High Readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-[#040c29]"></div>
+
+        {/* Header Structure */}
+        <div
+          className={`relative z-10 flex flex-col h-fit gap-12 lg:gap-20 px-4 md:px-12 lg:px-20 xl:px-28 pt-6 lg:pt-4 ${
+            location.pathname !== "/" ? "pb-20 lg:pb-28" : "pb-16 lg:pb-20"
+          }`}
+        >
+          <NavBar />
+          <div className="flex flex-col gap-8">
+            {heroContent}
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Reusable Video Lightbox Modal */}
+      <MediaPlayerModal
+        item={selectedVideo}
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+      />
+    </>
   );
 };
 

@@ -1,104 +1,132 @@
 import calenderIcon from "../../assets/icons/calendar-icon.svg";
 import clockIcon from "../../assets/icons/clock-icon.svg";
 import locationIcon from "../../assets/icons/location-pin-icon.svg";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { events } from "../../assets/data/events-data.ts";
-import { useState } from "react";
-import React from "react";
+import { useState, useEffect } from "react";
 import Pagination from "../Pagination.tsx";
 
 const EventsSection = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [activePage, setActivePage] = useState(1);
 
-  // Responsive pagination: 4 per page on mobile, 9 per page on lg+
   const getEventsPerPage = () => {
     if (typeof window !== "undefined" && window.innerWidth >= 1024) {
-      return 10;
+      return location.pathname === "/events" ? 8 : 4;
     }
     return 4;
   };
 
   const [eventsPerPage, setEventsPerPage] = useState(getEventsPerPage());
 
-  // Update perPage on resize
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       setEventsPerPage(getEventsPerPage());
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [location.pathname]);
 
   const startIdx = (activePage - 1) * eventsPerPage;
   const endIdx = startIdx + eventsPerPage;
   const paginatedEvents = events.slice(startIdx, endIdx);
 
-  // Ensure activePage is valid when per-page or total events change
-  React.useEffect(() => {
+  useEffect(() => {
     const totalPages = Math.max(1, Math.ceil(events.length / eventsPerPage));
     if (activePage > totalPages) setActivePage(1);
-  }, [eventsPerPage, events.length]);
+  }, [eventsPerPage, events.length, activePage]);
 
   return (
-    <>
-      <section
-        className={`h-fit w-fit bg-white flex flex-col ${
-          location.pathname === "/" ? "mt-40" : "mt-20 lg:mt-32 mb-24 lg:mb-28"
-        }  mx-4 lg:mx-auto text-center gap-20`}
-      >
-        <div className="flex flex-col gap-4">
-          <h5 className="text-xl text-primary font-semibold">EVENTS</h5>
-          <p className="text-3xl font-trajan">
-            Upcoming Shiloh Word Chapel Events
+    <section
+      className={`py-16 lg:py-24 bg-white px-4 sm:px-6 lg:px-8 border-t border-gray-100 ${
+        location.pathname === "/" ? "" : "mb-16 lg:mb-24"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex flex-col gap-10 text-center">
+        {/* Section Header */}
+        <div className="flex flex-col items-center gap-3">
+          <span className="text-xs uppercase font-bold text-[#D9A229] tracking-widest font-trajan bg-[#071b65]/5 px-4 py-1.5 rounded-full">
+            PROGRAMS & SERVICES
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-trajan text-[#071b65]">
+            Upcoming Events & Services
+          </h2>
+          <p className="text-sm sm:text-base text-gray-600 max-w-xl font-sans">
+            Join us for divine encounters, prophetic services, and miracle prayerlines at Shiloh Word Chapel.
           </p>
         </div>
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 w-fit">
+
+        {/* Events Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {paginatedEvents.map((event, idx) => (
             <div
               key={idx}
-              className={`flex w-full xl:w-[535px] h-[289px] xl:h-[341px] rounded-[29px] items-center px-[13px] py-[26px] xl:p-[26px] gap-3 xl:gap-7 bg-gradient-to-l from-white to-[#DBE2FD] shadow-5xl`}
+              className="flex flex-col sm:flex-row items-center rounded-3xl p-5 sm:p-6 bg-gradient-to-l from-white via-slate-50 to-[#DBE2FD]/50 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 gap-6 text-left"
             >
-              {event.overlay && (
-                <div
-                  className="xl:hidden absolute w-[151px] h-[200px] rounded-[8px] z-10 pointer-events-none"
-                  style={{ background: "rgba(0,0,0,0.5)" }}
-                ></div>
-              )}
-              <img
-                src={event.image}
-                alt="Event Image"
-                className="w-[151px] xl:w-[253px] h-[200px] xl:h-[289px] rounded-[8px] relative z-0"
-              />
-              <div
-                className={`flex flex-col xl:h-fit gap-2 xl:gap-4 text-left text-primary relative z-20 ${
-                  event.overlay ? "justify-center" : ""
-                }`}
-              >
-                <p className="font-bold text-xl xl:text-2xl">{event.title}</p>
-                {event.date && (
-                  <div className="flex gap-2 items-start">
-                    <img src={calenderIcon} alt="Calender Icon" />
-                    <p className="text-xs">{event.date}</p>
-                  </div>
-                )}
-                {event.time && (
-                  <div className="flex gap-2 items-start">
-                    <img src={clockIcon} alt="Clock Icon" />
-                    <p className="text-xs">{event.time}</p>
-                  </div>
-                )}
-                {event.location && (
-                  <div className="flex gap-2 items-start">
-                    <img src={locationIcon} alt="Location Icon" />
-                    <p className="text-xs">{event.location}</p>
-                  </div>
-                )}
+              <div className="w-full sm:w-44 h-48 sm:h-44 rounded-2xl overflow-hidden shrink-0 bg-gray-900">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <div className="flex flex-col gap-3 justify-between flex-1 w-full">
+                <div>
+                  <h3 className="font-bold text-lg text-[#071b65] font-trajan leading-snug">
+                    {event.title}
+                  </h3>
+                </div>
+
+                <div className="flex flex-col gap-2 text-xs sm:text-sm text-gray-600 font-sans">
+                  {event.date && (
+                    <div className="flex items-center gap-2.5">
+                      <img src={calenderIcon} alt="Calendar" className="w-4 h-4 text-[#D9A229]" />
+                      <span>{event.date}</span>
+                    </div>
+                  )}
+                  {event.time && (
+                    <div className="flex items-center gap-2.5">
+                      <img src={clockIcon} alt="Clock" className="w-4 h-4 text-[#D9A229]" />
+                      <span>{event.time}</span>
+                    </div>
+                  )}
+                  {event.location && (
+                    <div className="flex items-center gap-2.5">
+                      <img src={locationIcon} alt="Location" className="w-4 h-4 text-[#D9A229]" />
+                      <span className="truncate">{event.location}</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    onClick={() => navigate("/events")}
+                    className="px-5 py-2 rounded-full bg-[#071b65] hover:bg-[#0c288d] text-white font-bold text-xs font-trajan uppercase tracking-wider transition-all whitespace-nowrap"
+                  >
+                    EVENT DETAILS
+                  </button>
+                </div>
               </div>
             </div>
           ))}
         </div>
-        {location.pathname === "/events" && (
+
+        {/* View All Events Button for Homepage */}
+        {location.pathname === "/" && (
+          <div className="flex justify-center mt-2">
+            <button
+              onClick={() => navigate("/events")}
+              className="px-8 py-3.5 rounded-full bg-[#071b65] hover:bg-[#0c288d] text-white font-bold text-xs sm:text-sm uppercase tracking-wider font-trajan shadow-lg transition-all whitespace-nowrap"
+            >
+              VIEW EVENTS
+            </button>
+          </div>
+        )}
+
+        {/* Pagination on Events Page */}
+        {location.pathname === "/events" && events.length > eventsPerPage && (
           <Pagination
             activePage={activePage}
             setActivePage={setActivePage}
@@ -106,8 +134,8 @@ const EventsSection = () => {
             perPage={eventsPerPage}
           />
         )}
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

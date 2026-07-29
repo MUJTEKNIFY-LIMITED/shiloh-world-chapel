@@ -2,167 +2,137 @@ import React, { useState, useEffect } from "react";
 import anniversaryFlyer from "../../assets/images/new_media/Annivasary Flyer.jpg";
 
 export const isAnniversaryActive = (): boolean => {
-  // Expiry timestamp: July 31, 2026, 23:59:59 WAT (UTC+1)
   const expiryDate = new Date("2026-07-31T23:59:59+01:00");
   return new Date() <= expiryDate;
 };
 
-type AnniversaryModalProps = {
+interface AnniversaryModalProps {
   onOpenVideoSection?: () => void;
-};
+}
 
 const AnniversaryModal: React.FC<AnniversaryModalProps> = ({ onOpenVideoSection }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Only show if anniversary is active and user has not dismissed it in this session
     if (!isAnniversaryActive()) return;
-
-    const dismissed = sessionStorage.getItem("shiloh_anniversary_dismissed_v1");
-    if (!dismissed) {
-      // Small delay for smooth entry after initial render
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 700);
+    const isDismissed = sessionStorage.getItem("shiloh_anniversary_dismissed_v1");
+    if (!isDismissed) {
+      const timer = setTimeout(() => setIsOpen(true), 800);
       return () => clearTimeout(timer);
     }
   }, []);
 
-  const handleClose = () => {
-    setIsOpen(false);
-    sessionStorage.setItem("shiloh_anniversary_dismissed_v1", "true");
-  };
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
-        handleClose();
+        handleDismiss();
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
+
+  const handleDismiss = () => {
+    sessionStorage.setItem("shiloh_anniversary_dismissed_v1", "true");
+    setIsOpen(false);
+  };
+
+  const handleWatchInvitation = () => {
+    handleDismiss();
+    if (onOpenVideoSection) {
+      onOpenVideoSection();
+    } else {
+      const el = document.getElementById("anniversary-section");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   if (!isOpen || !isAnniversaryActive()) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md transition-opacity duration-300 animate-fadeIn"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="anniversary-modal-title"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) handleClose();
-      }}
-    >
-      <div className="relative w-full max-w-xl bg-[#06123b] border-2 border-[#D9A229]/60 rounded-3xl shadow-2xl overflow-hidden text-white flex flex-col max-h-[90vh]">
-        {/* Top bar with close control */}
-        <div className="flex items-center justify-between px-6 py-4 bg-[#040c29] border-b border-[#D9A229]/30">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#D9A229] animate-pulse"></span>
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#D9A229] font-trajan">
-              15th Anniversary Invitation
-            </span>
-          </div>
-          <button
-            onClick={handleClose}
-            className="p-2 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#D9A229]"
-            aria-label="Close anniversary pop-up"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2.5}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-fadeIn">
+      {/* Backdrop overlay */}
+      <div className="absolute inset-0" onClick={handleDismiss} aria-hidden="true" />
+
+      {/* Modal Dialog Container */}
+      <div
+        className="relative z-10 w-full max-w-4xl max-h-[90vh] bg-[#071b65] rounded-3xl overflow-hidden shadow-2xl border border-[#D9A229]/50 flex flex-col lg:flex-row text-white my-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="anniversary-modal-title"
+      >
+        {/* Close (X) Button */}
+        <button
+          onClick={handleDismiss}
+          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors border border-white/20"
+          aria-label="Close anniversary announcement"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        {/* LEFT / HERO FLYER: UNCROPPED (object-fit: contain) */}
+        <div className="w-full lg:w-1/2 bg-black flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+          <img
+            src={anniversaryFlyer}
+            alt="Shiloh Word Chapel 15th Anniversary Celebration Flyer"
+            className="w-full max-h-[45vh] lg:max-h-[75vh] object-contain rounded-xl"
+          />
         </div>
 
-        {/* Scrollable Modal Content */}
-        <div className="overflow-y-auto p-5 sm:p-6 flex flex-col gap-5">
-          {/* Main Visual - Flyer */}
-          <div className="relative rounded-2xl overflow-hidden border border-[#D9A229]/30 shadow-lg group">
-            <img
-              src={anniversaryFlyer}
-              alt="Shiloh Word Chapel 15th Anniversary - There Shall Be Showers of Blessings"
-              className="w-full h-auto object-cover max-h-[420px] transition-transform duration-500 group-hover:scale-[1.02]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
-          </div>
+        {/* RIGHT: INVITATION CONTENT & ACTION BUTTONS */}
+        <div className="w-full lg:w-1/2 p-6 sm:p-8 flex flex-col justify-between gap-6 overflow-y-auto bg-gradient-to-b from-[#071b65] to-[#040c29]">
+          <div className="flex flex-col gap-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D9A229]/20 border border-[#D9A229]/50 text-[#D9A229] text-[11px] font-bold uppercase tracking-wider font-trajan w-fit">
+              <span>🎉 15th Anniversary Special</span>
+            </div>
 
-          {/* Program Text Info */}
-          <div className="text-center flex flex-col gap-2">
-            <h2
-              id="anniversary-modal-title"
-              className="text-2xl sm:text-3xl font-bold font-trajan text-white tracking-wide leading-tight"
-            >
-              THERE SHALL BE SHOWERS OF BLESSINGS
+            <h2 id="anniversary-modal-title" className="text-2xl sm:text-3xl font-bold font-trajan leading-tight text-white">
+              15 Years Of God's Faithfulness
             </h2>
-            <p className="text-sm sm:text-base text-[#D9A229] font-medium uppercase tracking-widest font-trajan">
-              Celebrating 15 Years of God's Faithfulness
+
+            <p className="text-xs sm:text-sm text-gray-200 leading-relaxed font-sans">
+              Prophet I.O Samuel cordially invites you to the grand 15th Anniversary celebration of Shiloh Word Chapel. Theme: <span className="text-[#D9A229] font-semibold">THERE SHALL BE SHOWERS OF BLESSINGS</span>.
             </p>
-            <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-xs sm:text-sm bg-[#040d2d] p-4 rounded-xl border border-white/10">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-[#D9A229]/20 flex items-center justify-center text-[#D9A229] shrink-0">
-                  📅
-                </div>
-                <div>
-                  <div className="text-white/60 text-[11px] uppercase font-bold">Dates</div>
-                  <div className="font-semibold text-white">29th — 31st July 2026</div>
-                </div>
+
+            <div className="flex flex-col gap-2 pt-2 border-t border-white/10 text-xs sm:text-sm text-white/90">
+              <div className="flex items-center gap-2">
+                <span className="text-[#D9A229]">📅 Date:</span>
+                <span className="font-semibold">29th – 31st July 2026</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-[#D9A229]/20 flex items-center justify-center text-[#D9A229] shrink-0">
-                  ⏰
-                </div>
-                <div>
-                  <div className="text-white/60 text-[11px] uppercase font-bold">Time</div>
-                  <div className="font-semibold text-white">3:00 PM Daily</div>
-                </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[#D9A229]">⏰ Time:</span>
+                <span className="font-semibold">3:00 PM Daily</span>
               </div>
-              <div className="flex items-center gap-2.5 sm:col-span-2">
-                <div className="w-8 h-8 rounded-lg bg-[#D9A229]/20 flex items-center justify-center text-[#D9A229] shrink-0">
-                  📍
-                </div>
-                <div>
-                  <div className="text-white/60 text-[11px] uppercase font-bold">Location & Host</div>
-                  <div className="font-semibold text-white">
-                    Apo Mechanic by African Medical Centre of Excellence, Abuja.
-                  </div>
-                  <div className="text-xs text-[#D9A229]">Host: Prophet I.O Samuel</div>
-                </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[#D9A229]">📍 Location:</span>
+                <span className="font-semibold">Apo Mechanic, Abuja</span>
               </div>
             </div>
           </div>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 mt-1">
-            {onOpenVideoSection && (
-              <button
-                onClick={() => {
-                  handleClose();
-                  onOpenVideoSection();
-                }}
-                className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-[#D9A229] to-[#f5c760] text-[#06123b] font-bold text-sm sm:text-base hover:brightness-110 transition-all shadow-lg flex items-center justify-center gap-2"
-              >
-                <span>Watch Prophet's Invitation</span>
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                </svg>
-              </button>
-            )}
+          {/* Action CTAs — Single-line button text */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-white/10">
             <button
-              onClick={handleClose}
-              className="py-3 px-6 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-sm sm:text-base border border-white/20 transition-all"
+              onClick={handleWatchInvitation}
+              className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#D9A229] hover:bg-[#f5c760] text-[#071b65] font-bold text-xs sm:text-sm font-trajan uppercase tracking-wider shadow-lg transition-all text-center whitespace-nowrap"
             >
-              Close
+              WATCH INVITATION
+            </button>
+            <button
+              onClick={handleDismiss}
+              className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm font-trajan uppercase tracking-wider transition-all text-center whitespace-nowrap"
+            >
+              CLOSE
             </button>
           </div>
         </div>

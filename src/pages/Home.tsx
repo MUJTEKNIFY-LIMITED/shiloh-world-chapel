@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Hero from "../components/sections/Hero.tsx";
 import MissionSection from "../components/sections/MissionSection.tsx";
 import ConnectSection from "../components/sections/ConnectSection.tsx";
-import CharitySection from "../components/sections/CharitySection.tsx";
+import ProphetSection from "../components/sections/ProphetSection.tsx";
 import PrayerRequestSection from "../components/sections/PrayerRequestSection.tsx";
 import BookSection from "../components/sections/BookSection.tsx";
 import EventsSection from "../components/sections/EventsSection.tsx";
@@ -25,30 +25,47 @@ const Home = () => {
 
   return (
     <>
-      {/* 15th Anniversary Promotional Modal */}
+      {/* 15th Anniversary Entry Promotional Modal */}
       <AnniversaryModal onOpenVideoSection={scrollToAnniversaryVideo} />
 
       <main className="flex flex-col min-h-screen bg-white">
+        {/* 1. Hero Section */}
         <Hero />
         
-        {/* 15th Anniversary Prominent Feature Section */}
+        {/* 2. 15th Anniversary Prominent Feature Section */}
         <div ref={anniversarySectionRef}>
           <AnniversarySection />
         </div>
 
+        {/* 3. Ministry Pillars: Prophecy, Prayer, Healing & Deliverance */}
         <MissionSection />
 
-        {/* Surface Prophetic Media, Healings & Sermons */}
+        {/* 4. Recent Encounters, Prophecies & Sermons */}
         <MinistryMediaSection />
 
+        {/* 5. Shiloh International Prayer Line */}
         <ConnectSection />
-        <CharitySection />
+
+        {/* 6. About Prophet I.O Samuel */}
+        <ProphetSection />
+
+        {/* 7. Need Prayer? Stand in Faith */}
         <PrayerRequestSection />
+
+        {/* 8. Books & Resources */}
         <BookSection />
+
+        {/* 9. Upcoming Events */}
         <EventsSection />
+
+        {/* 10. Testimonies: What God Has Done */}
         <TestimonialSection />
+
+        {/* 11. Official Mobile App */}
         <DownloadAppSection />
       </main>
+
+      {/* 12. Footer */}
       <Footer />
     </>
   );

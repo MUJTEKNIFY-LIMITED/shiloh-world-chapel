@@ -1,8 +1,6 @@
-import unionLeft1 from "../../assets/images/Union1.png";
-import unionRight1 from "../../assets/images/Union2.png";
 import unionLeft2 from "../../assets/images/Union4.png";
 import unionRight2 from "../../assets/images/Union3.png";
-import manOnBlue from "../../assets/images/man-on-blue.jpg";
+import prophetImg from "../../assets/images/new_media/Prophet 1.jpg";
 import { useState } from "react";
 import PrayerRequestOverlay from "../overlays/PrayerRequestOverlay";
 
@@ -15,45 +13,56 @@ const PrayerRequestSection = () => {
 
   return (
     <>
-      <section className="h-fit bg-white flex flex-col lg:flex-row lg:items-center gap-20 xl:gap-14 pb-24 lg:pb-60 mt-40 lg:mt-80 mx-4 md:mx-6 lg:mx-10 xl:mx-24">
-        <div className="relative flex h-[399.81px] lg:h-[521.27px] lg:w-[523px]">
-          <img
-            src={`${window.innerWidth < 1024 ? unionLeft1 : unionLeft2}`}
-            alt=""
-            className="absolute -left-[4.5%] lg:-left-[6%] -top-[4.5%] lg:-top-[3.5%]"
-          />
-          <img
-            src={manOnBlue}
-            alt=""
-            className="absolute top-[25.5%] lg:top-[24%] left-[24%] w-[200px] lg:w-[271px] h-[200px] lg:h-[269px] rounded-[20px] shadow-5xl"
-          />
-          <img
-            src={`${window.innerWidth < 1024 ? unionRight1 : unionRight2}`}
-            alt=""
-            className="absolute -right-[4%] lg:-right-[11.5%] -bottom-[18.5%] lg:-bottom-[14%]"
-          />
-        </div>
-        <div className="flex flex-col gap-6 lg:gap-10">
-          <div className="flex flex-col w-fit">
-            <h5 className="text-primary font-semibold text-[40px] lg:text-[60px] max-w-[35rem]">
-              Need Prayer? We’re Here For You
-            </h5>
-            <p className="max-w-[22.8rem] lg:max-w-[36rem]">
-              No matter what you're facing, you're not alone. Share your request
-              and our prayer team will lift you up.
-            </p>
+      <section className="py-16 lg:py-24 bg-white px-4 sm:px-6 lg:px-8 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+          {/* Left Decorative Image Frame */}
+          <div className="relative flex items-center justify-center w-full lg:w-1/2 max-w-md aspect-square">
+            <img
+              src={unionLeft2}
+              alt=""
+              className="absolute -left-4 -top-4 w-3/4 opacity-40 pointer-events-none"
+            />
+            <img
+              src={prophetImg}
+              alt="Prophet I.O Samuel Praying"
+              className="relative z-10 w-4/5 h-4/5 object-cover object-top rounded-3xl shadow-2xl border-4 border-[#D9A229]/40"
+            />
+            <img
+              src={unionRight2}
+              alt=""
+              className="absolute -right-4 -bottom-4 w-3/4 opacity-40 pointer-events-none"
+            />
           </div>
-          <button
-            onClick={togglePrayerRequest}
-            className="flex items-center justify-center font-bold bg-primary text-white w-[162px] h-[51px] px-[29px] py-[20px] rounded-[33px] shadow-5xl hover:bg-white hover:text-primary transition-all duration-1000"
-          >
-            Book Now
-          </button>
-          <PrayerRequestOverlay
-            isOpen={isPrayerRequestOpen}
-            onClose={() => setIsPrayerRequestOpen(false)}
-          ></PrayerRequestOverlay>
+
+          {/* Right Text & Single-line CTA */}
+          <div className="flex flex-col gap-6 lg:w-1/2 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#071b65]/5 text-[#071b65] text-xs font-bold font-trajan tracking-widest uppercase w-fit mx-auto lg:mx-0">
+              <span>STAND WITH US IN FAITH</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-trajan text-[#071b65] leading-tight">
+              Need Prayer? We're Here For You
+            </h2>
+
+            <p className="text-sm sm:text-base text-gray-600 font-sans leading-relaxed max-w-lg">
+              No matter what difficulty, sickness, or burden you are facing, you are not alone. Share your prayer request and Prophet I.O Samuel and our intercessory team will stand in faith with you.
+            </p>
+
+            <div className="pt-2 flex justify-center lg:justify-start">
+              <button
+                onClick={togglePrayerRequest}
+                className="px-8 py-3.5 rounded-full bg-[#071b65] hover:bg-[#0c288d] text-white font-bold text-xs sm:text-sm uppercase tracking-wider font-trajan shadow-xl transition-all whitespace-nowrap"
+              >
+                REQUEST PRAYER
+              </button>
+            </div>
+          </div>
         </div>
+
+        <PrayerRequestOverlay
+          isOpen={isPrayerRequestOpen}
+          onClose={() => setIsPrayerRequestOpen(false)}
+        />
       </section>
     </>
   );

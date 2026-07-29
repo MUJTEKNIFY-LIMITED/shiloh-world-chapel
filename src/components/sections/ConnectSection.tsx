@@ -1,6 +1,5 @@
-import Button from "../ui/Button.tsx";
-import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import nigerianFlagIcon from "../../assets/icons/flags/nigerian-flag-icon.svg";
 import mexicanFlagIcon from "../../assets/icons/flags/mexican-flag-icon.svg";
 import argentineFlagIcon from "../../assets/icons/flags/argentine-flag-icon.svg";
@@ -8,8 +7,6 @@ import americanFlagIcon from "../../assets/icons/flags/american-flag-icon.svg";
 import dutchFlagIcon from "../../assets/icons/flags/dutch-flag-icon.svg";
 import australianFlagIcon from "../../assets/icons/flags/australian-flag-icon.svg";
 import playIcon from "../../assets/icons/play-icon.svg";
-import manOnWhite from "../../assets/images/man-on-white.jpg";
-import manOnBlue from "../../assets/images/man-on-blue.jpg";
 import womanOnRed from "../../assets/images/banners/main-banner3.jpg";
 import whatsappBgImg from "../../assets/images/social-media-backgrounds/whatsapp-bg-img.jpg";
 import whatsappIcon from "../../assets/icons/social-icons/white-social-icons/white-whatsapp-icon.svg";
@@ -22,297 +19,206 @@ import twitterBgImg from "../../assets/images/banners/main-banner2.jpg";
 import twitterIcon from "../../assets/icons/social-icons/white-social-icons/white-twitter-icon.svg";
 import instagramBgImg from "../../assets/images/social-media-backgrounds/instagram-bg-img.jpg";
 import instagramIcon from "../../assets/icons/social-icons/white-social-icons/white-instagram-icon.svg";
+import MediaPlayerModal from "../overlays/MediaPlayerModal";
+import type { SermonItem } from "../../assets/data/sermons-data";
 
-const ConnectSection = () => {
+const ConnectSection: React.FC = () => {
   const navigate = useNavigate();
-  const [buttonVariants, setButtonVariants] = useState<
-    Array<"primary" | "outline" | "secondary">
-  >(["primary", "outline", "outline"]);
+  const [activeTab, setActiveTab] = useState<"prayerline" | "watch" | "socials">("prayerline");
+  const [selectedVideo, setSelectedVideo] = useState<SermonItem | null>(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
-  const handleButtonClick = (index: number) => {
-    setButtonVariants((prev) =>
-      prev.map((_, i) => (i === index ? "primary" : "outline"))
-    );
+  const handleWatchNow = () => {
+    setSelectedVideo({
+      id: "shiloh-tv-live",
+      title: "SHILOH LOVE TV — Live Service & Prayerline",
+      speaker: "Prophet I.O Samuel",
+      date: "Live Stream",
+      category: "Sermons",
+      videoUrl: "https://web.facebook.com/share/v/187TdUemH4/",
+      image: womanOnRed,
+      description: "Experience divine restoration and live prophetic prayer with Prophet I.O Samuel.",
+    });
+    setIsVideoModalOpen(true);
   };
 
   return (
     <>
-      <section className="h-fit bg-white flex flex-col gap-20 xl:gap-14 mx-2 lg:mx-20">
-        <div className="flex flex-col gap-4 text-center">
-          <h5 className="text-xl text-primary font-semibold">
-            CONNECT WITH US
-          </h5>
-          <p className="text-3xl font-trajan">Find Us From Around The Globe</p>
-        </div>
-        <div className="flex flex-col gap-8 px-2 xl:gap-20">
-          <div className="flex justify-center gap-4 xl:gap-32">
-            <Button
-              variant={buttonVariants[0]}
-              onClick={() => handleButtonClick(0)}
-            >
-              Our Partners
-            </Button>
-            <Button
-              variant={buttonVariants[1]}
-              onClick={() => handleButtonClick(1)}
-            >
-              Watch Us
-            </Button>
-            <Button
-              variant={buttonVariants[2]}
-              onClick={() => handleButtonClick(2)}
-            >
-              Our Socials
-            </Button>
+      <section id="connect-section" className="py-16 lg:py-24 bg-white px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col gap-10 text-center">
+          {/* Header */}
+          <div className="flex flex-col items-center gap-3">
+            <span className="text-xs uppercase font-bold text-[#D9A229] tracking-widest font-trajan bg-[#071b65]/5 px-4 py-1.5 rounded-full">
+              GLOBAL PRAYERLINE & CONNECT
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-trajan text-[#071b65]">
+              SHILOH INTERNATIONAL PRAYER LINE
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 max-w-2xl font-sans">
+              Distance is not a barrier. Connect with us in faith and let Prophet I.O Samuel and the prayer team stand with you for divine breakthrough.
+            </p>
           </div>
-          <div className="flex flex-col w-full h-[491px] xl:h-[630px] py-6 md:pt-16 md:pb-10 px-4 md:px-12 rounded-[25px] xl:rounded-[30px] bg-gradient-to-b md:bg-gradient-to-l from-white to-[#DBE2FD] lg:shadow-4xl">
-            {/* Partners Section */}
-            <div
-              className={`${
-                buttonVariants[0] === "primary" ? "flex" : "hidden"
-              } flex-col gap-10 xl:gap-16 items-center justify-center w-full h-full`}
+
+          {/* Tab Selection Pills */}
+          <div className="flex justify-center gap-3 flex-wrap">
+            <button
+              onClick={() => setActiveTab("prayerline")}
+              className={`px-6 py-3 rounded-full text-xs sm:text-sm font-bold font-trajan tracking-wider uppercase transition-all whitespace-nowrap ${
+                activeTab === "prayerline"
+                  ? "bg-[#071b65] text-white shadow-lg"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
+              }`}
             >
-              {/* For Desktop */}
-              <div className="flex items-center gap-12">
-                <div className="flex flex-col gap-6 lg:w-[35%] xl:w-[46%]">
-                  <h5 className="text-xl xl:text-[32px] leading-normal font-bold text-primary">
-                    SHILOH TV PARTNERS ALL AROUND THE WORLD
-                  </h5>
-                  <p className="text-tertiary text-xs xl:text-base leading-5">
-                    Partnership is about supporting the work of God through your
-                    seed and God will bless you in return with lots of
-                    blessings, breakthrough and open financial doors. Our
-                    partners are blessed with variours spiritual material and
-                    access to God divine blessings from the alter of shiloh word
-                    chapel. Become a partner today and join the chariot of
-                    love...
+              PRAYERLINE & PARTNERS
+            </button>
+            <button
+              onClick={() => setActiveTab("watch")}
+              className={`px-6 py-3 rounded-full text-xs sm:text-sm font-bold font-trajan tracking-wider uppercase transition-all whitespace-nowrap ${
+                activeTab === "watch"
+                  ? "bg-[#071b65] text-white shadow-lg"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
+              }`}
+            >
+              WATCH LIVE TV
+            </button>
+            <button
+              onClick={() => setActiveTab("socials")}
+              className={`px-6 py-3 rounded-full text-xs sm:text-sm font-bold font-trajan tracking-wider uppercase transition-all whitespace-nowrap ${
+                activeTab === "socials"
+                  ? "bg-[#071b65] text-white shadow-lg"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
+              }`}
+            >
+              OUR SOCIAL MEDIA
+            </button>
+          </div>
+
+          {/* Main Card Container */}
+          <div className="w-full rounded-3xl p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-[#071b65] via-[#0b2685] to-[#040c29] text-white shadow-2xl border border-[#D9A229]/40 min-h-[420px] flex items-center justify-center">
+            
+            {/* Tab 1: Prayerline & Partners */}
+            {activeTab === "prayerline" && (
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-10 w-full text-left">
+                <div className="flex flex-col gap-6 lg:w-1/2">
+                  <h3 className="text-2xl sm:text-3xl font-bold font-trajan text-[#D9A229] leading-tight">
+                    SHILOH PRAYERLINE ALL AROUND THE WORLD
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-200 leading-relaxed font-sans">
+                    Receive 1-on-1 prophetic direction, prayerline booking, and deliverance services wherever you are globally. Submit your prayer requests or join our international partnership family today.
                   </p>
-                  <div className="flex gap-4">
-                    <Button variant="shadowPrimarySmall">Online Seed</Button>
-                    <Button
-                      variant="shadowTertiarySmall"
-                      onClick={() => navigate("/about")}
+
+                  <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <button
+                      onClick={() => navigate("/partnerships")}
+                      className="px-6 py-3 rounded-full bg-[#D9A229] hover:bg-[#f5c760] text-[#071b65] font-bold text-xs sm:text-sm font-trajan uppercase tracking-wider shadow-lg transition-all whitespace-nowrap"
                     >
-                      More About Us
-                    </Button>
+                      REGISTER FOR PRAYER
+                    </button>
+                    <button
+                      onClick={() => navigate("/about")}
+                      className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm font-trajan uppercase tracking-wider border border-white/30 transition-all whitespace-nowrap"
+                    >
+                      LEARN MORE
+                    </button>
                   </div>
                 </div>
-                <div className="hidden lg:flex lg:flex-col lg:gap-[20%] lg:justify-center lg:w-[63%] xl:w-[53%] lg:h-full">
-                  <div className="flex justify-between w-full">
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
-                      <img src={nigerianFlagIcon} alt="Nigerian Flag" />
-                      <p className="text-tertiary uppercase font-bold text-xl">
-                        Nigeria
-                      </p>
+
+                {/* Country Flags Grid */}
+                <div className="w-full lg:w-1/2 grid grid-cols-3 gap-4">
+                  {[
+                    { flag: nigerianFlagIcon, country: "Nigeria" },
+                    { flag: americanFlagIcon, country: "U.S.A" },
+                    { flag: mexicanFlagIcon, country: "Mexico" },
+                    { flag: dutchFlagIcon, country: "Netherlands" },
+                    { flag: argentineFlagIcon, country: "Argentina" },
+                    { flag: australianFlagIcon, country: "Australia" },
+                  ].map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm gap-2 text-center"
+                    >
+                      <img src={item.flag} alt={`${item.country} Flag`} className="h-6 w-auto" />
+                      <span className="text-xs font-bold font-trajan uppercase text-white">{item.country}</span>
                     </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
-                      <img src={americanFlagIcon} alt="American Flag" />
-                      <p className="text-tertiary uppercase font-bold text-xl">
-                        U.S.A
-                      </p>
-                    </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
-                      <img src={mexicanFlagIcon} alt="Mexican Flag" />
-                      <p className="text-tertiary uppercase font-bold text-xl">
-                        Mexico
-                      </p>
-                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Tab 2: Watch Live TV */}
+            {activeTab === "watch" && (
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-10 w-full text-left">
+                <div className="flex flex-col gap-6 lg:w-1/2">
+                  <span className="px-3 py-1 rounded-full bg-red-600 text-white text-[11px] font-bold uppercase tracking-wider font-trajan w-fit">
+                    🔴 BROADCASTING LIVE
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-bold font-trajan text-white leading-tight">
+                    SHILOH LOVE TV & LIVE STREAM
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-200 leading-relaxed font-sans">
+                    Experience live Sunday services, midweek prophetic encounters, and miracle prayerlines with Prophet I.O Samuel broadcast live from Apo Mechanic, Abuja.
+                  </p>
+                  <div>
+                    <button
+                      onClick={handleWatchNow}
+                      className="px-8 py-3.5 rounded-full bg-[#D9A229] hover:bg-[#f5c760] text-[#071b65] font-bold text-xs sm:text-sm font-trajan uppercase tracking-wider shadow-xl transition-all whitespace-nowrap"
+                    >
+                      WATCH NOW
+                    </button>
                   </div>
-                  <div className="flex justify-between w-full">
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
-                      <img src={dutchFlagIcon} alt="Dutch Flag" />
-                      <p className="text-tertiary uppercase font-bold text-xl">
-                        Netherlands
-                      </p>
-                    </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
-                      <img src={argentineFlagIcon} alt="Argentine Flag" />
-                      <p className="text-tertiary uppercase font-bold text-xl">
-                        Argentina
-                      </p>
-                    </div>
-                    <div className="flex flex-col justify-center items-center bg-white w-[166px] h-[107px] gap-1 rounded-[14px] shadow-5xl">
-                      <img src={australianFlagIcon} alt="Australian Flag" />
-                      <p className="text-tertiary uppercase font-bold text-xl">
-                        Australia
-                      </p>
-                    </div>
+                </div>
+
+                <div className="w-full lg:w-1/2 relative aspect-video rounded-2xl overflow-hidden border-2 border-[#D9A229]/40 bg-black flex items-center justify-center group cursor-pointer" onClick={handleWatchNow}>
+                  <img src={womanOnRed} alt="Shiloh Love TV Broadcast" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <img src={playIcon} alt="Play" className="w-16 h-16 shadow-2xl group-hover:scale-110 transition-transform" />
                   </div>
                 </div>
               </div>
+            )}
 
-              {/* For Mobile */}
-              <div className="flex justify-between w-full lg:hidden">
-                <img src={nigerianFlagIcon} alt="Nigerian Flag" />
-                <img src={mexicanFlagIcon} alt="Mexican Flag" />
-                <img src={argentineFlagIcon} alt="Argentine Flag" />
-                <img src={americanFlagIcon} alt="American Flag" />
-                <img src={dutchFlagIcon} alt="Dutch Flag" />
-                <img src={australianFlagIcon} alt="Australian Flag" />
+            {/* Tab 3: Our Social Media */}
+            {activeTab === "socials" && (
+              <div className="flex flex-col items-center gap-8 w-full">
+                <h3 className="text-xl sm:text-2xl font-bold font-trajan text-white">
+                  CONNECT WITH SHILOH WORD CHAPEL ON SOCIAL MEDIA
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 w-full">
+                  {[
+                    { icon: whatsappIcon, bg: whatsappBgImg, label: "WhatsApp", link: "https://wa.me/2348000000000" },
+                    { icon: facebookIcon, bg: facebookBgImg, label: "Facebook", link: "https://web.facebook.com/shilohwordchapel" },
+                    { icon: youtubeIcon, bg: youtubeBgImg, label: "YouTube", link: "https://youtube.com" },
+                    { icon: instagramIcon, bg: instagramBgImg, label: "Instagram", link: "https://instagram.com" },
+                    { icon: twitterIcon, bg: twitterBgImg, label: "X / Twitter", link: "https://twitter.com" },
+                    { icon: linkedinIcon, bg: womanOnRed, label: "LinkedIn", link: "https://linkedin.com" },
+                  ].map((social, idx) => (
+                    <a
+                      key={idx}
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative h-28 rounded-2xl overflow-hidden border border-white/20 shadow-lg group flex flex-col items-center justify-center gap-2 p-3"
+                    >
+                      <img src={social.bg} alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors" />
+                      <img src={social.icon} alt={social.label} className="relative z-10 w-7 h-7" />
+                      <span className="relative z-10 text-[11px] font-bold font-trajan text-white uppercase tracking-wider">{social.label}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
+            )}
 
-              <div className="flex justify-between items-center w-full lg:w-fit lg:gap-20 lg:mx-auto text-center">
-                <div className="flex flex-col gap-4 text-primary">
-                  <h6 className="text-xs xl:text-base uppercase">Partners</h6>
-                  <p className="font-bold text-[32px] xl:text-[64px] font-trajan">
-                    1K
-                  </p>
-                </div>
-                <span className="hidden lg:block lg:h-[50%] lg:w-px lg:bg-tertiary"></span>
-                <div className="flex flex-col gap-4 text-primary">
-                  <h6 className="text-xs xl:text-base uppercase">Seeds</h6>
-                  <p className="font-bold text-[32px] xl:text-[64px] font-trajan">
-                    200+
-                  </p>
-                </div>
-                <span className="hidden lg:block lg:h-[50%] lg:w-px lg:bg-tertiary"></span>
-                <div className="flex flex-col gap-4 text-primary">
-                  <h6 className="text-xs xl:text-base uppercase">Volunteers</h6>
-                  <p className="font-bold text-[32px] xl:text-[64px] font-trajan">
-                    50+
-                  </p>
-                </div>
-                <span className="hidden lg:block lg:h-[50%] lg:w-px lg:bg-tertiary"></span>
-                <div className="flex flex-col gap-4 text-primary">
-                  <h6 className="text-xs xl:text-base uppercase">Charity</h6>
-                  <p className="font-bold text-[32px] xl:text-[64px] font-trajan">
-                    5K
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Watch Us Section*/}
-            <div
-              className={`${
-                buttonVariants[1] === "primary" ? "flex" : "hidden"
-              } relative flex-col md:flex-row gap-12 items-center md:py-0 md:gap-14 h-full w-full`}
-            >
-              <div className="flex flex-col gap-4 w-full lg:w-[45%]">
-                <h5 className="text-xl xl:text-[32px] leading-normal font-bold text-primary">
-                  WE’RE LIVE!
-                  <br /> ON SHILOH LOVE TV
-                </h5>
-                <p className="text-tertiary text-xs xl:text-base leading-5 lg:leading-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                  maximus nisi pretium neque sodales, id suscipit sapien
-                  finibus. Nulla dapibus mi in orci elementum, in rhoncus sem
-                  mollis..
-                </p>
-                <Button variant="hoverShadowPrimary">Watch Now</Button>
-              </div>
-              <div className="absolute md:relative bottom-0 left-[12%] md:left-0 w-[88%] lg:w-[40%] xl:w-[55%] h-72 xl:h-full flex justify-end">
-                <div className="absolute left-[40%] top-[40%] backdrop-blur-xl z-30 rounded-[20px]">
-                  <img
-                    src={playIcon}
-                    alt="Play Icon"
-                    className="w-[81px] xl:w-[135px] h-[81px] xl:h-[135px]"
-                  />
-                </div>
-                <div className="absolute w-full h-full">
-                  <img
-                    src={womanOnRed}
-                    alt="Woman On Red"
-                    className="absolute bottom-[10%] md:bottom-[20%] z-20 rounded-[20px] xl:rounded-[42px] w-[173px] xl:w-[317px] h-[173px] xl:h-[317px] object-cover shadow-5xl"
-                  />
-                  <img
-                    src={manOnWhite}
-                    alt="Man On White"
-                    className="absolute right-0 bottom-0 z-10 rounded-[20px] xl:rounded-[42px] w-[157px] xl:w-[318px] h-[146px] xl:h-[296px] object-cover object-left shadow-5xl"
-                  />
-                  <img
-                    src={manOnBlue}
-                    alt="Man On Blue"
-                    className="absolute right-[15%] md:right-[12%] rounded-[20px] xl:rounded-[42px] w-[141px] xl:w-[249px] h-[140px] xl:h-[248px] object-cover shadow-5xl"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Our Socials Section */}
-            <div
-              className={`${
-                buttonVariants[2] === "primary" ? "flex" : "hidden"
-              } flex-col gap-12 items-center justify-center py-8 xl:gap-20 h-full w-full`}
-            >
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-x-[56px] md:gap-x-[110px] gap-y-[53px] md:gap-y-[107px]">
-                <Link
-                  to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
-                  style={{ backgroundImage: `url(${whatsappBgImg})` }}
-                >
-                  <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
-                  <img
-                    src={whatsappIcon}
-                    alt="WhatsApp Icon"
-                    className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
-                  />
-                </Link>
-                <Link
-                  to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
-                  style={{ backgroundImage: `url(${womanOnRed})` }}
-                >
-                  <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
-                  <img
-                    src={linkedinIcon}
-                    alt="Linkedin Icon"
-                    className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
-                  />
-                </Link>
-                <Link
-                  to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
-                  style={{ backgroundImage: `url(${facebookBgImg})` }}
-                >
-                  <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
-                  <img
-                    src={facebookIcon}
-                    alt="Facebook Icon"
-                    className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
-                  />
-                </Link>
-                <Link
-                  to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
-                  style={{ backgroundImage: `url(${youtubeBgImg})` }}
-                >
-                  <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
-                  <img
-                    src={youtubeIcon}
-                    alt="Youtube Icon"
-                    className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
-                  />
-                </Link>
-                <Link
-                  to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
-                  style={{ backgroundImage: `url(${twitterBgImg})` }}
-                >
-                  <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
-                  <img
-                    src={twitterIcon}
-                    alt="Twitter Icon"
-                    className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
-                  />
-                </Link>
-                <Link
-                  to={"#"}
-                  className="relative flex items-center justify-center h-[83px] xl:h-[174px] w-[128px] xl:w-[268px] rounded-[15px] xl:rounded-[20px] bg-cover bg-center border-[3px] border-white shadow-5xl"
-                  style={{ backgroundImage: `url(${instagramBgImg})` }}
-                >
-                  <div className="absolute inset-0 rounded-[15px] bg-black bg-opacity-45"></div>
-                  <img
-                    src={instagramIcon}
-                    alt="Instagram Icon"
-                    className="z-10 w-[33px] xl:w-[57px] h-[33px] xl:h-[57px]"
-                  />
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </section>
+
+      {/* Video Modal */}
+      <MediaPlayerModal
+        item={selectedVideo}
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+      />
     </>
   );
 };
